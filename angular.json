@@ -34,7 +34,8 @@
               "src/app/Styles/Styles.scss",
               "src/app/Styles/Variables.scss",
               "src/app/Styles/Layout/_Layout.scss",
-             "node_modules/animate.css/animate.min.css"
+             "node_modules/animate.css/animate.min.css",
+             "node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
