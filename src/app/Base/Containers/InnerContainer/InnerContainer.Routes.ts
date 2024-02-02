@@ -16,10 +16,10 @@ export const routes: Routes = [
         loadComponent: () =>
           import('../../../Features/Home/Home').then((c) => c.HomeComponent),
       },
-      // {
-      // 	path: 'about',
-      // 	loadComponent: () => import('@App/Features/About/About').then((c) => c.AboutComponent)
-      // },
+      {
+      	path: 'about',
+      	loadComponent: () => import('@App/Features/About/About').then((c) => c.AboutComponent)
+      },
       // {
       // 	path: 'courses',
       // 	loadComponent: () => import('@App/Features/CoursesList/CoursesList').then((c) => c.CoursesListComponent)

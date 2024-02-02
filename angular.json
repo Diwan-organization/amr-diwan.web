@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "d6359b10-1e71-45ef-819b-bb84a79f7852"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -32,13 +35,11 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/app/Styles/Styles.scss",
-              "src/app/Styles/Variables.scss",
-              "src/app/Styles/Layout/_Layout.scss",
-             "node_modules/animate.css/animate.min.css"
+              "node_modules/animate.css/animate.min.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-            ]            
+            ]
           },
           "configurations": {
             "production": {
