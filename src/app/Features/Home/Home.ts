@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { animate, scroll, stagger } from 'motion';
-import { delay } from 'rxjs';
+import { animate, stagger } from 'motion';
+import { RoutePaths } from 'src/app/Common/Settings/RoutePaths';
+import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
   templateUrl: './Home.html',
   styleUrls: ['Home.scss'],
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterModule],
 })
 export class HomeComponent implements OnInit {
+  RoutePaths = RoutePaths;
   observerOptions: {} = {
     root: null,
     rootMargin: '10px',
