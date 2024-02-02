@@ -18,6 +18,18 @@ export class HomeComponent implements OnInit {
     rootMargin: '10px',
     threshold: 0.1, // Adjust this threshold based on your needs
   };
+
+  
+  images: string[] = [
+    'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+    'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+    'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
+    'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+    'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+    'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
+  ]; // Add your image file names
+  hoveredIndex: number | null = null;
+  
   ngOnInit(): void {
     ///3wza agrb a3ml 3l elemnt msh section
     const sectionProjects: any = document.querySelector('.projects');
@@ -68,16 +80,6 @@ export class HomeComponent implements OnInit {
     // Start observing the 'about' section
     observer.observe(sectionAbout);
   }
-
-  images: string[] = [
-    'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-    'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-    'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
-    'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-    'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-    'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
-  ]; // Add your image file names
-  hoveredIndex: number | null = null;
 
   showVisibleDiv(index: number): void {
     this.hoveredIndex = index;

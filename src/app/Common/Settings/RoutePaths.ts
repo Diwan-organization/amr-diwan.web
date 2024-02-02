@@ -3,6 +3,6 @@ export class RoutePaths {
 	public static Home = 'home';
 	public static ArtWorks = 'artworks';
 	public static About = 'about';
-	public static Contact = 'contact';
+	public static Contact = 'contactus';
 	
 }

@@ -20,13 +20,13 @@ export const routes: Routes = [
       	path: 'about',
       	loadComponent: () => import('@App/Features/About/About').then((c) => c.AboutComponent)
       },
-      // {
-      //   path: 'contactus',
-      //   loadComponent: () =>
-      //     import('../../../Features/Contact/Contact').then(
-      //       (c) => c.ContactComponent
-      //     ),
-      // },
+      {
+        path: 'contactus',
+        loadComponent: () =>
+          import('../../../Features/Contact/Contact').then(
+            (c) => c.ContactComponent
+          ),
+      },
       // {
       // 	path: 'about',
       // 	loadComponent: () => import('@App/Features/About/About').then((c) => c.AboutComponent)
