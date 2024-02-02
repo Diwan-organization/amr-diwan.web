@@ -1,5 +1,5 @@
+@import 'Variables.scss';
+@import 'Layout/_Layout.scss';
+@import 'Custom/_Custom.scss';
+// @import 'Library/Library.scss';
 
-.page-master{
-    background-color:  var(--primary-bg-color1) !important;
-    color: var(--primary-font-color) !important;
-}
