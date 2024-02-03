@@ -1,0 +1,18 @@
+<div class="page-inner">
+    <div class="page-section header-padding">
+        <div class="row justify-content-between">
+            <div *ngFor="let img of images;let i = index "
+                class="col-xl-5  m-5 shadow-lg p-1 bg-light gallery-img  rounded ">
+                <div class="product-item">
+                  <div class="position-relative  overflow-hidden img{{i}}">
+                    <img class="img-thumbnails w-100" src="{{img}}" alt="" />
+                    <div class="text-center p-4 visible">
+                      <span class="productn d-block h5 mb-2">title</span>
+                      <span class="price me-1">price</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
