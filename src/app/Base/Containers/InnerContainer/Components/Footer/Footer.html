@@ -1,7 +1,20 @@
-<div class="card text-center">
-	<div class="card-body">
-		<div class="card-title">Special title treatment</div>
-		<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-		<a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
+<footer>
+	<div class="main">
+		<img src="/assets/Images/amr-diwan-logo.png" alt="logo-img" class="white-logo-img" />
+		<ul class="list-inline">
+			<li class="list-inline-item"><a [routerLink]="['/',RoutePaths.Home]">Home</a></li>
+			<li class="list-inline-item"><a [routerLink]="['/',RoutePaths.Contact]">Contact Us</a></li>
+		</ul>
+
+		<div class="social">
+			<a href="#"> <i class="fa fa-instagram"></i></a>
+			<a href="#"><i class="fa fa-youtube-play"></i></a>
+			<a href="#"><i class="fa fa-twitter-square"></i></a>
+			<a href="#"><i class="fa fa-facebook-square"></i></a>
+		</div>
 	</div>
-</div>
+	<div class="copyright">
+		<div>© {{Year}}, <a href="mailto:techwizzjoes@gmail.com">{{'techwizzjoes@gmail.com'}}</a>.</div>
+		<div class="ps-3">All Rights Reserved. <small>version {{version}}</small></div>
+	</div>
+</footer>
