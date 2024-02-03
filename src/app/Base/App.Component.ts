@@ -16,7 +16,7 @@ export class AppComponent {
     private PlatformLocation: PlatformLocation,
     private Router: Router,
     private appRef: ApplicationRef
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.PreLoaderListener();
@@ -27,6 +27,8 @@ export class AppComponent {
 
   PreLoaderListener() {
     const startTime = new Date().getTime();
+    console.log('startTime: ', startTime);
+
     setTimeout(() => {
       this.IsLoaded = true;
     }, 5000);
@@ -34,12 +36,15 @@ export class AppComponent {
     window.addEventListener('load', () => {
       const currentTime = new Date().getTime();
       const elapsedTime = currentTime - startTime;
+      console.log('elapsedTime: ', elapsedTime);
 
-      const minLoadingTime = 1000;
+      const minLoadingTime = 1500;
       if (elapsedTime >= minLoadingTime) {
+        console.log('first');
         this.IsLoaded = true;
       } else {
         setTimeout(() => {
+          console.log('scond');
           this.IsLoaded = true;
         }, minLoadingTime - elapsedTime);
       }
