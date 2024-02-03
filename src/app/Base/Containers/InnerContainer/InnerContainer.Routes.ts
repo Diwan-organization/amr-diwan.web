@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 // import { AuthGuard } from '@App/Common/Guards/Auth.Guard';
 // import { RoleGuard } from '@App/Common/Guards/Role.Guard';
 import { InnerContainer } from './InnerContainer';
-import { RoutePaths } from '../../../Common/Settings/RoutePaths';
+import { RoutePaths } from '@App/Common/Settings/RoutePaths';
 
 export const routes: Routes = [
   {
@@ -14,27 +14,25 @@ export const routes: Routes = [
       {
         path: 'home',
         loadComponent: () =>
-          import('../../../Features/Home/Home').then((c) => c.HomeComponent),
+          import('@App/Features/Home/Home').then((c) => c.HomeComponent),
       },
       {
-      	path: 'about',
-      	loadComponent: () => import('@App/Features/About/About').then((c) => c.AboutComponent)
+        path: 'about',
+        loadComponent: () =>
+          import('@App/Features/About/About').then((c) => c.AboutComponent),
       },
       {
         path: 'contactus',
         loadComponent: () =>
-          import('../../../Features/Contact/Contact').then(
+          import('@App/Features/Contact/Contact').then(
             (c) => c.ContactComponent
           ),
       },
-      // {
-      // 	path: 'about',
-      // 	loadComponent: () => import('@App/Features/About/About').then((c) => c.AboutComponent)
-      // },
-      // {
-      // 	path: 'courses',
-      // 	loadComponent: () => import('@App/Features/CoursesList/CoursesList').then((c) => c.CoursesListComponent)
-      // },
+      {
+        path: 'artworks',
+        loadComponent: () =>
+          import('@App/Features/Art/Art').then((c) => c.ArtComponent),
+      },
       // {
       // 	path: 'course/:id',
       // 	loadComponent: () => import('@App/Features/CoursesList/Course/Course').then((c) => c.CourseComponent)
