@@ -151,7 +151,6 @@ export class HomeComponent implements OnInit {
 	ngOnInit(): void {
 		///3wza agrb a3ml 3l elemnt msh section
 		const sectionProjects: any = document.querySelector('.projects');
-
 		const observerprojects = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
@@ -164,14 +163,26 @@ export class HomeComponent implements OnInit {
 							easing: [0.22, 0.03, 0.26, 1],
 						}
 					);
+					animate(
+						'.browse-more',
+						{ y: 40 },
+						{
+							delay: stagger(0.6),
+							duration: 0.1,
+							easing: [0.22, 0.03, 0.26, 1],
+						}
+					);
 					observerprojects.disconnect();
 				}
 			});
 		}, this.observerOptions);
-
-		// Start observing the 'about' section
 		observerprojects.observe(sectionProjects);
 
+
+
+
+
+		// Start observing the 'about' section
 		const sectionAbout: any = document.querySelector('.about');
 
 		const observer = new IntersectionObserver((entries) => {
@@ -179,13 +190,23 @@ export class HomeComponent implements OnInit {
 				if (entry.isIntersecting) {
 					// The 'about' section is in view, trigger animations
 					animate(
-						'.left-about',
-						{ y: [-1000, 310] },
+						'.browse-more',
+						{ y: [0, 20] },
 						{ delay: stagger(0.1), duration: 0.2 }
 					);
 					animate(
-						'.right-about',
-						{ y: [-1000, 80] },
+						'.title',
+						{ y: [0, 20] },
+						{ delay: stagger(0.1), duration: 0.2 }
+					);
+					animate(
+						'.sub-title',
+						{ y: [0, 20] },
+						{ delay: stagger(0.1), duration: 0.2 }
+					);
+					animate(
+						'.tab-content',
+						{ y: [0, 20] },
 						{ delay: stagger(0.1), duration: 0.9 }
 					);
 
