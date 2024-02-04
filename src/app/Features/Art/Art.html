@@ -1,18 +1,33 @@
-<div class="page-inner">
-    <div class="page-section header-padding">
-        <div class="row justify-content-between">
-            <div *ngFor="let img of images;let i = index "
-                class="col-xl-5  m-5 shadow-lg p-1 bg-light gallery-img  rounded ">
-                <div class="product-item">
-                  <div class="position-relative  overflow-hidden img{{i}}">
-                    <img class="img-thumbnails w-100" src="{{img}}" alt="" />
-                    <div class="text-center p-4 visible">
-                      <span class="productn d-block h5 mb-2">title</span>
-                      <span class="price me-1">price</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </div>
-    </div>
+<div class="page-inner d-flex flex-row">
+	<section class="menu-div">
+		<aside class="pt-5">
+			<p>Categories</p>
+			<a href="#Category1" class="active" data-category="Category1">
+				<i class="fa fa-user-o" aria-hidden="true"></i>
+				Category 1
+			</a>
+			<a href="javascript:void(0)" data-category="Category2">
+				<i class="fa fa-laptop" aria-hidden="true"></i>
+				Category 2
+			</a>
+			<a href="javascript:void(0)" data-category="Category3">
+				<i class="fa fa-clone" aria-hidden="true"></i>
+				Category 3
+			</a>
+		</aside>
+	</section>
+	<section class="page-section header-padding art-div" id="content-section">
+		<div class="container-fluid">
+			<div class="row mt-2 justify-content-center gy-5" *ngFor="let category of categories;let i = index" id="{{category.name.replace(' ','')}}">
+				<h1 class="title">{{category.name}}</h1>
+				<div *ngFor="let img of category.img;let i = index " class="col-xl-5 col-sm-12 rounded me-5 card">
+					<img class="img-fluid" src="{{img}}" alt="" />
+					<div class="visible">
+						<h1 class="productn d-block h5 mb-2">title</h1>
+						<h6 class="price me-1">Lorem ipsum dolor sit amet consectetur adipisicing.</h6>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </div>
