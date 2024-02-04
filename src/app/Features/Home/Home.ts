@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit {
 			}
 		},
 		{
-			ImgSrc: 'assets/Images/tayiaki-banner.jpg',
+			ImgSrc: 'assets/Images/girl-wall.jpg',
 			ImgAlt: '',
 			Caption: {
 				Title: 'Third slide label',
@@ -75,12 +75,12 @@ export class HomeComponent implements OnInit {
 	]
 
 	images: string[] = [
-		'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-		'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-		'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
-		'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-		'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-		'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
+		'assets/Images/girl-wall.jpg',
+		'assets/Images/dog-wall-2.jpg',
+		'assets/Images/girl-wall-2.jpg',
+		'assets/Images/girl-wall-3.jpg',
+		'assets/Images/girl-wall-4.jpg',
+		'assets/Images/girl-wall-5.jpg',
 	]; // Add your image file names
 
 	News: NewsItem[] = [
@@ -115,14 +115,14 @@ export class HomeComponent implements OnInit {
 			ImgSrc: 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
 			ImgAlt: 'about the artist',
 			Title: 'The Artist',
-			Description: '',
+			Description: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
 			Link: '',
 		},
 		{
 			ImgSrc: 'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
 			ImgAlt: 'about the company',
 			Title: 'The Company',
-			Description: '',
+			Description: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
 			Link: '',
 		}
 	]
@@ -136,16 +136,39 @@ export class HomeComponent implements OnInit {
 				Description: 'Some representative placeholder content for the first slide.',
 			}
 		},
-		{
-			ImgSrc: 'assets/Images/founder.jpeg',
-			ImgAlt: '',
-			Caption: {
-				Title: 'Second slide label',
-				Description: 'Some representative placeholder content for the second slide.',
-			}
-		}
+		// {
+		// 	ImgSrc: 'assets/Images/founder.jpeg',
+		// 	ImgAlt: '',
+		// 	Caption: {
+		// 		Title: 'Second slide label',
+		// 		Description: 'Some representative placeholder content for the second slide.',
+		// 	}
+		// }
 	]
 
+	Partners: AboutItem[] = [
+		{
+			ImgSrc: 'assets/Images/logo1.png',
+			ImgAlt: 'about the artist',
+			Title: 'The Artist',
+			Description: '',
+			Link: '',
+		},
+		{
+			ImgSrc: 'assets/Images/logo2.png',
+			ImgAlt: 'about the company',
+			Title: 'The Company',
+			Description: '',
+			Link: '',
+		},
+		{
+			ImgSrc: 'assets/Images/logo3.png',
+			ImgAlt: 'about the company',
+			Title: 'The Company',
+			Description: '',
+			Link: '',
+		}
+	]
 	hoveredIndex: number | null = null;
 
 	ngOnInit(): void {
@@ -156,20 +179,24 @@ export class HomeComponent implements OnInit {
 				if (entry.isIntersecting) {
 					animate(
 						'.gallery-img',
-						{ y: 40 },
 						{
-							delay: stagger(0.6),
-							duration: 0.1,
-							easing: [0.22, 0.03, 0.26, 1],
+							opacity: [0, 1],
+							y: [-20, 0],
+
+						},
+						{
+							delay: stagger(0.2),
+							duration: 0.5,
+							easing: ['ease-in-out'],
 						}
 					);
 					animate(
 						'.browse-more',
-						{ y: 40 },
+						{ opacity: [0, 1], y: [-40, 0] },
 						{
 							delay: stagger(0.6),
-							duration: 0.1,
-							easing: [0.22, 0.03, 0.26, 1],
+							duration: 0.5,
+							easing: ['ease-in-out'],
 						}
 					);
 					observerprojects.disconnect();
@@ -182,42 +209,72 @@ export class HomeComponent implements OnInit {
 
 
 
-		// Start observing the 'about' section
-		const sectionAbout: any = document.querySelector('.about');
+		// // Start observing the 'about' section
+		// const sectionAbout: any = document.querySelector('.about');
+		// const observerAbout = new IntersectionObserver((entries) => {
+		// 	entries.forEach((entry) => {
+		// 		if (entry.isIntersecting) {
+		// 			// The 'about' section is in view, trigger animations
+		// 			animate(
+		// 				'.browse-more',
+		// 				{ y: [-20, 0] },
+		// 				{ delay: stagger(0.1), duration: 0.2 }
+		// 			);
+		// 			animate(
+		// 				'.title',
+		// 				{ y: [-20, 0] },
+		// 				{ delay: stagger(0.1), duration: 0.2 }
+		// 			);
+		// 			animate(
+		// 				'.sub-title',
+		// 				{ y: [-20, 0] },
+		// 				{ delay: stagger(0.1), duration: 0.2 }
+		// 			);
+		// 			animate(
+		// 				'.tab-content',
+		// 				{ y: [-20, 0] },
+		// 				{ delay: stagger(0.1), duration: 0.9 }
+		// 			);
 
-		const observer = new IntersectionObserver((entries) => {
+		// 			// Disconnect the observer after triggering the animations once
+		// 			observerNews.disconnect();
+		// 		}
+		// 	});
+		// }, this.observerOptions);
+		// observerAbout.observe(sectionAbout);
+
+
+
+
+		// Start observing the 'latest-news' section
+		const sectionLatestNews: any = document.querySelector('.latest-news');
+		const observerNews = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
 					// The 'about' section is in view, trigger animations
 					animate(
-						'.browse-more',
-						{ y: [0, 20] },
-						{ delay: stagger(0.1), duration: 0.2 }
+						'.card',
+						{
+							opacity: [0, 1],
+							// x: [-20, 0],
+							rotateY: ['-90deg', '0deg']
+						},
+						{
+							delay: stagger(0.2),
+							duration: 0.5,
+							easing: ['ease-in-out'],
+						}
 					);
 					animate(
 						'.title',
-						{ y: [0, 20] },
-						{ delay: stagger(0.1), duration: 0.2 }
+						{ y: [-20, 0] },
 					);
-					animate(
-						'.sub-title',
-						{ y: [0, 20] },
-						{ delay: stagger(0.1), duration: 0.2 }
-					);
-					animate(
-						'.tab-content',
-						{ y: [0, 20] },
-						{ delay: stagger(0.1), duration: 0.9 }
-					);
-
 					// Disconnect the observer after triggering the animations once
-					observer.disconnect();
+					observerNews.disconnect();
 				}
 			});
 		}, this.observerOptions);
-
-		// Start observing the 'about' section
-		observer.observe(sectionAbout);
+		observerNews.observe(sectionLatestNews);
 	}
 
 	showVisibleDiv(index: number): void {

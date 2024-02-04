@@ -59,7 +59,7 @@
 
 		<div class="tab-content">
 			<div class="list">
-				<div *ngFor="let news of News;let i = index " class="card" style="width: 18rem">
+				<div *ngFor="let news of News;let i = index " class="card">
 					<img class="card-img-top" [src]="news.ImgSrc" [alt]="news.ImgAlt" />
 					<div class="card-body">
 						<h5 class="card-title">{{news.Title}}</h5>
@@ -81,11 +81,11 @@
 		</div>
 		<div class="tab-content">
 			<div class="list">
-				<div *ngFor="let about of About;let i = index " class="hoverable-img-item img{{i}}">
+				<div *ngFor="let about of About;let i = index " class="overlay-img-item img{{i}}">
 					<img [src]="about.ImgSrc" [alt]="about.ImgAlt" />
 					<div class="visible">
-						<span class="productn d-block h5 mb-2">{{about.Title}}</span>
-						<span class="price me-1">{{about.Description}}</span>
+						<div class="mb-2">{{about.Title}}</div>
+						<div class="me-1">{{about.Description}}</div>
 					</div>
 				</div>
 			</div>
@@ -120,6 +120,17 @@
 				<span class="carousel-control-next-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Next</span>
 			</button>
+		</div>
+	</section>
+
+	<section class="page-section no-min partners">
+		<h1 class="title" data-wow-delay="0.1s">Partners</h1>
+		<div class="tab-content">
+			<div class="list">
+				<div *ngFor="let partner of Partners;let i = index " class="">
+					<img [src]="partner.ImgSrc" [alt]="partner.ImgAlt" />
+				</div>
+			</div>
 		</div>
 	</section>
 </div>

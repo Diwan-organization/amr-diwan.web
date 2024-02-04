@@ -1,7 +1,21 @@
-.p-narrow{
-    max-width: 40ch;
-    color: #b8bfd4;
+// .p-narrow{
+//     max-width: 40ch;
+//     color: #b8bfd4;
+// }
+// .contact {
+//     overflow-x: hidden;
+//   }
+
+.page-inner {
+	display: flex;
+	background-color: #000;
+	background-image: conic-gradient(
+			at 0% 55%,
+			hsl(162deg 82% 48% / 35%),
+			transparent 22%
+		),
+		radial-gradient(at 82% 65%, hsl(218, 39%, 11%) 0, transparent 55%);
+	img {
+		max-width: 400px;
+	}
 }
-.contact {
-    overflow-x: hidden;
-  }
