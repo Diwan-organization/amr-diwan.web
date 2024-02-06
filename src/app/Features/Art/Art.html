@@ -1,7 +1,6 @@
 <div class="page-inner d-flex flex-row">
 	<section class="menu-div">
-		<aside class="pt-5">
-			<p>Categories</p>
+		<aside>
 			<a href="#Category1" class="active" data-category="Category1">
 				<i class="fa fa-user-o" aria-hidden="true"></i>
 				Category 1
@@ -18,14 +17,14 @@
 	</section>
 	<section class="page-section header-padding art-div" id="content-section">
 		<div class="container-fluid">
-			<div class="row mt-2 justify-content-center gy-5" *ngFor="let category of categories;let i = index" id="{{category.name.replace(' ','')}}">
-				<h1 class="title">{{category.name}}</h1>
-				<div *ngFor="let img of category.img;let i = index " class="col-xl-5 col-sm-12 rounded me-5 card">
+			<div class="row mt-2 gy-5 gx-4" *ngFor="let category of categories;let i = index" id="{{category.CategoryName.replace(' ','')}}">
+				<h1 class="title">{{category.CategoryName}}</h1>
+				<div *ngFor="let img of category.CategoryImages;let i = index " class="col-xl-3 col-sm-12">
 					<img class="img-fluid" src="{{img}}" alt="" />
-					<div class="visible">
+					<!-- <div class="visible">
 						<h1 class="productn d-block h5 mb-2">title</h1>
 						<h6 class="price me-1">Lorem ipsum dolor sit amet consectetur adipisicing.</h6>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
