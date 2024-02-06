@@ -1,5 +1,6 @@
 <div class="page-inner">
-	<section class="page-section carousel-div">
+	<!-- begin carousel -->
+	<section class="page-section carousel-div d-none">
 		<!-- <div class="overlay"></div> -->
 		<div id="LandingCarousel" class="carousel carousel-dark slide">
 			<div class="carousel-indicators">
@@ -10,89 +11,122 @@
 					[attr.data-bs-slide-to]="i"
 					[attr.aria-label]="'Slide '+ i"></button> -->
 
-				<button type="button" data-bs-target="#LandingCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-				<button type="button" data-bs-target="#LandingCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-				<button type="button" data-bs-target="#LandingCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				<!-- <button type="button" data-bs-target="#LandingCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button> -->
+				<!-- <button type="button" data-bs-target="#LandingCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button> -->
+				<!-- <button type="button" data-bs-target="#LandingCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
 			</div>
-			<div class="carousel-inner">
-				<div class="carousel-item active" *ngFor="let carousel of LandingCarousel">
-					<img [src]="carousel.ImgSrc" class="d-block img" [alt]="carousel.ImgAlt" />
-					<div class="carousel-caption d-none d-md-block">
+			<!-- <div class="carousel-inner"> -->
+			<div class="carousel-item active" *ngFor="let carousel of LandingCarousel">
+				<img [src]="carousel.ImgSrc" class="d-block img" [alt]="carousel.ImgAlt" />
+				<!-- <div class="carousel-caption d-none d-md-block">
 						<h5 class="font-style">{{carousel.Caption.Title}}</h5>
 						<p class="font-style">{{carousel.Caption.Description}}</p>
-					</div>
-				</div>
+					</div> -->
 			</div>
-			<button class="carousel-control-prev" type="button" data-bs-target="#LandingCarousel" data-bs-slide="prev">
+			<!-- </div> -->
+			<!-- <button class="carousel-control-prev" type="button" data-bs-target="#LandingCarousel" data-bs-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Previous</span>
 			</button>
 			<button class="carousel-control-next" type="button" data-bs-target="#LandingCarousel" data-bs-slide="next">
 				<span class="carousel-control-next-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Next</span>
-			</button>
+			</button> -->
+		</div>
+		<div class="landing-overlay">
+			<!-- <h6>About</h6> -->
+			<h1>Amr Diwan</h1>
+			<h3>Lorem ipsum dolor sit amet.</h3>
+		</div>
+	</section>
+	<!-- end carousel -->
+
+	<section class="page-section carousel-div p-0">
+		<!-- <div class="overlay"></div> -->
+		<div id="LandingCarousel" class="carousel carousel-dark slide"></div>
+		<div class="landing-overlay" [style.opacity]="opacity"></div>
+		<div class="landing-overlay text">
+			<!-- <h6>About</h6> -->
+			<h1>Amr Diwan</h1>
+			<h3>Lorem ipsum dolor sit amet.</h3>
 		</div>
 	</section>
 
-	<section class="page-section no-min projects">
-		<h1 class="title" data-wow-delay="0.1s">projects</h1>
-
-		<div class="tab-content">
-			<div class="list">
-				<div *ngFor="let img of images;let i = index " class="hoverable-img-item img{{i}} gallery-img ">
-					<img src="{{img}}" alt="" />
-					<div class="visible">
-						<span class="productn d-block h5 mb-2">title</span>
-						<span class="price me-1">Lorem ipsum dolor sit amet consectetur adipisicing.</span>
+	<div class="page-container">
+		<section class="page-section no-min about">
+			<div class="sub-title">
+				Amr Diwan is a Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis? Magni corrupti sed quaerat a rerum odio dignissimos
+				quis mollitia.
+			</div>
+			<div class="tab-content">
+				<div class="stat-section">
+					<div class="stat-list">
+						<div *ngFor="let stat of Stats; let i = index" class="stat" [ngClass]="{ 'expanded': expandedIndex === i }" (click)="onStatClick(i)">
+							<div class="number">{{ stat.Number }}</div>
+							<div class="text">
+								<div class="stat-title">{{ stat.Title }}</div>
+								<div class="description">{{ stat.Description }}</div>
+							</div>
+						</div>
+					</div>
+					<div [ngClass]="{ 'expanded': expandedIndex !== null }" class="additional-info">
+						<!-- Your additional information goes here (e.g., an image) -->
+						<img [src]="SelectedStat?.ImgSrc" alt="" />
+					</div>
+				</div>
+				<div class="browse-more mb-3">
+					<a class="btn btn-outline-primary" [routerLink]="RoutePaths.ArtWorks">Learn More</a>
+				</div>
+				<div class="list about-list">
+					<div *ngFor="let about of About;let i = index " class="overlay-img-item img{{i}}">
+						<img [src]="about.ImgSrc" [alt]="about.ImgAlt" class="img" />
+						<div class="visible">
+							<div class="mb-2">{{about.Title}}</div>
+							<div class="me-1">{{about.Description}}</div>
+						</div>
 					</div>
 				</div>
 			</div>
+		</section>
 
-			<div class="browse-more">
-				<a class="btn btn-outline-primary" [routerLink]="RoutePaths.ArtWorks">Browse More Products</a>
-			</div>
-		</div>
-	</section>
+		<section class="page-section no-min latest-news">
+			<h1 class="title" data-wow-delay="0.1s">Latest news</h1>
 
-	<section class="page-section no-min latest-news">
-		<h1 class="title" data-wow-delay="0.1s">Latest news</h1>
-
-		<div class="tab-content">
-			<div class="list">
-				<div *ngFor="let news of News;let i = index " class="card">
-					<img class="card-img-top" [src]="news.ImgSrc" [alt]="news.ImgAlt" />
-					<div class="card-body">
-						<h5 class="card-title">{{news.Title}}</h5>
-						<p class="card-text">{{news.Title}}</p>
-						<a href="#" class="btn btn-primary">Go somewhere</a>
+			<div class="tab-content">
+				<div class="list">
+					<div *ngFor="let news of News;let i = index " class="card">
+						<img class="card-img-top" [src]="news.ImgSrc" [alt]="news.ImgAlt" />
+						<div class="card-body">
+							<h5 class="card-title">{{news.Title}}</h5>
+							<p class="card-text">{{news.Title}}</p>
+							<a href="#" class="btn btn-primary">Go somewhere</a>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<section class="page-section no-min about">
-		<h1 class="title" data-wow-delay="0.1s">About us</h1>
-		<div class="sub-title">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis? Magni corrupti sed quaerat a rerum odio dignissimos quis mollitia.
-		</div>
-		<div class="browse-more mb-3">
-			<a class="btn btn-outline-primary" [routerLink]="RoutePaths.ArtWorks">Learn More</a>
-		</div>
-		<div class="tab-content">
-			<div class="list">
-				<div *ngFor="let about of About;let i = index " class="overlay-img-item img{{i}}">
-					<img [src]="about.ImgSrc" [alt]="about.ImgAlt" />
-					<div class="visible">
-						<div class="mb-2">{{about.Title}}</div>
-						<div class="me-1">{{about.Description}}</div>
+		<section class="page-section no-min projects">
+			<h1 class="title" data-wow-delay="0.1s">projects</h1>
+
+			<div class="tab-content">
+				<div class="list">
+					<div *ngFor="let img of images;let i = index " class="hoverable-img-item img{{i}} gallery-img ">
+						<img src="{{img}}" alt="" class="img" />
+						<div class="visible">
+							<span class="productn d-block h5 mb-2">title</span>
+							<span class="price me-1">Lorem ipsum dolor sit amet consectetur adipisicing.</span>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
 
-	<section class="page-section no-min reviews">
+				<div class="browse-more">
+					<a class="btn btn-outline-primary" [routerLink]="RoutePaths.ArtWorks">Browse More Products</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- <section class="page-section no-min reviews">
 		<div id="ReviewsCarousel" class="carousel carousel-dark slide">
 			<div class="carousel-indicators">
 				<button type="button" data-bs-target="#ReviewsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -101,7 +135,6 @@
 			</div>
 			<div class="carousel-inner">
 				<ng-container *ngFor="let carousel of ReviewsCarousel; first as firstly">
-					<!-- [ngClass]="{'active' : first}" -->
 					<div class="carousel-item active">
 						<div class="carousel-caption d-none d-md-block">
 							<div>5 star rating icons</div>
@@ -121,16 +154,17 @@
 				<span class="visually-hidden">Next</span>
 			</button>
 		</div>
-	</section>
+	</section> -->
 
-	<section class="page-section no-min partners">
-		<h1 class="title" data-wow-delay="0.1s">Partners</h1>
-		<div class="tab-content">
-			<div class="list">
-				<div *ngFor="let partner of Partners;let i = index " class="">
-					<img [src]="partner.ImgSrc" [alt]="partner.ImgAlt" />
+		<section class="page-section no-min partners">
+			<h1 class="title" data-wow-delay="0.1s">Partners</h1>
+			<div class="tab-content">
+				<div class="list">
+					<div *ngFor="let partner of Partners;let i = index " class="">
+						<img [src]="partner.ImgSrc" [alt]="partner.ImgAlt" />
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	</div>
 </div>

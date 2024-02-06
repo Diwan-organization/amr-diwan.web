@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { animate, stagger } from 'motion';
@@ -32,6 +32,15 @@ class AboutItem {
 	Link!: string;
 }
 
+class StatsItem {
+	ImgSrc!: string;
+	ImgAlt!: string;
+	Title!: string;
+	Number!: string;
+	Description!: string;
+	Link!: string;
+}
+
 
 @Component({
 	standalone: true,
@@ -49,28 +58,63 @@ export class HomeComponent implements OnInit {
 
 	LandingCarousel: CarouselItem[] = [
 		{
-			ImgSrc: 'assets/Images/kansas-wall-2.jpg',
+			ImgSrc: 'assets/Images/hsbc.jpg',
 			ImgAlt: 'news image :',
 			Caption: {
 				Title: 'First slide label',
 				Description: 'Some representative placeholder content for the first slide.',
 			}
 		},
+		// {
+		// 	ImgSrc: 'assets/Images/dog-wall.jpg',
+		// 	ImgAlt: '',
+		// 	Caption: {
+		// 		Title: 'Second slide label',
+		// 		Description: 'Some representative placeholder content for the second slide.',
+		// 	}
+		// },
+		// {
+		// 	ImgSrc: 'assets/Images/girl-wall.jpg',
+		// 	ImgAlt: '',
+		// 	Caption: {
+		// 		Title: 'Third slide label',
+		// 		Description: 'Some representative placeholder content for the third slide.',
+		// 	}
+		// }
+	]
+
+	Stats: StatsItem[] = [
 		{
-			ImgSrc: 'assets/Images/dog-wall.jpg',
+			ImgSrc: '',
 			ImgAlt: '',
-			Caption: {
-				Title: 'Second slide label',
-				Description: 'Some representative placeholder content for the second slide.',
-			}
+			Title: 'Years Of Experience',
+			Number: '15+',
+			Description: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
+			Link: '',
 		},
 		{
-			ImgSrc: 'assets/Images/girl-wall.jpg',
+			ImgSrc: '',
 			ImgAlt: '',
-			Caption: {
-				Title: 'Third slide label',
-				Description: 'Some representative placeholder content for the third slide.',
-			}
+			Title: 'Countries',
+			Number: '4',
+			Description: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
+			Link: '',
+		},
+		{
+			ImgSrc: '',
+			ImgAlt: '',
+			Title: 'Projects',
+			Number: '25',
+			Description: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
+			Link: '',
+		},
+		{
+			ImgSrc: '',
+			ImgAlt: '',
+			Title: 'Lorem',
+			Number: '42',
+			Description: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
+			Link: '',
 		}
 	]
 
@@ -78,9 +122,9 @@ export class HomeComponent implements OnInit {
 		'assets/Images/girl-wall.jpg',
 		'assets/Images/dog-wall-2.jpg',
 		'assets/Images/girl-wall-2.jpg',
-		'assets/Images/girl-wall-3.jpg',
-		'assets/Images/girl-wall-4.jpg',
-		'assets/Images/girl-wall-5.jpg',
+		// 'assets/Images/girl-wall-3.jpg',
+		// 'assets/Images/girl-wall-4.jpg',
+		// 'assets/Images/girl-wall-5.jpg',
 	]; // Add your image file names
 
 	News: NewsItem[] = [
@@ -283,5 +327,28 @@ export class HomeComponent implements OnInit {
 
 	hideVisibleDiv(index: number): void {
 		this.hoveredIndex = null;
+	}
+
+	BaseOpacity: number = 0.7;
+	opacity: number = 0.7;
+	@HostListener('window:scroll', ['$event'])
+	onWindowScroll() {
+		const scrollPosition: number = window.scrollY || document.documentElement.scrollTop;
+		const viewportHeight: number = window.innerHeight;
+
+		let ratio: number = scrollPosition / viewportHeight;
+		this.opacity = Math.min(this.BaseOpacity + (ratio / 3), 1);
+	}
+
+	expandedIndex: number | null = null;
+	SelectedStat!: StatsItem;
+	onStatClick(index: number): void {
+		// Toggle the expanded state
+		if (this.expandedIndex === index)
+			this.expandedIndex = null;
+		else {
+			this.expandedIndex = index;
+			this.SelectedStat = this.Stats[this.expandedIndex]
+		}
 	}
 }

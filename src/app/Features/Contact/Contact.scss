@@ -11,10 +11,10 @@
 	background-color: #000;
 	background-image: conic-gradient(
 			at 0% 55%,
-			hsl(162deg 82% 48% / 35%),
+			rgb(60 60 60 / 40%),
 			transparent 22%
 		),
-		radial-gradient(at 82% 65%, hsl(218, 39%, 11%) 0, transparent 55%);
+		radial-gradient(at 82% 65%, rgb(237, 209, 0, 0.3) 0, transparent 55%);
 	img {
 		max-width: 400px;
 	}
