@@ -5,6 +5,7 @@ import { animate, stagger } from 'motion';
 
 class CategoryItem {
     CategoryName!: string;
+    CategoryDescription!: string;
     CategoryImages!: string[]
 }
 
@@ -22,6 +23,7 @@ export class ArtComponent {
     categories: CategoryItem[] = [
         {
             CategoryName: 'Category 1',
+            CategoryDescription: 'description 1',
             CategoryImages: [
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
@@ -36,6 +38,7 @@ export class ArtComponent {
 
         {
             CategoryName: 'Category 2',
+            CategoryDescription: 'description 2',
             CategoryImages: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
@@ -47,6 +50,7 @@ export class ArtComponent {
 
         {
             CategoryName: 'Category 3',
+            CategoryDescription: 'description 3',
             CategoryImages: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
@@ -108,7 +112,11 @@ export class ArtComponent {
     ngAfterViewInit() {
         this.checkElementsVisibility();
     }
-
+    observerOptions: {} = {
+        root: null,
+        rootMargin: '10px',
+        threshold: 0.1, // Adjust this threshold based on your needs
+    };
     private checkElementsVisibility() {
         const elements = this.el.nativeElement.querySelectorAll('.row');
         elements.forEach((element: HTMLElement) => {
@@ -118,22 +126,33 @@ export class ArtComponent {
 
             if (rect.top <= 150 && rect.bottom > 150) {
                 this.renderer.addClass(categoryAnchor, 'active');
+
                 if (category != null && !this.animatedSections.has(category)) {
+                    const observerprojects = new IntersectionObserver((entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                const imgFluidElements = element.querySelectorAll('.img-fluid');
 
-                    animate(
-                        element,
-                        {
-                            opacity: [0, 1],
-                            y: [-400, 0],
-                        },
-                        {
-                            delay: stagger(0.6),
-                            duration: 0.5,
-                            easing: ['ease-in-out'],
-                        }
-                    );
+                                animate(
+                                    imgFluidElements,
+                                    {
+                                        opacity: [0, 1],
+                                        y: [-20, 0],
+                                    },
+                                    {
+                                        delay: stagger(0.2),
+                                        duration: 0.5,
+                                        easing: ['ease-in-out'],
+                                    }
+                                );
 
-                    this.animatedSections.add(category);
+                                observerprojects.disconnect();
+                                this.animatedSections.add(category);
+                            }
+                        });
+                    }, this.observerOptions);
+
+                    observerprojects.observe(element);
                 }
             } else {
                 this.renderer.removeClass(categoryAnchor, 'active');
