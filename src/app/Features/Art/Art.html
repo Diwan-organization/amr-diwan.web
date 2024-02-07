@@ -1,23 +1,40 @@
 <div class="page-inner">
 	<aside>
-		<div class="category" *ngFor="let category of categories;let i = index" id="{{category.Name.replace(' ','')}}">
-			<a href="javascript:void(0)" class="active" [attr.data-category]="category.Name.replace(' ','')">
+		<div class="input-group mb-5 mt-5">
+			<input type="text" [(ngModel)]="SearchText" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1" (input)="Search()" />
+			<i class="fa fa-search input-group-text" id="basic-addon1"></i>
+		</div>
+		<div *ngFor="let category of filteredCategories;let i = index">
+			<a href="javascript:void(0)" class="active" id="categories" [attr.data-category]="category.Name.replace(' ','')">
 				<i class="fa fa-user-o" aria-hidden="true"></i>
 				{{category.Name}}
 			</a>
 		</div>
 	</aside>
 	<div class="page-section art-div">
-		<div class="category" *ngFor="let category of categories;let i = index" id="{{category.Name.replace(' ','')}}">
+		<div class="category" *ngFor="let category of filteredCategories; let i = index" [id]="category.Name.replace(' ', '')">
 			<h1 class="title">{{category.Name}}</h1>
 			<p class="sub-title">{{category.Description}}</p>
 			<div class="images">
-				<div *ngFor="let img of category.Images;let i = index " class="hoverable-img-item">
-					<img class="img" src="{{img}}" alt="" />
-					<!-- <div class="visible">
-						<h1 class="productn d-block h5 mb-2">title</h1>
-						<h6 class="price me-1">Lorem ipsum dolor sit amet consectetur adipisicing.</h6>
-					</div> -->
+				<div *ngFor="let img of category.Images; let j = index" class="hoverable-img-item">
+					<img class="img" [src]="img" alt="" data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal-' + i + '-' + j" />
+					<!-- Modal -->
+					<div class="modal fade" [id]="'exampleModal-' + i + '-' + j" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content" (click)="$event.stopPropagation()">
+								<div class="modal-header">
+									<h1 class="modal-title fs-5" id="exampleModalLabel">{{category.Name}}</h1>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<img class="img-modal" [src]="img" alt="" />
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
