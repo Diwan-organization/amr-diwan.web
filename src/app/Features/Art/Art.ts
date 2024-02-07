@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { animate, stagger } from 'motion';
 
 
@@ -14,12 +15,12 @@ class CategoryItem {
     standalone: true,
     templateUrl: './Art.html',
     styleUrls: ['Art.scss'],
-    imports: [CommonModule],
+    imports: [CommonModule, FormsModule],
 
 })
 export class ArtComponent {
     private animatedSections: Set<string> = new Set();
-
+    SearchText: string = '';
     categories: CategoryItem[] = [
         {
             Name: 'Project 1',
@@ -62,13 +63,32 @@ export class ArtComponent {
         }
 
     ];
+    filteredCategories: CategoryItem[];
 
 
-    constructor(private renderer: Renderer2, private el: ElementRef) { }
+    constructor(private renderer: Renderer2, private el: ElementRef) {
+        this.filteredCategories = this.categories
+    }
 
-    ngOnInit() {
 
-        const menuLinks = this.el.nativeElement.querySelectorAll('.menu-div a');
+    private scrollTo(element: HTMLElement) {
+        const offset = 75; // Adjust this value based on your layout
+        const position = element.offsetTop - offset;
+
+        window.scrollTo({
+            top: position,
+            behavior: 'smooth'
+        });
+    }
+
+
+    @HostListener('window:scroll', [])
+    onWindowScroll() {
+        this.checkElementsVisibility();
+    }
+
+    ngAfterViewInit() {
+        const menuLinks = this.el.nativeElement.querySelectorAll('#categories');
 
         menuLinks.forEach((link: Element) => {
             link.addEventListener('click', (event: { preventDefault: () => void; }) => {
@@ -89,26 +109,6 @@ export class ArtComponent {
 
 
 
-
-    }
-
-    private scrollTo(element: HTMLElement) {
-        const offset = 75; // Adjust this value based on your layout
-        const position = element.offsetTop - offset;
-
-        window.scrollTo({
-            top: position,
-            behavior: 'smooth'
-        });
-    }
-
-
-    @HostListener('window:scroll', [])
-    onWindowScroll() {
-        this.checkElementsVisibility();
-    }
-
-    ngAfterViewInit() {
         this.checkElementsVisibility();
     }
     observerOptions: {} = {
@@ -117,47 +117,62 @@ export class ArtComponent {
         threshold: 0.1, // Adjust this threshold based on your needs
     };
     private checkElementsVisibility() {
-        // const elements = this.el.nativeElement.querySelectorAll('.category');
-        // elements.forEach((element: HTMLElement) => {
-        //     const category = element.getAttribute('id');
-        //     const categoryAnchor = this.el.nativeElement.querySelector(`a[data-category="${category}"]`);
-        //     const rect = element.getBoundingClientRect();
+        const elements = this.el.nativeElement.querySelectorAll('.category');
+        elements.forEach((element: HTMLElement) => {
+            const category = element.getAttribute('id');
+            const categoryAnchor = this.el.nativeElement.querySelector(`a[data-category="${category}"]`);
+            const rect = element.getBoundingClientRect();
 
-        //     if (rect.top <= 150 && rect.bottom > 150) {
-        //         this.renderer.addClass(categoryAnchor, 'active');
+            if (rect.top <= 130 && rect.bottom > 130) {
+                this.renderer.addClass(categoryAnchor, 'active');
+                if (category != null && !this.animatedSections.has(category)) {
+                    const observerprojects = new IntersectionObserver((entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                const imgFluidElements = element.querySelectorAll('.img');
+                                animate(
+                                    imgFluidElements,
+                                    {
+                                        opacity: [0, 1],
+                                        y: [-20, 0],
+                                    },
+                                    {
+                                        delay: stagger(0.2),
+                                        duration: 0.5,
+                                        easing: ['ease-in-out'],
+                                    }
+                                );
 
-        //         if (category != null && !this.animatedSections.has(category)) {
-        //             const observerprojects = new IntersectionObserver((entries) => {
-        //                 entries.forEach((entry) => {
-        //                     if (entry.isIntersecting) {
-        //                         const imgFluidElements = element.querySelectorAll('.img-fluid');
+                                observerprojects.disconnect();
+                                this.animatedSections.add(category);
+                            }
+                        });
+                    }, this.observerOptions);
 
-        //                         animate(
-        //                             imgFluidElements,
-        //                             {
-        //                                 opacity: [0, 1],
-        //                                 y: [-20, 0],
-        //                             },
-        //                             {
-        //                                 delay: stagger(0.2),
-        //                                 duration: 0.5,
-        //                                 easing: ['ease-in-out'],
-        //                             }
-        //                         );
-
-        //                         observerprojects.disconnect();
-        //                         this.animatedSections.add(category);
-        //                     }
-        //                 });
-        //             }, this.observerOptions);
-
-        //             observerprojects.observe(element);
-        //         }
-        //     } else {
-        //         this.renderer.removeClass(categoryAnchor, 'active');
-        //     }
-        // });
+                    observerprojects.observe(element);
+                }
+            } else {
+                this.renderer.removeClass(categoryAnchor, 'active');
+            }
+        });
     }
 
+    Search() {
+        this.animatedSections.clear();
+        if (this.SearchText.trim() === '') {
+            this.filteredCategories = this.categories;
+
+        } else {
+            this.filteredCategories = this.categories.filter(category =>
+                category.Name.toLowerCase().includes(this.SearchText.trim().toLowerCase()) ||
+                category.Description.toLowerCase().includes(this.SearchText.trim().toLowerCase())
+            );
+
+        }
+        setTimeout(() => {
+            this.checkElementsVisibility()
+
+        }, 0);
+    }
 
 }
