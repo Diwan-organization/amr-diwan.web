@@ -40,6 +40,8 @@ body {
 
 			.page-section {
 				min-height: 100vh;
+				width: 100%;
+
 				&.no-min {
 					min-height: auto;
 				}

@@ -4,9 +4,9 @@ import { animate, stagger } from 'motion';
 
 
 class CategoryItem {
-    CategoryName!: string;
-    CategoryDescription!: string;
-    CategoryImages!: string[]
+    Name!: string;
+    Description!: string;
+    Images!: string[]
 }
 
 
@@ -22,9 +22,9 @@ export class ArtComponent {
 
     categories: CategoryItem[] = [
         {
-            CategoryName: 'Category 1',
-            CategoryDescription: 'description 1',
-            CategoryImages: [
+            Name: 'Project 1',
+            Description: 'description 1',
+            Images: [
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
@@ -37,9 +37,9 @@ export class ArtComponent {
         },
 
         {
-            CategoryName: 'Category 2',
-            CategoryDescription: 'description 2',
-            CategoryImages: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
+            Name: 'Project 2',
+            Description: 'description 2',
+            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
@@ -49,9 +49,9 @@ export class ArtComponent {
         },
 
         {
-            CategoryName: 'Category 3',
-            CategoryDescription: 'description 3',
-            CategoryImages: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+            Name: 'Project 3',
+            Description: 'description 3',
+            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
@@ -82,7 +82,6 @@ export class ArtComponent {
                     const targetElement = this.el.nativeElement.querySelector(`#${targetId}`);
                     if (targetElement) {
                         this.scrollTo(targetElement);
-
                     }
                 }
             });
@@ -118,46 +117,46 @@ export class ArtComponent {
         threshold: 0.1, // Adjust this threshold based on your needs
     };
     private checkElementsVisibility() {
-        const elements = this.el.nativeElement.querySelectorAll('.row');
-        elements.forEach((element: HTMLElement) => {
-            const category = element.getAttribute('id');
-            const categoryAnchor = this.el.nativeElement.querySelector(`a[data-category="${category}"]`);
-            const rect = element.getBoundingClientRect();
+        // const elements = this.el.nativeElement.querySelectorAll('.category');
+        // elements.forEach((element: HTMLElement) => {
+        //     const category = element.getAttribute('id');
+        //     const categoryAnchor = this.el.nativeElement.querySelector(`a[data-category="${category}"]`);
+        //     const rect = element.getBoundingClientRect();
 
-            if (rect.top <= 150 && rect.bottom > 150) {
-                this.renderer.addClass(categoryAnchor, 'active');
+        //     if (rect.top <= 150 && rect.bottom > 150) {
+        //         this.renderer.addClass(categoryAnchor, 'active');
 
-                if (category != null && !this.animatedSections.has(category)) {
-                    const observerprojects = new IntersectionObserver((entries) => {
-                        entries.forEach((entry) => {
-                            if (entry.isIntersecting) {
-                                const imgFluidElements = element.querySelectorAll('.img-fluid');
+        //         if (category != null && !this.animatedSections.has(category)) {
+        //             const observerprojects = new IntersectionObserver((entries) => {
+        //                 entries.forEach((entry) => {
+        //                     if (entry.isIntersecting) {
+        //                         const imgFluidElements = element.querySelectorAll('.img-fluid');
 
-                                animate(
-                                    imgFluidElements,
-                                    {
-                                        opacity: [0, 1],
-                                        y: [-20, 0],
-                                    },
-                                    {
-                                        delay: stagger(0.2),
-                                        duration: 0.5,
-                                        easing: ['ease-in-out'],
-                                    }
-                                );
+        //                         animate(
+        //                             imgFluidElements,
+        //                             {
+        //                                 opacity: [0, 1],
+        //                                 y: [-20, 0],
+        //                             },
+        //                             {
+        //                                 delay: stagger(0.2),
+        //                                 duration: 0.5,
+        //                                 easing: ['ease-in-out'],
+        //                             }
+        //                         );
 
-                                observerprojects.disconnect();
-                                this.animatedSections.add(category);
-                            }
-                        });
-                    }, this.observerOptions);
+        //                         observerprojects.disconnect();
+        //                         this.animatedSections.add(category);
+        //                     }
+        //                 });
+        //             }, this.observerOptions);
 
-                    observerprojects.observe(element);
-                }
-            } else {
-                this.renderer.removeClass(categoryAnchor, 'active');
-            }
-        });
+        //             observerprojects.observe(element);
+        //         }
+        //     } else {
+        //         this.renderer.removeClass(categoryAnchor, 'active');
+        //     }
+        // });
     }
 
 
