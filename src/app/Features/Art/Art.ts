@@ -70,9 +70,8 @@ export class ArtComponent {
         this.filteredCategories = this.categories
     }
 
-
     private scrollTo(element: HTMLElement) {
-        const offset = 75; // Adjust this value based on your layout
+        const offset = 50;
         const position = element.offsetTop - offset;
 
         window.scrollTo({
@@ -88,33 +87,13 @@ export class ArtComponent {
     }
 
     ngAfterViewInit() {
-        const menuLinks = this.el.nativeElement.querySelectorAll('#categories');
-
-        menuLinks.forEach((link: Element) => {
-            link.addEventListener('click', (event: { preventDefault: () => void; }) => {
-                event.preventDefault();
-                const targetId = link.getAttribute('data-category');
-                if (targetId) {
-                    menuLinks.forEach((menuLink: { classList: { remove: (arg0: string) => void; }; }) => {
-                        menuLink.classList.remove('active');
-                    });
-                    link.classList.add('active');
-                    const targetElement = this.el.nativeElement.querySelector(`#${targetId}`);
-                    if (targetElement) {
-                        this.scrollTo(targetElement);
-                    }
-                }
-            });
-        });
-
-
-
+        this.attachClickEventListeners();
         this.checkElementsVisibility();
     }
     observerOptions: {} = {
         root: null,
         rootMargin: '10px',
-        threshold: 0.1, // Adjust this threshold based on your needs
+        threshold: 0.1,
     };
     private checkElementsVisibility() {
         const elements = this.el.nativeElement.querySelectorAll('.category');
@@ -122,8 +101,7 @@ export class ArtComponent {
             const category = element.getAttribute('id');
             const categoryAnchor = this.el.nativeElement.querySelector(`a[data-category="${category}"]`);
             const rect = element.getBoundingClientRect();
-
-            if (rect.top <= 130 && rect.bottom > 130) {
+            if (rect.top <= 400 && rect.bottom > 400) {
                 this.renderer.addClass(categoryAnchor, 'active');
                 if (category != null && !this.animatedSections.has(category)) {
                     const observerprojects = new IntersectionObserver((entries) => {
@@ -133,12 +111,12 @@ export class ArtComponent {
                                 animate(
                                     imgFluidElements,
                                     {
-                                        opacity: [0, 1],
-                                        y: [-20, 0],
+                                        opacity: [0, 0.5, 1],
+                                        y: [25, 0],
                                     },
                                     {
                                         delay: stagger(0.2),
-                                        duration: 0.5,
+                                        duration: 0.6,
                                         easing: ['ease-in-out'],
                                     }
                                 );
@@ -170,9 +148,31 @@ export class ArtComponent {
 
         }
         setTimeout(() => {
-            this.checkElementsVisibility()
+            this.attachClickEventListeners();
+            this.checkElementsVisibility();
 
         }, 0);
     }
 
+
+    attachClickEventListeners() {
+        const menuLinks = this.el.nativeElement.querySelectorAll('#categories');
+
+        menuLinks.forEach((link: Element) => {
+            link.addEventListener('click', (event: { preventDefault: () => void; }) => {
+                event.preventDefault();
+                const targetId = link.getAttribute('data-category');
+                if (targetId) {
+                    menuLinks.forEach((menuLink: { classList: { remove: (arg0: string) => void; }; }) => {
+                        menuLink.classList.remove('active');
+                    });
+                    link.classList.add('active');
+                    const targetElement = this.el.nativeElement.querySelector(`#${targetId}`);
+                    if (targetElement) {
+                        this.scrollTo(targetElement);
+                    }
+                }
+            });
+        });
+    }
 }
