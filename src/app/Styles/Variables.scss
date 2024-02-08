@@ -1,6 +1,10 @@
 // https://stackoverflow.com/questions/67016460/difference-between-scss-variables-and-css-variables
 // https://css-tricks.com/difference-between-types-of-css-variables/
 :root {
+	--gold1: #a6823a;
+	--gold2: #bd9d61;
+	--gold-gradient: linear-gradient(90deg, #a6823a 0%, #bd9d61 100%);
+
 	// --primary-bg-color1:rgba(0,0,0,0.8);
 	--primary-bg-color: rgb(4, 0, 9);
 

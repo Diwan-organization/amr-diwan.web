@@ -1,55 +1,16 @@
 <div class="page-inner">
-	<!-- begin carousel -->
-	<section class="page-section carousel-div d-none">
-		<!-- <div class="overlay"></div> -->
-		<div id="LandingCarousel" class="carousel carousel-dark slide">
-			<div class="carousel-indicators">
-				<!-- <button
-					*ngFor="let carousel of Carousel; index as i"
-					type="button"
-					data-bs-target="#LandingCarousel"
-					[attr.data-bs-slide-to]="i"
-					[attr.aria-label]="'Slide '+ i"></button> -->
-
-				<!-- <button type="button" data-bs-target="#LandingCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button> -->
-				<!-- <button type="button" data-bs-target="#LandingCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button> -->
-				<!-- <button type="button" data-bs-target="#LandingCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
-			</div>
-			<!-- <div class="carousel-inner"> -->
-			<div class="carousel-item active" *ngFor="let carousel of LandingCarousel">
-				<img [src]="carousel.ImgSrc" class="d-block img" [alt]="carousel.ImgAlt" />
-				<!-- <div class="carousel-caption d-none d-md-block">
-						<h5 class="font-style">{{carousel.Caption.Title}}</h5>
-						<p class="font-style">{{carousel.Caption.Description}}</p>
-					</div> -->
-			</div>
-			<!-- </div> -->
-			<!-- <button class="carousel-control-prev" type="button" data-bs-target="#LandingCarousel" data-bs-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Previous</span>
-			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#LandingCarousel" data-bs-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Next</span>
-			</button> -->
-		</div>
-		<div class="landing-overlay">
-			<!-- <h6>About</h6> -->
-			<h1>Amr Diwan</h1>
-			<h3>Lorem ipsum dolor sit amet.</h3>
-		</div>
-	</section>
-	<!-- end carousel -->
-
-	<section class="page-section carousel-div p-0">
-		<!-- <div class="overlay"></div> -->
-		<div id="LandingCarousel" class="carousel carousel-dark slide"></div>
+	<section class="page-section video-div p-0">
+		<video autoplay muted loop class="video">
+			<source src="assets/Videos/diwan-graffiti1.mp4" type="video/mp4" />
+			<!-- Add additional video sources for cross-browser compatibility if needed -->
+			Your browser does not support the video tag.
+		</video>
 		<div class="landing-overlay" [style.opacity]="opacity"></div>
 		<div class="landing-overlay text">
 			<!-- <h6>About</h6> -->
-			<h1>Amr Diwan</h1>
-			<h3>Lorem ipsum dolor sit amet.</h3>
-			<h3>28 March 2022</h3>
+			<h1 class="gold-text">Amr Diwan</h1>
+			<h3 class="gold-text">Graffiti and architecture design.</h3>
+			<h3 class="gold-text">Bringing life to walls <s></s>ince 2004.</h3>
 		</div>
 		<div class="scroll-down">
 			<div class="arrow1"></div>
@@ -59,36 +20,61 @@
 
 	<div class="page-container">
 		<section class="page-section no-min about">
-			<div class="sub-title">
-				Amr Diwan is a Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, corporis? Magni corrupti sed quaerat a rerum odio dignissimos
-				quis mollitia.
+			<div class="sub-title gold-text">
+				<strong>Amr Diwan</strong> combines the concepts of <strong>graffiti</strong> and <strong>architecture</strong> design elements. <br />
+				<small>we guarantee high quality personalized designs that will bring your brand to life.</small>
 			</div>
 			<div class="tab-content">
-				<div class="stat-section">
-					<div class="stat-list">
-						<div *ngFor="let stat of Stats; let i = index" class="stat" [ngClass]="{ 'expanded': expandedIndex === i }" (click)="onStatClick(i)">
-							<div class="number">{{ stat.Number }}</div>
-							<div class="text">
-								<div class="stat-title">{{ stat.Title }}</div>
-								<div class="description">{{ stat.Description }}</div>
-							</div>
+				<div class="stat-list">
+					<div *ngFor="let stat of Stats; let i = index" class="stat">
+						<div class="number">{{ stat.Number }}</div>
+						<div class="text t{{i}}">
+							<div class="stat-title">{{ stat.Title }}</div>
+							<div class="description">{{ stat.Description }}</div>
 						</div>
-					</div>
-					<div [ngClass]="{ 'expanded': expandedIndex !== null }" class="additional-info">
-						<!-- Your additional information goes here (e.g., an image) -->
-						<img [src]="SelectedStat?.ImgSrc" alt="" />
 					</div>
 				</div>
 				<div class="browse-more mb-3">
-					<a class="btn btn-outline-primary" [routerLink]="RoutePaths.ArtWorks">Learn More</a>
+					<a class="btn btn-primary" [routerLink]="RoutePaths.ArtWorks">Learn More</a>
 				</div>
-				<div class="list about-list">
+				<!-- <div class="list about-list">
 					<div *ngFor="let about of About;let i = index " class="overlay-img-item img{{i}}">
 						<img [src]="about.ImgSrc" [alt]="about.ImgAlt" class="img" />
 						<div class="visible">
 							<div class="mb-2">{{about.Title}}</div>
 							<div class="me-1">{{about.Description}}</div>
 						</div>
+					</div>
+				</div> -->
+			</div>
+		</section>
+
+		<section class="page-section no-min projects">
+			<!-- <h1 class="title" data-wow-delay="0.1s">projects</h1> -->
+
+			<div class="tab-content">
+				<div class="list">
+					<div *ngFor="let img of images;let i = index " class="hoverable-img-item img{{i}} gallery-img ">
+						<img src="{{img}}" alt="" class="img" />
+						<div class="visible">
+							<span class="productn d-block h5 mb-2">title</span>
+							<span class="price me-1">Lorem ipsum dolor sit amet consectetur adipisicing.</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- <div class="browse-more">
+					<a class="btn btn-outline-primary" [routerLink]="RoutePaths.ArtWorks">Browse More Products</a>
+				</div> -->
+			</div>
+		</section>
+
+		<section class="page-section no-min partners">
+			<!-- <h1 class="title" data-wow-delay="0.1s">Partners</h1> -->
+			<div class="tab-content">
+				<div class="list">
+					<div *ngFor="let partner of Partners;let i = index " class="">
+						<img [src]="partner.ImgSrc" [alt]="partner.ImgAlt" />
 					</div>
 				</div>
 			</div>
@@ -107,26 +93,6 @@
 							<a href="#" class="btn btn-primary">Go somewhere</a>
 						</div>
 					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="page-section no-min projects">
-			<h1 class="title" data-wow-delay="0.1s">projects</h1>
-
-			<div class="tab-content">
-				<div class="list">
-					<div *ngFor="let img of images;let i = index " class="hoverable-img-item img{{i}} gallery-img ">
-						<img src="{{img}}" alt="" class="img" />
-						<div class="visible">
-							<span class="productn d-block h5 mb-2">title</span>
-							<span class="price me-1">Lorem ipsum dolor sit amet consectetur adipisicing.</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="browse-more">
-					<a class="btn btn-outline-primary" [routerLink]="RoutePaths.ArtWorks">Browse More Products</a>
 				</div>
 			</div>
 		</section>
@@ -160,16 +126,5 @@
 			</button>
 		</div>
 	</section> -->
-
-		<section class="page-section no-min partners">
-			<h1 class="title" data-wow-delay="0.1s">Partners</h1>
-			<div class="tab-content">
-				<div class="list">
-					<div *ngFor="let partner of Partners;let i = index " class="">
-						<img [src]="partner.ImgSrc" [alt]="partner.ImgAlt" />
-					</div>
-				</div>
-			</div>
-		</section>
 	</div>
 </div>

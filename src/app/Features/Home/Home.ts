@@ -2,7 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { animate, stagger } from 'motion';
-import { RoutePaths } from 'src/app/Common/Settings/RoutePaths';
+import { RoutePaths } from '@App/Common/Settings/RoutePaths';
 import { RouterModule } from '@angular/router';
 
 class CarouselItem {
@@ -89,7 +89,7 @@ export class HomeComponent implements OnInit {
 			ImgAlt: '',
 			Title: 'Years Of Experience',
 			Number: '15+',
-			Description: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
+			Description: '',
 			Link: '',
 		},
 		{
@@ -97,7 +97,7 @@ export class HomeComponent implements OnInit {
 			ImgAlt: '',
 			Title: 'Countries',
 			Number: '4',
-			Description: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
+			Description: '',
 			Link: '',
 		},
 		{
@@ -105,17 +105,9 @@ export class HomeComponent implements OnInit {
 			ImgAlt: '',
 			Title: 'Projects',
 			Number: '25',
-			Description: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
+			Description: '',
 			Link: '',
 		},
-		{
-			ImgSrc: '',
-			ImgAlt: '',
-			Title: 'Lorem',
-			Number: '42',
-			Description: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
-			Link: '',
-		}
 	]
 
 	images: string[] = [
@@ -192,27 +184,84 @@ export class HomeComponent implements OnInit {
 
 	Partners: AboutItem[] = [
 		{
-			ImgSrc: 'assets/Images/logo1.png',
+			ImgSrc: 'assets/Logos/4seasons.png ',
 			ImgAlt: 'about the artist',
 			Title: 'The Artist',
 			Description: '',
 			Link: '',
 		},
 		{
-			ImgSrc: 'assets/Images/logo2.png',
+			ImgSrc: 'assets/Logos/adidas.png ',
 			ImgAlt: 'about the company',
 			Title: 'The Company',
 			Description: '',
 			Link: '',
 		},
 		{
-			ImgSrc: 'assets/Images/logo3.png',
+			ImgSrc: 'assets/Logos/amazon.png ',
+			ImgAlt: 'about the company',
+			Title: 'The Company',
+			Description: '',
+			Link: '',
+		},
+		{
+			ImgSrc: 'assets/Logos/Careem2.png ',
+			ImgAlt: 'about the company',
+			Title: 'The Company',
+			Description: '',
+			Link: '',
+		},
+		{
+			ImgSrc: 'assets/Logos/fifa.png ',
+			ImgAlt: 'about the company',
+			Title: 'The Company',
+			Description: '',
+			Link: '',
+		},
+		{
+			ImgSrc: 'assets/Logos/hsbc.png ',
+			ImgAlt: 'about the company',
+			Title: 'The Company',
+			Description: '',
+			Link: '',
+		},
+		{
+			ImgSrc: 'assets/Logos/moneyfellows.png ',
+			ImgAlt: 'about the company',
+			Title: 'The Company',
+			Description: '',
+			Link: '',
+		},
+		{
+			ImgSrc: 'assets/Logos/opel.png ',
+			ImgAlt: 'about the company',
+			Title: 'The Company',
+			Description: '',
+			Link: '',
+		},
+		{
+			ImgSrc: 'assets/Logos/oppo.png ',
+			ImgAlt: 'about the company',
+			Title: 'The Company',
+			Description: '',
+			Link: '',
+		},
+		{
+			ImgSrc: 'assets/Logos/Orange.png ',
+			ImgAlt: 'about the company',
+			Title: 'The Company',
+			Description: '',
+			Link: '',
+		},
+		{
+			ImgSrc: 'assets/Logos/pubg.png',
 			ImgAlt: 'about the company',
 			Title: 'The Company',
 			Description: '',
 			Link: '',
 		}
 	]
+
 	hoveredIndex: number | null = null;
 
 	ngOnInit(): void {

@@ -3,6 +3,17 @@
 body {
 	scroll-behavior: smooth;
 	background-color: black;
+
+	.gold-text {
+		background: -webkit-linear-gradient(
+			0deg,
+			var(--gold1) 0%,
+			var(--gold2) 100%
+		);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
 }
 
 .inner-container {
