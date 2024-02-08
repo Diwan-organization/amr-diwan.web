@@ -88,7 +88,7 @@ export class HomeComponent implements OnInit {
 			ImgSrc: '',
 			ImgAlt: '',
 			Title: 'Years Of Experience',
-			Number: '15+',
+			Number: '15',
 			Description: '',
 			Link: '',
 		},
@@ -114,9 +114,10 @@ export class HomeComponent implements OnInit {
 		'assets/Images/girl-wall.jpg',
 		'assets/Images/dog-wall-2.jpg',
 		'assets/Images/girl-wall-2.jpg',
-		// 'assets/Images/girl-wall-3.jpg',
-		// 'assets/Images/girl-wall-4.jpg',
-		// 'assets/Images/girl-wall-5.jpg',
+		'assets/Images/girl-wall-3.jpg',
+		'assets/Images/girl-wall-4.jpg',
+		'assets/Images/girl-wall-5.jpg',
+
 	]; // Add your image file names
 
 	News: NewsItem[] = [
@@ -263,8 +264,78 @@ export class HomeComponent implements OnInit {
 	]
 
 	hoveredIndex: number | null = null;
+	ngAfterViewInit() {
+		this.StatAnimation()
+	}
+
+	StatAnimation() {
+		const number = document.querySelectorAll(".number");
+		const title = document.querySelectorAll(".stat-title");
+		const description = document.querySelectorAll(".description");
+
+		const observerOptions = {
+			root: null,
+			rootMargin: '0px',
+			threshold: 0.2
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					this.startAnimation(number, title, description);
+					observer.disconnect();
+				}
+			});
+		}, observerOptions);
+
+		if (number && number[0]) {
+			observer.observe(number[0]);
+		}
+	}
+
+	startAnimation(number: any, title: any, description: any) {
+		setTimeout(() => {
+			number[0].setAttribute("style", "opacity:1");
+			animate(
+				(progress) => {
+					number[0].innerHTML = (Math.round(progress * 15)).toString();
+
+					if (progress === 1) {
+						number[0].innerHTML += "+";
+					}
+				},
+				{ duration: 0.5, easing: "ease-out" }
+			);
+			title[0].setAttribute("style", "opacity:1");
+			description[0].setAttribute("style", "opacity:1");
+			setTimeout(() => {
+				number[1].setAttribute("style", "opacity:1");
+				animate(
+					(progress) => {
+						number[1].innerHTML = (Math.round(progress * 4)).toString();
+					},
+					{ duration: 0.2, easing: "ease-out" }
+				);
+				title[1].setAttribute("style", "opacity:1");
+				description[1].setAttribute("style", "opacity:1");
+
+				setTimeout(() => {
+					number[2].setAttribute("style", "opacity:1");
+					animate(
+						(progress) => {
+							number[2].innerHTML = (Math.round(progress * 25)).toString();
+						},
+						{ duration: 0.5, easing: "ease-out" }
+					);
+					title[2].setAttribute("style", "opacity:1");
+					description[2].setAttribute("style", "opacity:1");
+				}, 900);
+			}, 800);
+		}, 700);
+	}
 
 	ngOnInit(): void {
+
 		///3wza agrb a3ml 3l elemnt msh section
 		const sectionProjects: any = document.querySelector('.projects');
 		const observerprojects = new IntersectionObserver((entries) => {
@@ -297,7 +368,6 @@ export class HomeComponent implements OnInit {
 			});
 		}, this.observerOptions);
 		observerprojects.observe(sectionProjects);
-
 
 
 

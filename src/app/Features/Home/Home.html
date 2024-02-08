@@ -26,14 +26,15 @@
 			</div>
 			<div class="tab-content">
 				<div class="stat-list">
-					<div *ngFor="let stat of Stats; let i = index" class="stat">
-						<div class="number">{{ stat.Number }}</div>
+					<div *ngFor="let stat of Stats; let i = index" class="stat stat{{i}}">
+						<div class="number" [id]="'number-' + i">{{ stat.Number }}</div>
 						<div class="text t{{i}}">
 							<div class="stat-title">{{ stat.Title }}</div>
 							<div class="description">{{ stat.Description }}</div>
 						</div>
 					</div>
 				</div>
+
 				<div class="browse-more mb-3">
 					<a class="btn btn-primary" [routerLink]="RoutePaths.ArtWorks">Learn More</a>
 				</div>
@@ -53,7 +54,12 @@
 			<!-- <h1 class="title" data-wow-delay="0.1s">projects</h1> -->
 
 			<div class="tab-content">
-				<div class="list">
+				<div class="parent">
+					<div *ngFor="let img of images;let i = index " class="div{{i+1}}">
+						<img src="{{img}}" alt="" class="gallery-img hoverable-img-item" />
+					</div>
+				</div>
+				<!-- <div class="list">
 					<div *ngFor="let img of images;let i = index " class="hoverable-img-item img{{i}} gallery-img ">
 						<img src="{{img}}" alt="" class="img" />
 						<div class="visible">
@@ -61,7 +67,7 @@
 							<span class="price me-1">Lorem ipsum dolor sit amet consectetur adipisicing.</span>
 						</div>
 					</div>
-				</div>
+				</div> -->
 
 				<!-- <div class="browse-more">
 					<a class="btn btn-outline-primary" [routerLink]="RoutePaths.ArtWorks">Browse More Products</a>
@@ -126,5 +132,30 @@
 			</button>
 		</div>
 	</section> -->
+		<!-- <section>
+			<div class="parent container">
+				<div class="div1">
+					<img class="img-fluid" style="height: 100%" src="assets/Images/girl-wall.jpg" />
+				</div>
+				<div class="div2">
+					<img class="img-fluid" style="height: 100%" src="assets/Images/girl-wall.jpg" />
+				</div>
+				<div class="div3">
+					<img class="img-fluid" style="height: 100%" src="assets/Images/girl-wall.jpg" />
+				</div>
+				<div class="div4">
+					<img class="img-fluid" style="height: 100%" src="assets/Images/girl-wall.jpg" />
+				</div>
+				<div class="div5">
+					<img class="img-fluid" style="height: 100%" src="assets/Images/girl-wall.jpg" />
+				</div>
+				<div class="div6">
+					<img class="img-fluid" style="height: 100%" src="assets/Images/girl-wall.jpg" />
+				</div>
+				<div class="div7">
+					<img class="img-fluid" style="height: 100%" src="assets/Images/girl-wall.jpg" />
+				</div>
+			</div>
+		</section> -->
 	</div>
 </div>
