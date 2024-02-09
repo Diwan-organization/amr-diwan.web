@@ -265,7 +265,7 @@ export class HomeComponent implements OnInit {
 
 	hoveredIndex: number | null = null;
 	ngAfterViewInit() {
-		this.StatAnimation()
+		// this.StatAnimation()
 	}
 
 	StatAnimation() {
@@ -337,37 +337,37 @@ export class HomeComponent implements OnInit {
 	ngOnInit(): void {
 
 		///3wza agrb a3ml 3l elemnt msh section
-		const sectionProjects: any = document.querySelector('.projects');
-		const observerprojects = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					animate(
-						'.gallery-img',
-						{
-							opacity: [0, 1],
-							y: [-20, 0],
+		// const sectionProjects: any = document.querySelector('.projects');
+		// const observerprojects = new IntersectionObserver((entries) => {
+		// 	entries.forEach((entry) => {
+		// 		if (entry.isIntersecting) {
+		// 			animate(
+		// 				'.gallery-img',
+		// 				{
+		// 					opacity: [0, 1],
+		// 					y: [-20, 0],
 
-						},
-						{
-							delay: stagger(0.2),
-							duration: 0.5,
-							easing: ['ease-in-out'],
-						}
-					);
-					animate(
-						'.browse-more',
-						{ opacity: [0, 1], y: [-40, 0] },
-						{
-							delay: stagger(0.6),
-							duration: 0.5,
-							easing: ['ease-in-out'],
-						}
-					);
-					observerprojects.disconnect();
-				}
-			});
-		}, this.observerOptions);
-		observerprojects.observe(sectionProjects);
+		// 				},
+		// 				{
+		// 					delay: stagger(0.2),
+		// 					duration: 0.5,
+		// 					easing: ['ease-in-out'],
+		// 				}
+		// 			);
+		// 			animate(
+		// 				'.browse-more',
+		// 				{ opacity: [0, 1], y: [-40, 0] },
+		// 				{
+		// 					delay: stagger(0.6),
+		// 					duration: 0.5,
+		// 					easing: ['ease-in-out'],
+		// 				}
+		// 			);
+		// 			observerprojects.disconnect();
+		// 		}
+		// 	});
+		// }, this.observerOptions);
+		// observerprojects.observe(sectionProjects);
 
 
 
@@ -410,34 +410,34 @@ export class HomeComponent implements OnInit {
 
 
 		// Start observing the 'latest-news' section
-		const sectionLatestNews: any = document.querySelector('.latest-news');
-		const observerNews = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					// The 'about' section is in view, trigger animations
-					animate(
-						'.card',
-						{
-							opacity: [0, 1],
-							// x: [-20, 0],
-							rotateY: ['-90deg', '0deg']
-						},
-						{
-							delay: stagger(0.2),
-							duration: 0.5,
-							easing: ['ease-in-out'],
-						}
-					);
-					animate(
-						'.title',
-						{ y: [-20, 0] },
-					);
-					// Disconnect the observer after triggering the animations once
-					observerNews.disconnect();
-				}
-			});
-		}, this.observerOptions);
-		observerNews.observe(sectionLatestNews);
+		// const sectionLatestNews: any = document.querySelector('.latest-news');
+		// const observerNews = new IntersectionObserver((entries) => {
+		// 	entries.forEach((entry) => {
+		// 		if (entry.isIntersecting) {
+		// 			// The 'about' section is in view, trigger animations
+		// 			animate(
+		// 				'.card',
+		// 				{
+		// 					opacity: [0, 1],
+		// 					// x: [-20, 0],
+		// 					rotateY: ['-90deg', '0deg']
+		// 				},
+		// 				{
+		// 					delay: stagger(0.2),
+		// 					duration: 0.5,
+		// 					easing: ['ease-in-out'],
+		// 				}
+		// 			);
+		// 			animate(
+		// 				'.title',
+		// 				{ y: [-20, 0] },
+		// 			);
+		// 			// Disconnect the observer after triggering the animations once
+		// 			observerNews.disconnect();
+		// 		}
+		// 	});
+		// }, this.observerOptions);
+		// observerNews.observe(sectionLatestNews);
 	}
 
 	showVisibleDiv(index: number): void {
