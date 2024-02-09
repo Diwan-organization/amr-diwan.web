@@ -88,7 +88,7 @@ export class HomeComponent implements OnInit {
 			ImgSrc: '',
 			ImgAlt: '',
 			Title: 'Years Of Experience',
-			Number: '15',
+			Number: '15+',
 			Description: '',
 			Link: '',
 		},
