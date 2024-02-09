@@ -282,14 +282,14 @@
 							color: var(--gold1);
 							font-size: 80px;
 							font-weight: 600;
-							opacity: 0;
+							// opacity: 0;
 						}
 						.text {
 							margin-inline-start: 15px;
 							flex-grow: 1;
 							text-align: start;
 							font-size: 22px;
-							opacity: 0;
+							// opacity: 0;
 							animation: fadeIn 2s ease-in-out forwards;
 							&.t1 {
 								animation-delay: calc(0.5s);
@@ -303,12 +303,12 @@
 							.stat-title {
 								font-weight: bold;
 								color: var(--primary-font-color);
-								opacity: 0;
+								// opacity: 0;
 							}
 							.description {
 								font-size: 12px;
 								color: var(--secondary-font-color);
-								opacity: 0;
+								// opacity: 0;
 							}
 						}
 					}

@@ -38,15 +38,59 @@
 						about
 					</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item art">
 					<a
 						class="nav-link"
 						[routerLink]="[RoutePaths.ArtWorks]"
 						routerLinkActive="active"
 						data-bs-toggle="collapse"
-						data-bs-target=".navbar-collapse.show">
+						data-bs-target=".navbar-collapse.show"
+						(mouseenter)="toggleScrolled(true)"
+						(mouseleave)="toggleScrolled(false)">
 						Art Works
 					</a>
+					<div class="art-categories">
+						<div class="art-inner-categories">
+							<img src="assets/Images/kansas-wall-2.jpg" />
+							<h5 class="sub-title gold-text">EGYPT PROJECTS</h5>
+							<div class="art-links">
+								<a>Project 1</a>
+								<a>Project 2</a>
+								<a>Project 3</a>
+								<a>Project 4</a>
+							</div>
+						</div>
+						<div class="art-inner-categories">
+							<img src="assets/Images/kansas-wall-2.jpg" />
+							<h5 class="sub-title gold-text">EGYPT PROJECTS</h5>
+							<div class="art-links">
+								<a>Project 1</a>
+								<a>Project 2</a>
+								<a>Project 3</a>
+								<a>Project 4</a>
+							</div>
+						</div>
+						<div class="art-inner-categories">
+							<img src="assets/Images/kansas-wall-2.jpg" />
+							<h5 class="sub-title gold-text">EGYPT PROJECTS</h5>
+							<div class="art-links">
+								<a>Project 1</a>
+								<a>Project 2</a>
+								<a>Project 3</a>
+								<a>Project 4</a>
+							</div>
+						</div>
+						<div class="art-inner-categories">
+							<img src="assets/Images/kansas-wall-2.jpg" />
+							<h5 class="sub-title gold-text">EGYPT PROJECTS</h5>
+							<div class="art-links">
+								<a>Project 1</a>
+								<a>Project 2</a>
+								<a>Project 3</a>
+								<a>Project 4</a>
+							</div>
+						</div>
+					</div>
 				</li>
 				<li class="nav-item">
 					<a

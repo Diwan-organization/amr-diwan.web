@@ -12,6 +12,46 @@ $font-color-secondary: var(--gold2);
 
 	.navbar-nav {
 		margin-left: -100px;
+		.art-categories {
+			position: absolute;
+			background-color: var(--primary-bg-color);
+			width: 100%;
+			left: 0;
+			padding: 50px;
+			display: none;
+			.art-inner-categories {
+				display: flex;
+				flex-direction: column;
+				padding-left: 50px;
+				padding-right: 50px;
+
+				img {
+					object-fit: cover;
+					width: 350px;
+				}
+				.sub-title {
+					border-bottom: 1px solid #a6823a;
+					padding-bottom: 20px;
+					padding-top: 20px;
+				}
+				.art-links {
+					display: flex;
+					flex-direction: column;
+					text-align: left !important;
+					a {
+						padding-bottom: 10px;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+		.art:hover {
+			.art-categories {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+			}
+		}
 	}
 	&:has(.show),
 	&:has(.collapsing) {
