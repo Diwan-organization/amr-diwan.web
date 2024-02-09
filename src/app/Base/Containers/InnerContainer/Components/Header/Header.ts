@@ -27,5 +27,11 @@ export class HeaderComponent {
 
 	goToSettings() {
 	}
-
+	toggleScrolled(ishovered: boolean) {
+		if (ishovered) {
+			document.querySelector('.navbar')?.classList.add('navbar-scrolled');
+		} else {
+			document.querySelector('.navbar')?.classList.remove('navbar-scrolled');
+		}
+	}
 }
