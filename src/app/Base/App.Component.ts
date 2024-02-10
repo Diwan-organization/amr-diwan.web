@@ -22,7 +22,6 @@ export class AppComponent {
     this.PreLoaderListener();
     this.ScrollUpSub();
     this.CheckIOS();
-    this.ScrollChanges();
   }
 
   PreLoaderListener() {
@@ -72,17 +71,5 @@ export class AppComponent {
     }
   }
 
-  ScrollChanges() {
-    window.addEventListener('scroll', function () {
-      const navbar = document.querySelector('.navbar');
-      const body = document.querySelector('body');
-      if (window.scrollY > 1) {
-        navbar?.classList.add('navbar-scrolled');
-        body!.style.backgroundColor = 'var(--primary-color1)';
-      } else {
-        navbar?.classList.remove('navbar-scrolled');
-        body!.style.backgroundColor = '';
-      }
-    });
-  }
+
 }
