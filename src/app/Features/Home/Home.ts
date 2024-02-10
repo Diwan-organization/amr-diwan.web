@@ -46,7 +46,7 @@ class StatsItem {
 	standalone: true,
 	templateUrl: './Home.html',
 	styleUrls: ['Home.scss'],
-	imports: [FormsModule, CommonModule, RouterModule],
+	imports: [FormsModule, CommonModule, RouterModule,],
 })
 export class HomeComponent implements OnInit {
 	RoutePaths = RoutePaths;
@@ -88,7 +88,7 @@ export class HomeComponent implements OnInit {
 			ImgSrc: '',
 			ImgAlt: '',
 			Title: 'Years Of Experience',
-			Number: '15+',
+			Number: '15',
 			Description: '',
 			Link: '',
 		},
@@ -113,10 +113,10 @@ export class HomeComponent implements OnInit {
 	images: string[] = [
 		'assets/Images/girl-wall.jpg',
 		'assets/Images/dog-wall-2.jpg',
-		'assets/Images/girl-wall-2.jpg',
-		'assets/Images/girl-wall-3.jpg',
-		'assets/Images/girl-wall-4.jpg',
-		'assets/Images/girl-wall-5.jpg',
+		// 'assets/Images/girl-wall-2.jpg',
+		// 'assets/Images/girl-wall-3.jpg',
+		// 'assets/Images/girl-wall-4.jpg',
+		// 'assets/Images/girl-wall-5.jpg',
 
 	]; // Add your image file names
 
@@ -262,12 +262,15 @@ export class HomeComponent implements OnInit {
 			Link: '',
 		}
 	]
-
-	hoveredIndex: number | null = null;
+	MinIndex = 5;
 	ngAfterViewInit() {
-		// this.StatAnimation()
+		this.StatAnimation()
 	}
 
+	loadMore() {
+		this.MinIndex = Math.min(this.MinIndex + 5, this.Partners.length);
+	}
+	hoveredIndex: number | null = null;
 	StatAnimation() {
 		const number = document.querySelectorAll(".number");
 		const title = document.querySelectorAll(".stat-title");
@@ -329,8 +332,8 @@ export class HomeComponent implements OnInit {
 					);
 					title[2].setAttribute("style", "opacity:1");
 					description[2].setAttribute("style", "opacity:1");
-				}, 900);
-			}, 800);
+				}, 500);
+			}, 700);
 		}, 700);
 	}
 
@@ -373,38 +376,38 @@ export class HomeComponent implements OnInit {
 
 
 		// // Start observing the 'about' section
-		// const sectionAbout: any = document.querySelector('.about');
-		// const observerAbout = new IntersectionObserver((entries) => {
-		// 	entries.forEach((entry) => {
-		// 		if (entry.isIntersecting) {
-		// 			// The 'about' section is in view, trigger animations
-		// 			animate(
-		// 				'.browse-more',
-		// 				{ y: [-20, 0] },
-		// 				{ delay: stagger(0.1), duration: 0.2 }
-		// 			);
-		// 			animate(
-		// 				'.title',
-		// 				{ y: [-20, 0] },
-		// 				{ delay: stagger(0.1), duration: 0.2 }
-		// 			);
-		// 			animate(
-		// 				'.sub-title',
-		// 				{ y: [-20, 0] },
-		// 				{ delay: stagger(0.1), duration: 0.2 }
-		// 			);
-		// 			animate(
-		// 				'.tab-content',
-		// 				{ y: [-20, 0] },
-		// 				{ delay: stagger(0.1), duration: 0.9 }
-		// 			);
+		const sectionAbout: any = document.querySelector('.about');
+		const observerAbout = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					// The 'about' section is in view, trigger animations
+					animate(
+						'.browse-more',
+						{ y: [-20, 0] },
+						{ delay: stagger(0.1), duration: 0.2 }
+					);
+					animate(
+						'.title',
+						{ y: [-20, 0] },
+						{ delay: stagger(0.1), duration: 0.2 }
+					);
+					animate(
+						'.sub-title',
+						{ y: [-20, 0] },
+						{ delay: stagger(0.1), duration: 0.2 }
+					);
+					animate(
+						'.tab-content',
+						{ y: [-20, 0] },
+						{ delay: stagger(0.1), duration: 0.9 }
+					);
 
-		// 			// Disconnect the observer after triggering the animations once
-		// 			observerNews.disconnect();
-		// 		}
-		// 	});
-		// }, this.observerOptions);
-		// observerAbout.observe(sectionAbout);
+					// Disconnect the observer after triggering the animations once
+					observerAbout.disconnect();
+				}
+			});
+		}, this.observerOptions);
+		observerAbout.observe(sectionAbout);
 
 
 
