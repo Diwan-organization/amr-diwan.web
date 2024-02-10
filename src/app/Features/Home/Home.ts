@@ -164,24 +164,24 @@ export class HomeComponent implements OnInit {
 		}
 	]
 
-	ReviewsCarousel: CarouselItem[] = [
-		{
-			ImgSrc: 'assets/Images/founder.jpeg',
-			ImgAlt: 'news image :',
-			Caption: {
-				Title: 'First slide label',
-				Description: 'Some representative placeholder content for the first slide.',
-			}
-		},
-		// {
-		// 	ImgSrc: 'assets/Images/founder.jpeg',
-		// 	ImgAlt: '',
-		// 	Caption: {
-		// 		Title: 'Second slide label',
-		// 		Description: 'Some representative placeholder content for the second slide.',
-		// 	}
-		// }
-	]
+	// ReviewsCarousel: CarouselItem[] = [
+	// 	{
+	// 		ImgSrc: 'assets/Images/founder.jpeg',
+	// 		ImgAlt: 'news image :',
+	// 		Caption: {
+	// 			Title: 'First slide label',
+	// 			Description: 'Some representative placeholder content for the first slide.',
+	// 		}
+	// 	},
+	// 	// {
+	// 	// 	ImgSrc: 'assets/Images/founder.jpeg',
+	// 	// 	ImgAlt: '',
+	// 	// 	Caption: {
+	// 	// 		Title: 'Second slide label',
+	// 	// 		Description: 'Some representative placeholder content for the second slide.',
+	// 	// 	}
+	// 	// }
+	// ]
 
 	Partners: AboutItem[] = [
 		{
@@ -339,7 +339,7 @@ export class HomeComponent implements OnInit {
 
 	ngOnInit(): void {
 
-		///3wza agrb a3ml 3l elemnt msh section
+		// ///3wza agrb a3ml 3l elemnt msh section
 		// const sectionProjects: any = document.querySelector('.projects');
 		// const observerprojects = new IntersectionObserver((entries) => {
 		// 	entries.forEach((entry) => {
@@ -375,44 +375,44 @@ export class HomeComponent implements OnInit {
 
 
 
-		// // Start observing the 'about' section
-		const sectionAbout: any = document.querySelector('.about');
-		const observerAbout = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					// The 'about' section is in view, trigger animations
-					animate(
-						'.browse-more',
-						{ y: [-20, 0] },
-						{ delay: stagger(0.1), duration: 0.2 }
-					);
-					animate(
-						'.title',
-						{ y: [-20, 0] },
-						{ delay: stagger(0.1), duration: 0.2 }
-					);
-					animate(
-						'.sub-title',
-						{ y: [-20, 0] },
-						{ delay: stagger(0.1), duration: 0.2 }
-					);
-					animate(
-						'.tab-content',
-						{ y: [-20, 0] },
-						{ delay: stagger(0.1), duration: 0.9 }
-					);
+		// // // Start observing the 'about' section
+		// // const sectionAbout: any = document.querySelector('.about');
+		// // const observerAbout = new IntersectionObserver((entries) => {
+		// // 	entries.forEach((entry) => {
+		// // 		if (entry.isIntersecting) {
+		// // 			// The 'about' section is in view, trigger animations
+		// // 			animate(
+		// // 				'.browse-more',
+		// // 				{ y: [-20, 0] },
+		// // 				{ delay: stagger(0.1), duration: 0.2 }
+		// // 			);
+		// // 			animate(
+		// // 				'.title',
+		// // 				{ y: [-20, 0] },
+		// // 				{ delay: stagger(0.1), duration: 0.2 }
+		// // 			);
+		// // 			animate(
+		// // 				'.sub-title',
+		// // 				{ y: [-20, 0] },
+		// // 				{ delay: stagger(0.1), duration: 0.2 }
+		// // 			);
+		// // 			animate(
+		// // 				'.tab-content',
+		// // 				{ y: [-20, 0] },
+		// // 				{ delay: stagger(0.1), duration: 0.9 }
+		// // 			);
 
-					// Disconnect the observer after triggering the animations once
-					observerAbout.disconnect();
-				}
-			});
-		}, this.observerOptions);
-		observerAbout.observe(sectionAbout);
-
-
+		// // 			// Disconnect the observer after triggering the animations once
+		// // 			observerNews.disconnect();
+		// // 		}
+		// // 	});
+		// // }, this.observerOptions);
+		// // observerAbout.observe(sectionAbout);
 
 
-		// Start observing the 'latest-news' section
+
+
+		// // Start observing the 'latest-news' section
 		// const sectionLatestNews: any = document.querySelector('.latest-news');
 		// const observerNews = new IntersectionObserver((entries) => {
 		// 	entries.forEach((entry) => {
@@ -460,17 +460,5 @@ export class HomeComponent implements OnInit {
 
 		let ratio: number = scrollPosition / viewportHeight;
 		this.opacity = Math.min(this.BaseOpacity + (ratio / 3), 1);
-	}
-
-	expandedIndex: number | null = null;
-	SelectedStat!: StatsItem;
-	onStatClick(index: number): void {
-		// Toggle the expanded state
-		if (this.expandedIndex === index)
-			this.expandedIndex = null;
-		else {
-			this.expandedIndex = index;
-			this.SelectedStat = this.Stats[this.expandedIndex]
-		}
 	}
 }
