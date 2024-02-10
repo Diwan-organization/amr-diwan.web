@@ -5,15 +5,6 @@ import { animate, stagger } from 'motion';
 import { RoutePaths } from '@App/Common/Settings/RoutePaths';
 import { RouterModule } from '@angular/router';
 
-class CarouselItem {
-	ImgSrc!: string;
-	ImgAlt!: string;
-	Caption!: {
-		Title: string;
-		Description: string;
-	};
-}
-
 class NewsItem {
 	ImgSrc!: string;
 	ImgAlt!: string;
@@ -55,33 +46,6 @@ export class HomeComponent implements OnInit {
 		rootMargin: '10px',
 		threshold: 0.1, // Adjust this threshold based on your needs
 	};
-
-	LandingCarousel: CarouselItem[] = [
-		{
-			ImgSrc: 'assets/Images/hsbc.jpg',
-			ImgAlt: 'news image :',
-			Caption: {
-				Title: 'First slide label',
-				Description: 'Some representative placeholder content for the first slide.',
-			}
-		},
-		// {
-		// 	ImgSrc: 'assets/Images/dog-wall.jpg',
-		// 	ImgAlt: '',
-		// 	Caption: {
-		// 		Title: 'Second slide label',
-		// 		Description: 'Some representative placeholder content for the second slide.',
-		// 	}
-		// },
-		// {
-		// 	ImgSrc: 'assets/Images/girl-wall.jpg',
-		// 	ImgAlt: '',
-		// 	Caption: {
-		// 		Title: 'Third slide label',
-		// 		Description: 'Some representative placeholder content for the third slide.',
-		// 	}
-		// }
-	]
 
 	Stats: StatsItem[] = [
 		{
@@ -164,25 +128,6 @@ export class HomeComponent implements OnInit {
 		}
 	]
 
-	// ReviewsCarousel: CarouselItem[] = [
-	// 	{
-	// 		ImgSrc: 'assets/Images/founder.jpeg',
-	// 		ImgAlt: 'news image :',
-	// 		Caption: {
-	// 			Title: 'First slide label',
-	// 			Description: 'Some representative placeholder content for the first slide.',
-	// 		}
-	// 	},
-	// 	// {
-	// 	// 	ImgSrc: 'assets/Images/founder.jpeg',
-	// 	// 	ImgAlt: '',
-	// 	// 	Caption: {
-	// 	// 		Title: 'Second slide label',
-	// 	// 		Description: 'Some representative placeholder content for the second slide.',
-	// 	// 	}
-	// 	// }
-	// ]
-
 	Partners: AboutItem[] = [
 		{
 			ImgSrc: 'assets/Logos/4seasons.png ',
@@ -262,14 +207,12 @@ export class HomeComponent implements OnInit {
 			Link: '',
 		}
 	]
-	MinIndex = 5;
+
+
 	ngAfterViewInit() {
 		this.StatAnimation()
 	}
 
-	loadMore() {
-		this.MinIndex = Math.min(this.MinIndex + 5, this.Partners.length);
-	}
 	hoveredIndex: number | null = null;
 	StatAnimation() {
 		const number = document.querySelectorAll(".number");
@@ -338,6 +281,53 @@ export class HomeComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		const about = document.querySelector('.about')!;
+		about.classList.remove('about-transition');
+		const aboutObserver = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					about.classList.add('about-transition');
+					return;
+				}
+
+				about.classList.remove('about-transition');
+			});
+		});
+		aboutObserver.observe(about);
+
+
+		const projects = document.querySelectorAll('.project')!;
+		projects.forEach(project => {
+			console.log(project);
+
+			project.classList.remove('project-transition');
+
+			const observer = new IntersectionObserver(entries => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						project.classList.add('project-transition');
+						return;
+					}
+					project.classList.remove('project-transition');
+				});
+			});
+
+			observer.observe(project);
+		})
+
+		const partners = document.querySelector('.partners')!;
+		partners.classList.remove('partners-transition');
+		const partnersObserver = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					partners.classList.add('partners-transition');
+					return;
+				}
+
+				partners.classList.remove('partners-transition');
+			});
+		});
+		partnersObserver.observe(partners);
 
 		// ///3wza agrb a3ml 3l elemnt msh section
 		// const sectionProjects: any = document.querySelector('.projects');
@@ -460,5 +450,11 @@ export class HomeComponent implements OnInit {
 
 		let ratio: number = scrollPosition / viewportHeight;
 		this.opacity = Math.min(this.BaseOpacity + (ratio / 3), 1);
+	}
+
+
+	MinIndex = 8;
+	loadMore() {
+		this.MinIndex = Math.min(this.MinIndex + 5, this.Partners.length);
 	}
 }

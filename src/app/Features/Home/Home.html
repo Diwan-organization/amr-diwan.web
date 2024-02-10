@@ -17,6 +17,7 @@
 			<div class="arrow2"></div>
 		</div>
 	</section>
+
 	<div class="page-container">
 		<section class="page-section no-min about">
 			<div class="sub-title gold-text">
@@ -48,29 +49,56 @@
 				</div> -->
 			</div>
 		</section>
+
 		<section class="page-section no-min projects">
 			<div class="tab-content">
 				<div class="projects-list">
-					<img src="assets/Images/girl-wall.jpg" class="gallery-img" />
-					<div class="project-description">
-						<h1>PROJECT 1</h1>
-						<h5>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem
-							libero.
-						</h5>
+					<div class="project">
+						<img src="assets/Images/girl-wall.jpg" class="gallery-img" />
+						<div class="project-description">
+							<h1>PROJECT 1</h1>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem
+								libero.
+							</h5>
 
-						<a class="btn btn-primary" [routerLink]="RoutePaths.ArtWorks">Learn More</a>
+							<a class="btn btn-primary" [routerLink]="RoutePaths.ArtWorks">Learn More</a>
+						</div>
 					</div>
+					<div class="project">
+						<div class="project-description">
+							<h1>PROJECT 2</h1>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem
+								libero.
+							</h5>
+							<a class="btn btn-primary" [routerLink]="RoutePaths.ArtWorks">Learn More</a>
+						</div>
+						<img src="assets/Images/girl-wall-3.jpg" class="gallery-img" />
+					</div>
+					<div class="project">
+						<img src="assets/Images/girl-wall.jpg" class="gallery-img" />
+						<div class="project-description">
+							<h1>PROJECT 3</h1>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem
+								libero.
+							</h5>
 
-					<div class="project-description">
-						<h1>PROJECT 2</h1>
-						<h5>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem
-							libero.
-						</h5>
-						<a class="btn btn-primary" [routerLink]="RoutePaths.ArtWorks">Learn More</a>
+							<a class="btn btn-primary" [routerLink]="RoutePaths.ArtWorks">Learn More</a>
+						</div>
 					</div>
-					<img src="assets/Images/girl-wall-3.jpg" class="gallery-img" />
+					<div class="project">
+						<div class="project-description">
+							<h1>PROJECT 4</h1>
+							<h5>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem
+								libero.
+							</h5>
+							<a class="btn btn-primary" [routerLink]="RoutePaths.ArtWorks">Learn More</a>
+						</div>
+						<img src="assets/Images/girl-wall-3.jpg" class="gallery-img" />
+					</div>
 				</div>
 			</div>
 		</section>
@@ -93,15 +121,18 @@
 		</section> -->
 
 		<section class="page-section no-min partners">
-			<!-- <h1 class="title" data-wow-delay="0.1s">Partners</h1> -->
+			<h1 class="title">Partners</h1>
 			<div class="tab-content">
 				<div class="list">
-					<div *ngFor="let partner of Partners.slice(0, MinIndex);let i = index " class="">
+					<span *ngFor="let partner of Partners.slice(0, MinIndex);let i = index " class="">
 						<img [src]="partner.ImgSrc" [alt]="partner.ImgAlt" />
-					</div>
-				</div>
-				<div class="browse-more mt-3">
-					<button (click)="loadMore()" *ngIf="MinIndex < Partners.length" class="btn btn-primary">Load More</button>
+					</span>
+					<span class="browse-more mt-3">
+						<button (click)="loadMore()" *ngIf="MinIndex < Partners.length" class="btn btn-primary">
+							More
+							<i class="fa fa-chevron-right" aria-hidden="true"></i>
+						</button>
+					</span>
 				</div>
 				<!-- <div id="carouselLogos" class="carousel slide pt-5 pb-4" data-bs-ride="carousel">
 					<div class="carousel-inner px-5">

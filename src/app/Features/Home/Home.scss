@@ -1,3 +1,5 @@
+$transition: all 0.6s ease-in;
+
 .page-inner {
 	// background-image: url('../../../assets/Images/hsbc.jpg');
 	background-size: cover;
@@ -15,8 +17,8 @@
 		background-color: var(--primary-bg-color);
 	}
 
+	// Begin global styles
 	.page-section {
-		// Begin global styles
 		display: flex;
 		flex-direction: column;
 		align-items: stretch;
@@ -43,43 +45,6 @@
 		}
 
 		.tab-content {
-			.projects-list {
-				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(45%, 49%));
-				grid-gap: 50px 5px;
-				justify-content: space-around;
-				justify-items: center;
-				padding: 50px 20px 50px 20px;
-				background-color: rgb(214 195 148 / 30%);
-				.project-description {
-					display: flex;
-					flex-direction: column;
-					justify-content: center;
-					height: 85vh;
-					h1 {
-						font-size: 50px;
-						color: var(--gold1);
-					}
-					h5 {
-						color: var(--gold1);
-						max-width: 500px;
-						text-align: center;
-						margin-bottom: 20px;
-						align-self: center;
-					}
-					a {
-						width: max-content;
-						align-self: center;
-						margin-top: 10px;
-					}
-				}
-				.gallery-img {
-					width: 100%;
-					height: 85vh;
-					object-fit: cover;
-				}
-			}
-
 			// .parent {
 			// 	display: grid;
 			// 	grid-template-columns: repeat(8, 1fr);
@@ -193,17 +158,11 @@
 				}
 			}
 		}
+	}
+	// End global styles
 
-		.overlay {
-			width: 100%;
-			height: 100%;
-			background-color: rgb(0, 0, 0, 0.4);
-			z-index: 100;
-			position: absolute;
-		}
-		// End global styles
-
-		// override each section
+	// override each section
+	.page-section {
 		&.video-div {
 			position: relative;
 			overflow: hidden;
@@ -218,7 +177,7 @@
 			.landing-overlay {
 				position: absolute;
 				// background-color: rgba(0, 0, 0, 0.6);
-				background-color: rgba(0, 0, 0, 1);
+				background-color: rgba(4, 0, 9, 1);
 				height: 100%;
 				width: 100%;
 				display: flex;
@@ -228,6 +187,7 @@
 				padding-left: 50px;
 				&.text {
 					background-color: transparent;
+					animation: fadeInFromLeft 1s ease-in-out;
 				}
 				h1 {
 					// text-shadow: 0px 0px 3px var(--primary-cool-color1);
@@ -288,6 +248,15 @@
 		}
 
 		&.about {
+			opacity: 0;
+			transform: translateX(-20px);
+			transition: $transition;
+
+			&.about-transition {
+				opacity: 1;
+				transform: translateX(0px);
+			}
+
 			.sub-title {
 				font-size: 20px;
 				text-align: center;
@@ -371,8 +340,53 @@
 
 		&.projects {
 			.tab-content {
-				.browse-more {
-					margin: 20px;
+				.projects-list {
+					display: flex;
+					flex-direction: column;
+					justify-content: space-around;
+
+					// background-color: rgb(214 195 148 / 30%);
+
+					.project {
+						height: 85vh;
+						display: flex;
+						padding: 50px 20px;
+
+						opacity: 0;
+						transform: translateY(50px);
+						transition: $transition;
+						&.project-transition {
+							opacity: 1;
+							transform: translateY(0px);
+						}
+
+						.project-description {
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
+							h1 {
+								font-size: 50px;
+								color: var(--gold1);
+							}
+							h5 {
+								color: var(--gold1);
+								max-width: 500px;
+								text-align: center;
+								margin-bottom: 20px;
+								align-self: center;
+							}
+							a {
+								width: max-content;
+								align-self: center;
+								margin-top: 10px;
+							}
+						}
+						.gallery-img {
+							width: 100%;
+							max-width: 60vw;
+							object-fit: cover;
+						}
+					}
 				}
 			}
 		}
@@ -445,19 +459,34 @@
 
 		&.partners {
 			background-color: white;
+			overflow: auto;
+
+			opacity: 0;
+			transform: translateX(-20px);
+			transition: $transition;
+
+			&.partners-transition {
+				opacity: 1;
+				transform: translateX(0px);
+			}
+
 			.tab-content {
+				position: relative;
+
 				.list {
-					display: flex;
-					justify-content: center;
+					display: inline-flex;
 					align-items: center;
-					flex-wrap: wrap;
 					img {
 						max-width: 150px;
+						min-width: 150px;
 						max-height: 150px;
+						min-height: 150px;
 						margin: 10px;
 						display: block; /* Ensure the image takes up its full container */
 						width: 100%; /* Adjust the width as needed */
 						height: auto; /* Maintain aspect ratio */
+						object-fit: contain;
+
 						filter: grayscale(
 							100%
 						); /* Convert image to black and white */
@@ -467,14 +496,12 @@
 							filter: grayscale(0%);
 						}
 					}
+
+					.browse-more {
+						width: max-content;
+					}
 				}
 			}
 		}
 	}
 }
-
-// .carousel-item {
-// 	img {
-// 		height: 150px;
-// 	}
-// }

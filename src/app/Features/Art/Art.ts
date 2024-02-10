@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { animate, stagger } from 'motion';
 
 
-class CategoryItem {
+class ProjectItem {
     Name!: string;
     Description!: string;
-    Images!: string[]
+    Images!: string[];
+    Location!: string;
 }
 
 
@@ -21,10 +22,83 @@ class CategoryItem {
 export class ArtComponent {
     private animatedSections: Set<string> = new Set();
     SearchText: string = '';
-    categories: CategoryItem[] = [
+    Projects: ProjectItem[] = [
+        {
+            Name: 'FIFA',
+            Description: 'kmldsvfnkjclsmn jckc danlkx dsjkndwk scd',
+            Location: 'Qatar',
+            Images: [
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp'
+            ]
+
+        },
+        {
+            Name: 'HSBC',
+            Description: 'description 1',
+            Location: 'Egypt',
+            Images: [
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp'
+            ]
+        },
+        {
+            Name: 'Moussa',
+            Description: 'description 3',
+            Location: 'KSA',
+            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
+        },
+        {
+            Name: 'Meryal',
+            Description: 'description 3',
+            Location: 'KSA',
+            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
+        },
+        {
+            Name: 'Adidas',
+            Description: 'description 3',
+            Location: 'KSA',
+            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
+        }
+
+    ];
+
+    MoreProjects: ProjectItem[] = [
         {
             Name: 'Project 1',
             Description: 'description 1',
+            Location: 'KSA',
             Images: [
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
@@ -40,6 +114,7 @@ export class ArtComponent {
         {
             Name: 'Project 2',
             Description: 'description 2',
+            Location: 'Qatar',
             Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
@@ -52,6 +127,7 @@ export class ArtComponent {
         {
             Name: 'Project 3',
             Description: 'description 3',
+            Location: 'Egypt',
             Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
@@ -63,11 +139,11 @@ export class ArtComponent {
         }
 
     ];
-    filteredCategories: CategoryItem[];
+    filteredProjects: ProjectItem[];
 
 
     constructor(private renderer: Renderer2, private el: ElementRef) {
-        this.filteredCategories = this.categories
+        this.filteredProjects = this.Projects
     }
 
     private scrollTo(element: HTMLElement) {
@@ -90,6 +166,7 @@ export class ArtComponent {
         this.attachClickEventListeners();
         this.checkElementsVisibility();
     }
+
     observerOptions: {} = {
         root: null,
         rootMargin: '10px',
@@ -112,10 +189,10 @@ export class ArtComponent {
                                     imgFluidElements,
                                     {
                                         opacity: [0, 0.5, 1],
-                                        y: [25, 0],
+                                        y: [15, 0],
                                     },
                                     {
-                                        delay: stagger(0.2),
+                                        delay: stagger(0.05),
                                         duration: 0.6,
                                         easing: ['ease-in-out'],
                                     }
@@ -138,10 +215,10 @@ export class ArtComponent {
     Search() {
         this.animatedSections.clear();
         if (this.SearchText.trim() === '') {
-            this.filteredCategories = this.categories;
+            this.filteredProjects = this.Projects;
 
         } else {
-            this.filteredCategories = this.categories.filter(category =>
+            this.filteredProjects = this.Projects.filter(category =>
                 category.Name.toLowerCase().includes(this.SearchText.trim().toLowerCase()) ||
                 category.Description.toLowerCase().includes(this.SearchText.trim().toLowerCase())
             );
