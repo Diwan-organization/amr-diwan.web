@@ -6,10 +6,11 @@ import { AppComponent } from './App.Component';
 import { RouterModule } from '@angular/router';
 import { routes } from './App.Routes';
 import { PreLoaderComponent } from '@App/Common/Widgets/Spinners/PreLoader/PreLoader';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, RouterModule.forRoot(routes, { useHash: true }),
+  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes, { useHash: true }),
     PreLoaderComponent
   ],
   providers: [],

@@ -30,6 +30,7 @@ class StatsItem {
 	Number!: string;
 	Description!: string;
 	Link!: string;
+	TimeInterval!: number;
 }
 
 
@@ -55,14 +56,7 @@ export class HomeComponent implements OnInit {
 			Number: '15',
 			Description: '',
 			Link: '',
-		},
-		{
-			ImgSrc: '',
-			ImgAlt: '',
-			Title: 'Countries',
-			Number: '4',
-			Description: '',
-			Link: '',
+			TimeInterval: 100
 		},
 		{
 			ImgSrc: '',
@@ -71,10 +65,20 @@ export class HomeComponent implements OnInit {
 			Number: '25',
 			Description: '',
 			Link: '',
+			TimeInterval: 70
+		},
+		{
+			ImgSrc: '',
+			ImgAlt: '',
+			Title: 'Countries',
+			Number: '4',
+			Description: '',
+			Link: '',
+			TimeInterval: 200
 		},
 	]
 
-	images: string[] = [
+	Projects: string[] = [
 		'assets/Images/girl-wall.jpg',
 		'assets/Images/dog-wall-2.jpg',
 		// 'assets/Images/girl-wall-2.jpg',
@@ -107,23 +111,6 @@ export class HomeComponent implements OnInit {
 			Title: 'News 3 title',
 			Date: new Date('28/6/1996'),
 			Description: 'Some representative placeholder content for the first slide.',
-			Link: '',
-		}
-	]
-
-	About: AboutItem[] = [
-		{
-			ImgSrc: 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-			ImgAlt: 'about the artist',
-			Title: 'The Artist',
-			Description: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
-			Link: '',
-		},
-		{
-			ImgSrc: 'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: 'Lorem ipsum dolor sit amet consectetur adipisicing.',
 			Link: '',
 		}
 	]
@@ -208,9 +195,51 @@ export class HomeComponent implements OnInit {
 		}
 	]
 
-
+	// stats animation
 	ngAfterViewInit() {
-		this.StatAnimation()
+		// this.StatAnimation()
+
+		const observer = new IntersectionObserver(entries => {
+			entries.reduce((promise, entry) => {
+				return promise.then(() => {
+					return new Promise(resolve => {
+						if (entry.isIntersecting) {
+							setTimeout(() => {
+								animateNumber(entry.target).then(() => resolve());
+							}, 500);
+							// remove if you want it to repeat it on scroll again
+							observer.unobserve(entry.target);
+						}
+					});
+				});
+			}, Promise.resolve());
+		});
+
+		const stats = document.querySelectorAll('.stat');
+		stats.forEach(stat => observer.observe(stat));
+
+		function animateNumber(element: any) {
+			return new Promise<void>(resolve => {
+				const numberElement = element.querySelector('.number');
+				const targetNumber = parseInt(numberElement.getAttribute('number'));
+				const targetTimeInterval = parseInt(numberElement.getAttribute('timeinterval'));
+
+				let currentNumber = 0;
+				const interval = setInterval(() => {
+					currentNumber++;
+					numberElement.innerText = currentNumber;
+					if (currentNumber >= targetNumber) {
+						if (numberElement.id == 0) {
+							numberElement.innerText += '+'
+						}
+						clearInterval(interval);
+						element.querySelector('.text').classList.add('fade-in-left');
+						resolve();
+					}
+				}, targetTimeInterval);
+			});
+
+		}
 	}
 
 	hoveredIndex: number | null = null;
@@ -281,6 +310,25 @@ export class HomeComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		const landingText = document.querySelector('.landing-text')!;
+		landingText.classList.remove('landing-text-transition');
+		const landingTextObserver = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					landingText.classList.add('landing-text-transition');
+					return;
+				}
+
+				landingText.classList.remove('landing-text-transition');
+			});
+		});
+		landingTextObserver.observe(landingText);
+
+
+
+
+
+
 		const about = document.querySelector('.about')!;
 		about.classList.remove('about-transition');
 		const aboutObserver = new IntersectionObserver(entries => {
@@ -298,8 +346,7 @@ export class HomeComponent implements OnInit {
 
 		const projects = document.querySelectorAll('.project')!;
 		projects.forEach(project => {
-			console.log(project);
-
+			// console.log(project);
 			project.classList.remove('project-transition');
 
 			const observer = new IntersectionObserver(entries => {
@@ -449,7 +496,7 @@ export class HomeComponent implements OnInit {
 		const viewportHeight: number = window.innerHeight;
 
 		let ratio: number = scrollPosition / viewportHeight;
-		this.opacity = Math.min(this.BaseOpacity + (ratio / 3), 1);
+		this.opacity = Math.min(this.BaseOpacity + (ratio / 2.5), 1);
 	}
 
 

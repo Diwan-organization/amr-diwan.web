@@ -120,10 +120,10 @@ $font-color-secondary: var(--gold2);
 // art section hover
 .navbar {
 	.navbar-nav {
-		.art:hover {
+		.art:hover,
+		.art.active {
 			.art-categories {
 				display: flex;
-				justify-content: space-around;
 			}
 		}
 		.art-categories {
@@ -134,7 +134,7 @@ $font-color-secondary: var(--gold2);
 			left: 0;
 			padding: 20px 0;
 			display: none;
-			justify-content: space-around;
+			justify-content: center;
 
 			.art-inner-categories {
 				display: flex;

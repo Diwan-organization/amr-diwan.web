@@ -2,6 +2,7 @@ import { ApplicationRef, Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { PlatformLocation } from '@angular/common';
 import { RoutePaths } from '../Common/Settings/RoutePaths';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -15,13 +16,49 @@ export class AppComponent {
   constructor(
     private PlatformLocation: PlatformLocation,
     private Router: Router,
-    private appRef: ApplicationRef
+    private appRef: ApplicationRef,
+    private http: HttpClient
   ) { }
 
   ngOnInit() {
     this.PreLoaderListener();
     this.ScrollUpSub();
     this.CheckIOS();
+    this.loadImages();
+  }
+
+  images: string[] = [
+    'assets/Videos/diwan-graffiti1.mp4',
+    'assets/Images/girl-wall-3.jpg',
+    'assets/Images/girl-wall.jpg',
+    'assets/Images/dog-wall-2.jpg',
+    'assets/Logos/4seasons.png ',
+    'assets/Logos/adidas.png ',
+    'assets/Logos/amazon.png ',
+    'assets/Logos/Careem2.png ',
+    'assets/Logos/fifa.png ',
+    'assets/Logos/hsbc.png ',
+    'assets/Logos/moneyfellows.png ',
+    'assets/Logos/opel.png ',
+    'assets/Logos/oppo.png ',
+    'assets/Logos/Orange.png ',
+    'assets/Logos/pubg.png',
+  ];
+  imagesLoaded: number = 0;
+  totalImages: number = this.images.length;
+
+  loadImages() {
+    this.images.forEach(url => {
+      this.http.get(url, { responseType: 'blob' }).subscribe(() => {
+        this.imagesLoaded++;
+        // console.log('imagesLoaded', this.imagesLoaded);
+
+        if (this.imagesLoaded === this.totalImages) {
+          // All images are loaded, hide the preloader
+          this.IsLoaded = true;
+        }
+      });
+    });
   }
 
   PreLoaderListener() {
