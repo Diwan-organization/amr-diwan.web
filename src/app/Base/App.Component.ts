@@ -91,7 +91,7 @@ export class AppComponent {
     this.Router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         // Scroll to the top of the page when a new route is navigated
-        window.scrollTo(0, 0);
+        // window.scrollTo(0, 0);
       }
     });
   }

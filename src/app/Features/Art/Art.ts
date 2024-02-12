@@ -150,7 +150,12 @@ export class ArtComponent implements OnInit {
         this.filteredProjects = this.Projects
     }
     ngOnInit(): void {
-        this.filteredProjects = this.Projects
+        this.filteredProjects = this.Projects;
+        this.ActivatedRoute.params.subscribe((params) => {
+            this.project = params['project'];
+            debugger
+            this.RouteToProject(this.project)
+        });
     }
 
     private scrollTo(element: HTMLElement) {
@@ -170,11 +175,6 @@ export class ArtComponent implements OnInit {
     }
 
     ngAfterViewInit() {
-        this.ActivatedRoute.params.subscribe((params) => {
-            this.project = params['project'];
-            debugger
-            this.RouteToProject(this.project)
-        });
         this.checkElementsVisibility();
     }
 
@@ -243,7 +243,7 @@ export class ArtComponent implements OnInit {
         menuLinks.forEach((link: Element) => {
             link.classList.remove('active');
         })
-        if (project != undefined && project != '') {
+        if (project) {
             const link = this.el.nativeElement.querySelector('.' + project.toLocaleUpperCase()) || this.el.nativeElement.querySelector('.' + project)
             if (link) {
                 link.classList.add('active');

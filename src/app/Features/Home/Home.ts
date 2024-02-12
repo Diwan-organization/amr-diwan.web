@@ -4,6 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { animate, stagger } from 'motion';
 import { RoutePaths } from '@App/Common/Settings/RoutePaths';
 import { RouterModule } from '@angular/router';
+import { CarouselComponent } from '@App/Common/Widgets/Carousel/Carousel';
+
+
+class ProjectItem {
+	ImgSrc!: string;
+	ImgAlt!: string;
+	Title!: string;
+	Description!: string;
+	Link!: string;
+}
 
 class NewsItem {
 	ImgSrc!: string;
@@ -38,7 +48,7 @@ class StatsItem {
 	standalone: true,
 	templateUrl: './Home.html',
 	styleUrls: ['Home.scss'],
-	imports: [FormsModule, CommonModule, RouterModule,],
+	imports: [FormsModule, CommonModule, RouterModule, CarouselComponent],
 })
 export class HomeComponent implements OnInit {
 	RoutePaths = RoutePaths;
@@ -78,15 +88,37 @@ export class HomeComponent implements OnInit {
 		},
 	]
 
-	Projects: string[] = [
-		'assets/Images/girl-wall.jpg',
-		'assets/Images/dog-wall-2.jpg',
-		// 'assets/Images/girl-wall-2.jpg',
-		// 'assets/Images/girl-wall-3.jpg',
-		// 'assets/Images/girl-wall-4.jpg',
-		// 'assets/Images/girl-wall-5.jpg',
+	Projects: ProjectItem[] = [
+		{
+			ImgSrc: 'assets/Images/girl-wall.jpg',
+			ImgAlt: '',
+			Title: 'Fifa World Cup Qatar 2022',
+			Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
+			Link: 'fifa',
+		},
+		{
+			ImgSrc: 'assets/Images/girl-wall-3.jpg',
+			ImgAlt: '',
+			Title: 'HSBC',
+			Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
+			Link: 'hsbc',
+		},
+		{
+			ImgSrc: 'assets/Images/girl-wall.jpg',
+			ImgAlt: '',
+			Title: 'Moussa Hospital',
+			Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
+			Link: 'moussa',
+		},
+		{
+			ImgSrc: 'assets/Images/girl-wall-3.jpg',
+			ImgAlt: '',
+			Title: 'Meryal Water Park',
+			Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
+			Link: 'meryal',
+		}
 
-	]; // Add your image file names
+	];
 
 	News: NewsItem[] = [
 		{
@@ -194,188 +226,9 @@ export class HomeComponent implements OnInit {
 			Link: '',
 		}
 	]
-
-	// stats animation
-	ngAfterViewInit() {
-		// this.StatAnimation()
-
-		const observer = new IntersectionObserver(entries => {
-			entries.reduce((promise, entry) => {
-				return promise.then(() => {
-					return new Promise(resolve => {
-						if (entry.isIntersecting) {
-							setTimeout(() => {
-								animateNumber(entry.target).then(() => resolve());
-							}, 500);
-							// remove if you want it to repeat it on scroll again
-							observer.unobserve(entry.target);
-						}
-					});
-				});
-			}, Promise.resolve());
-		});
-
-		const stats = document.querySelectorAll('.stat');
-		stats.forEach(stat => observer.observe(stat));
-
-		function animateNumber(element: any) {
-			return new Promise<void>(resolve => {
-				const numberElement = element.querySelector('.number');
-				const targetNumber = parseInt(numberElement.getAttribute('number'));
-				const targetTimeInterval = parseInt(numberElement.getAttribute('timeinterval'));
-
-				let currentNumber = 0;
-				const interval = setInterval(() => {
-					currentNumber++;
-					numberElement.innerText = currentNumber;
-					if (currentNumber >= targetNumber) {
-						if (numberElement.id == 0) {
-							numberElement.innerText += '+'
-						}
-						clearInterval(interval);
-						element.querySelector('.text').classList.add('fade-in-left');
-						resolve();
-					}
-				}, targetTimeInterval);
-			});
-
-		}
-	}
-
-	hoveredIndex: number | null = null;
-	StatAnimation() {
-		const number = document.querySelectorAll(".number");
-		const title = document.querySelectorAll(".stat-title");
-		const description = document.querySelectorAll(".description");
-
-		const observerOptions = {
-			root: null,
-			rootMargin: '0px',
-			threshold: 0.2
-		};
-
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					this.startAnimation(number, title, description);
-					observer.disconnect();
-				}
-			});
-		}, observerOptions);
-
-		if (number && number[0]) {
-			observer.observe(number[0]);
-		}
-	}
-
-	startAnimation(number: any, title: any, description: any) {
-		setTimeout(() => {
-			number[0].setAttribute("style", "opacity:1");
-			animate(
-				(progress) => {
-					number[0].innerHTML = (Math.round(progress * 15)).toString();
-
-					if (progress === 1) {
-						number[0].innerHTML += "+";
-					}
-				},
-				{ duration: 0.5, easing: "ease-out" }
-			);
-			title[0].setAttribute("style", "opacity:1");
-			description[0].setAttribute("style", "opacity:1");
-			setTimeout(() => {
-				number[1].setAttribute("style", "opacity:1");
-				animate(
-					(progress) => {
-						number[1].innerHTML = (Math.round(progress * 4)).toString();
-					},
-					{ duration: 0.2, easing: "ease-out" }
-				);
-				title[1].setAttribute("style", "opacity:1");
-				description[1].setAttribute("style", "opacity:1");
-
-				setTimeout(() => {
-					number[2].setAttribute("style", "opacity:1");
-					animate(
-						(progress) => {
-							number[2].innerHTML = (Math.round(progress * 25)).toString();
-						},
-						{ duration: 0.5, easing: "ease-out" }
-					);
-					title[2].setAttribute("style", "opacity:1");
-					description[2].setAttribute("style", "opacity:1");
-				}, 500);
-			}, 700);
-		}, 700);
-	}
+	x = this.Partners.map(p => p.ImgSrc)
 
 	ngOnInit(): void {
-		const landingText = document.querySelector('.landing-text')!;
-		landingText.classList.remove('landing-text-transition');
-		const landingTextObserver = new IntersectionObserver(entries => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					landingText.classList.add('landing-text-transition');
-					return;
-				}
-
-				landingText.classList.remove('landing-text-transition');
-			});
-		});
-		landingTextObserver.observe(landingText);
-
-
-
-
-
-
-		const about = document.querySelector('.about')!;
-		about.classList.remove('about-transition');
-		const aboutObserver = new IntersectionObserver(entries => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					about.classList.add('about-transition');
-					return;
-				}
-
-				about.classList.remove('about-transition');
-			});
-		});
-		aboutObserver.observe(about);
-
-
-		const projects = document.querySelectorAll('.project')!;
-		projects.forEach(project => {
-			// console.log(project);
-			project.classList.remove('project-transition');
-
-			const observer = new IntersectionObserver(entries => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						project.classList.add('project-transition');
-						return;
-					}
-					project.classList.remove('project-transition');
-				});
-			});
-
-			observer.observe(project);
-		})
-
-		const partners = document.querySelector('.partners')!;
-		partners.classList.remove('partners-transition');
-		const partnersObserver = new IntersectionObserver(entries => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					partners.classList.add('partners-transition');
-					return;
-				}
-
-				partners.classList.remove('partners-transition');
-			});
-		});
-		partnersObserver.observe(partners);
-
 		// ///3wza agrb a3ml 3l elemnt msh section
 		// const sectionProjects: any = document.querySelector('.projects');
 		// const observerprojects = new IntersectionObserver((entries) => {
@@ -480,6 +333,198 @@ export class HomeComponent implements OnInit {
 		// observerNews.observe(sectionLatestNews);
 	}
 
+	// stats animation
+	ngAfterViewInit() {
+		// this.StatAnimation()
+
+		this.Animation.LandingText();
+		this.Animation.About();
+		this.Animation.Stat();
+		this.Animation.Projects();
+		this.Animation.Partners();
+
+	}
+
+	hoveredIndex: number | null = null;
+	StatAnimation() {
+		const number = document.querySelectorAll(".number");
+		const title = document.querySelectorAll(".stat-title");
+		const description = document.querySelectorAll(".description");
+
+		const observerOptions = {
+			root: null,
+			rootMargin: '0px',
+			threshold: 0.2
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					this.startAnimation(number, title, description);
+					observer.disconnect();
+				}
+			});
+		}, observerOptions);
+
+		if (number && number[0]) {
+			observer.observe(number[0]);
+		}
+	}
+
+	startAnimation(number: any, title: any, description: any) {
+		setTimeout(() => {
+			number[0].setAttribute("style", "opacity:1");
+			animate(
+				(progress) => {
+					number[0].innerHTML = (Math.round(progress * 15)).toString();
+
+					if (progress === 1) {
+						number[0].innerHTML += "+";
+					}
+				},
+				{ duration: 0.5, easing: "ease-out" }
+			);
+			title[0].setAttribute("style", "opacity:1");
+			description[0].setAttribute("style", "opacity:1");
+			setTimeout(() => {
+				number[1].setAttribute("style", "opacity:1");
+				animate(
+					(progress) => {
+						number[1].innerHTML = (Math.round(progress * 4)).toString();
+					},
+					{ duration: 0.2, easing: "ease-out" }
+				);
+				title[1].setAttribute("style", "opacity:1");
+				description[1].setAttribute("style", "opacity:1");
+
+				setTimeout(() => {
+					number[2].setAttribute("style", "opacity:1");
+					animate(
+						(progress) => {
+							number[2].innerHTML = (Math.round(progress * 25)).toString();
+						},
+						{ duration: 0.5, easing: "ease-out" }
+					);
+					title[2].setAttribute("style", "opacity:1");
+					description[2].setAttribute("style", "opacity:1");
+				}, 500);
+			}, 700);
+		}, 700);
+	}
+
+	Animation = {
+		LandingText: () => {
+			const landingText = document.querySelector('.landing-text')!;
+			landingText.classList.remove('landing-text-transition');
+			const landingTextObserver = new IntersectionObserver(entries => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						landingText.classList.add('landing-text-transition');
+						return;
+					}
+
+					landingText.classList.remove('landing-text-transition');
+				});
+			});
+			landingTextObserver.observe(landingText);
+		},
+
+		About: () => {
+			const about = document.querySelector('.about')!;
+			about.classList.remove('about-transition');
+			const aboutObserver = new IntersectionObserver(entries => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						about.classList.add('about-transition');
+						return;
+					}
+
+					about.classList.remove('about-transition');
+				});
+			});
+			aboutObserver.observe(about);
+		},
+
+		Stat: () => {
+			const observer = new IntersectionObserver(entries => {
+				entries.reduce((promise, entry) => {
+					return promise.then(() => {
+						return new Promise(resolve => {
+							if (entry.isIntersecting) {
+								setTimeout(() => {
+									animateNumber(entry.target).then(() => resolve());
+								}, 0);
+								// remove if you want it to repeat it on scroll again
+								observer.unobserve(entry.target);
+							}
+						});
+					});
+				}, Promise.resolve());
+			});
+
+			const stats = document.querySelectorAll('.stat');
+			stats.forEach(stat => observer.observe(stat));
+
+			function animateNumber(element: any) {
+				return new Promise<void>(resolve => {
+					const numberElement = element.querySelector('.number');
+					const targetNumber = parseInt(numberElement.getAttribute('number'));
+					const targetTimeInterval = parseInt(numberElement.getAttribute('timeinterval'));
+
+					let currentNumber = 0;
+					const interval = setInterval(() => {
+						currentNumber++;
+						numberElement.innerText = currentNumber;
+						if (currentNumber >= targetNumber) {
+							if (numberElement.id == 0) {
+								numberElement.innerText += '+'
+							}
+							clearInterval(interval);
+							element.querySelector('.text').classList.add('fade-in-left');
+							resolve();
+						}
+					}, targetTimeInterval);
+				});
+			}
+		},
+
+		Projects: () => {
+			const projects = document.querySelectorAll('.project')!;
+			projects.forEach(project => {
+				// console.log(project);
+				project.classList.remove('project-transition');
+
+				const observer = new IntersectionObserver(entries => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							project.classList.add('project-transition');
+							return;
+						}
+						project.classList.remove('project-transition');
+					});
+				});
+
+				observer.observe(project);
+			})
+		},
+
+		Partners: () => {
+			const partners = document.querySelector('.partners')!;
+			partners.classList.remove('partners-transition');
+			const partnersObserver = new IntersectionObserver(entries => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						partners.classList.add('partners-transition');
+						return;
+					}
+
+					partners.classList.remove('partners-transition');
+				});
+			});
+			partnersObserver.observe(partners);
+		}
+	}
+
 	showVisibleDiv(index: number): void {
 		this.hoveredIndex = index;
 	}
@@ -498,7 +543,6 @@ export class HomeComponent implements OnInit {
 		let ratio: number = scrollPosition / viewportHeight;
 		this.opacity = Math.min(this.BaseOpacity + (ratio / 2.5), 1);
 	}
-
 
 	MinIndex = 8;
 	loadMore() {
