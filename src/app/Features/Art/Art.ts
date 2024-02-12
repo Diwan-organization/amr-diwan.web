@@ -1,7 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, Renderer2 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { animate, stagger } from 'motion';
+import { Location } from '@angular/common';
+
 
 
 class ProjectItem {
@@ -19,7 +22,7 @@ class ProjectItem {
     imports: [CommonModule, FormsModule],
 
 })
-export class ArtComponent {
+export class ArtComponent implements OnInit {
     private animatedSections: Set<string> = new Set();
     SearchText: string = '';
     Projects: ProjectItem[] = [
@@ -53,7 +56,7 @@ export class ArtComponent {
             ]
         },
         {
-            Name: 'Moussa',
+            Name: 'MOUSSA',
             Description: 'description 3',
             Location: 'KSA',
             Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
@@ -66,7 +69,7 @@ export class ArtComponent {
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
         },
         {
-            Name: 'Meryal',
+            Name: 'MERYAL',
             Description: 'description 3',
             Location: 'KSA',
             Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
@@ -79,7 +82,7 @@ export class ArtComponent {
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
         },
         {
-            Name: 'Adidas',
+            Name: 'ADIDAS',
             Description: 'description 3',
             Location: 'KSA',
             Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
@@ -140,9 +143,13 @@ export class ArtComponent {
 
     ];
     filteredProjects: ProjectItem[];
+    project: string = '';
 
 
-    constructor(private renderer: Renderer2, private el: ElementRef) {
+    constructor(private renderer: Renderer2, private el: ElementRef, private ActivatedRoute: ActivatedRoute, private location: Location) {
+        this.filteredProjects = this.Projects
+    }
+    ngOnInit(): void {
         this.filteredProjects = this.Projects
     }
 
@@ -163,7 +170,11 @@ export class ArtComponent {
     }
 
     ngAfterViewInit() {
-        this.attachClickEventListeners();
+        this.ActivatedRoute.params.subscribe((params) => {
+            this.project = params['project'];
+            debugger
+            this.RouteToProject(this.project)
+        });
         this.checkElementsVisibility();
     }
 
@@ -224,32 +235,57 @@ export class ArtComponent {
             );
 
         }
-        setTimeout(() => {
-            this.attachClickEventListeners();
-            this.checkElementsVisibility();
 
-        }, 0);
     }
 
-
-    attachClickEventListeners() {
+    RouteToProject(project: string) {
         const menuLinks = this.el.nativeElement.querySelectorAll('#categories');
-
         menuLinks.forEach((link: Element) => {
-            link.addEventListener('click', (event: { preventDefault: () => void; }) => {
-                event.preventDefault();
-                const targetId = link.getAttribute('data-category');
-                if (targetId) {
-                    menuLinks.forEach((menuLink: { classList: { remove: (arg0: string) => void; }; }) => {
-                        menuLink.classList.remove('active');
-                    });
-                    link.classList.add('active');
-                    const targetElement = this.el.nativeElement.querySelector(`#${targetId}`);
-                    if (targetElement) {
-                        this.scrollTo(targetElement);
-                    }
+            link.classList.remove('active');
+        })
+        if (project != undefined && project != '') {
+            const link = this.el.nativeElement.querySelector('.' + project.toLocaleUpperCase()) || this.el.nativeElement.querySelector('.' + project)
+            if (link) {
+                link.classList.add('active');
+                const targetElement = this.el.nativeElement.querySelector(`#${project.toLocaleUpperCase()}`);
+                if (targetElement) {
+                    this.scrollTo(targetElement);
                 }
-            });
-        });
+            }
+        }
+        else {
+            menuLinks[0].classList.add('active');
+
+        }
     }
+    attachClickEventListeners(project: string) {
+        this.location.go('/artworks/' + project.toLocaleLowerCase());
+        this.RouteToProject(project.toLocaleLowerCase());
+        // const menuLinks = this.el.nativeElement.querySelectorAll('#categories');
+        // menuLinks.forEach((link: Element) => {
+        //     link.classList.remove('active');
+        // })
+        // menuLinks.forEach((link: Element) => {
+        //     link.addEventListener('click', (event: { preventDefault: () => void; }) => {
+        // const targetId = link.getAttribute('data-category');
+        // if (targetId) {
+
+        // }
+        //             });
+        //         });
+        //     }
+    }
+
+
+
+    // const link = this.el.nativeElement.querySelector('.' + project.toLocaleLowerCase())
+    // if (link) {
+    //     link.classList.add('active');
+    //     const targetElement = this.el.nativeElement.querySelector(`#${project}`);
+    //     if (targetElement) {
+    //         this.scrollTo(targetElement);
+    //     }
+    // }
+    // else {
+    //     const menuLinks = this.el.nativeElement.querySelectorAll('#categories').first().classList.add('active');
 }

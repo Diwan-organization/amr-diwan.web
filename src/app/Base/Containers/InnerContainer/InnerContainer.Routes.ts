@@ -33,29 +33,11 @@ export const routes: Routes = [
         loadComponent: () =>
           import('@App/Features/Art/Art').then((c) => c.ArtComponent),
       },
-      // {
-      // 	path: 'course/:id',
-      // 	loadComponent: () => import('@App/Features/CoursesList/Course/Course').then((c) => c.CourseComponent)
-      // },
-      // {
-      // 	path: 'feedback',
-      // 	loadComponent: () => import('@App/Features/Feedback/Feedback').then((c) => c.FeedbackComponent)
-      // },
-
-      // {
-      // 	path: 'founder',
-      // 	loadComponent: () => import('@App/Features/Founder/Founder').then((c) => c.FounderComponent)
-      // },
-      // {
-      // 	canActivate: [AuthGuard],
-      // 	path: 'profile',
-      // 	loadComponent: () => import('@App/Features/Profile/Profile').then((c) => c.ProfileComponent)
-      // },
-      // {
-      // 	path: 'unauthorized',
-      // 	loadComponent: () =>
-      // 		import('@App/Base/Containers/InnerContainer/Components/UnAuthorized/UnAuthorized').then((c) => c.UnAuthorizedComponent)
-      // },
+      {
+        path: 'artworks/:project',
+        loadComponent: () =>
+          import('@App/Features/Art/Art').then((c) => c.ArtComponent),
+      },
       // { path: '', redirectTo: 'RoutePaths.Home', pathMatch: 'full' },
       {
         path: '**',
@@ -69,4 +51,4 @@ export const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class InnerContainerRoutes {}
+export class InnerContainerRoutes { }
