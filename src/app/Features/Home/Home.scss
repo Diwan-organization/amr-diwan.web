@@ -505,3 +505,12 @@ $transition: all 0.6s ease-in;
 		}
 	}
 }
+
+#carouselLogos {
+	.carousel-item {
+		height: 200px;
+	}
+	img {
+		object-fit: cover;
+	}
+}

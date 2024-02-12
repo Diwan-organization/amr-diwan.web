@@ -128,8 +128,8 @@ export class HomeComponent implements OnInit {
 		}
 	]
 
-	Partners: AboutItem[] = [
-		{
+	Partners: AboutItem[][] = [
+		[{
 			ImgSrc: 'assets/Logos/4seasons.png ',
 			ImgAlt: 'about the artist',
 			Title: 'The Artist',
@@ -163,15 +163,14 @@ export class HomeComponent implements OnInit {
 			Title: 'The Company',
 			Description: '',
 			Link: '',
-		},
-		{
+		}]
+		, [{
 			ImgSrc: 'assets/Logos/hsbc.png ',
 			ImgAlt: 'about the company',
 			Title: 'The Company',
 			Description: '',
 			Link: '',
-		},
-		{
+		}, {
 			ImgSrc: 'assets/Logos/moneyfellows.png ',
 			ImgAlt: 'about the company',
 			Title: 'The Company',
@@ -198,14 +197,14 @@ export class HomeComponent implements OnInit {
 			Title: 'The Company',
 			Description: '',
 			Link: '',
-		},
-		{
+		}
+		], [{
 			ImgSrc: 'assets/Logos/pubg.png',
 			ImgAlt: 'about the company',
 			Title: 'The Company',
 			Description: '',
 			Link: '',
-		}
+		}]
 	]
 
 
