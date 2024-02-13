@@ -51,14 +51,14 @@
 					</a>
 
 					<div class="art-categories">
-						<div class="art-inner-categories" *ngFor="let category of ArtCategories">
+						<div class="art-inner-categories" *ngFor="let category of ArtCategories;">
 							<div class="image-container">
 								<img [src]="category.ImgSrc" [alt]="category.ImgAlt" />
 							</div>
 							<div class="title gold-text">{{category.Title}}</div>
 							<div class="art-links">
 								<ng-container *ngFor="let link of category.Links; index as i">
-									<a *ngIf="i<4" [routerLink]="link.Link"> {{link.Title}}</a>
+									<a *ngIf="i<4" [routerLink]="link.Link+'/'+link.Title.toLocaleLowerCase()"> {{link.Title}}</a>
 								</ng-container>
 								<a *ngIf="category.Links.length> 4" [routerLink]="RoutePaths.ArtWorks"> Browse More...</a>
 							</div>
