@@ -569,3 +569,92 @@ $transition: all 0.6s ease-in;
 		}
 	}
 }
+
+//test flip card
+
+.projects-listt {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	.project-cover {
+		width: 50%;
+		height: 100%;
+
+		&:hover {
+			.card {
+				transform: rotateX(180deg);
+			}
+		}
+
+		.projectt {
+			position: relative;
+			perspective: 1000px;
+			transform-style: preserve-3d;
+			display: block;
+			width: 100%;
+			height: 500px;
+			overflow: hidden;
+			cursor: pointer;
+
+			input {
+				display: none;
+			}
+			.card {
+				position: relative;
+				height: 100%;
+				width: 100%;
+				transform-style: preserve-3d;
+				transition: transform 600ms;
+				// z-index: 20;
+
+				&:hover {
+					transform: rotateX(180deg);
+				}
+
+				.frontCard,
+				.backCard {
+					height: 100%;
+					width: 100%;
+					position: absolute;
+					text-align: center;
+					backface-visibility: hidden;
+					border-radius: 2px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					transform-origin: center;
+					transform-style: preserve-3d;
+
+					.overlay-text {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						color: #fff;
+						text-align: center;
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						justify-content: center;
+						width: 100%;
+						height: 100%;
+						background: rgb(0, 0, 0, 0.5);
+
+						padding: 70px;
+						transform: translate(-50%, -50%) translateZ(80px)
+							scale(0.95);
+						-webkit-transform: translate(-50%, -50%)
+							translateZ(80px);
+						transform-style: preserve-3d;
+					}
+				}
+
+				.backCard {
+					background: #222;
+					color: #fff;
+					transform: rotateX(180deg) translateZ(30px);
+				}
+			}
+		}
+	}
+}

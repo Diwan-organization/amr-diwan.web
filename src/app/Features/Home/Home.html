@@ -47,15 +47,26 @@
 
 		<section class="page-section no-min projects">
 			<div class="tab-content">
-				<div class="projects-list">
-					<div class="project" *ngFor="let project of Projects; index as i">
-						<img *ngIf="i%2 ==0" [src]="project.ImgSrc" [alt]="project.ImgAlt" class="gallery-img" />
-						<div class="project-description">
-							<h1>{{project.Title}}</h1>
-							<h5>{{project.Description}}</h5>
-							<a class="btn btn-primary" [routerLink]="'/'+ RoutePaths.ArtWorks + '/' + project.Link">Learn More</a>
-						</div>
-						<img *ngIf="i%2 !=0" [src]="project.ImgSrc" [alt]="project.ImgAlt" class="gallery-img" />
+				<div class="projects-listt">
+					<div class="project-cover" *ngFor="let project of Projects; index as i" (mouseenter)="onCardHover(i)" (mouseleave)="onCardLeave(i)">
+						<label class="projectt">
+							<input type="checkbox" [checked]="isChecked(i)" (change)="onCheckboxChange(i)" />
+							<div class="card">
+								<div class="frontCard">
+									<img [src]="project.ImgSrc" [alt]="project.ImgAlt" class="img" />
+									<div class="overlay-text">
+										<h1>{{ project.Title }}</h1>
+									</div>
+								</div>
+								<div class="backCard">
+									<img [src]="project.ImgSrc" [alt]="project.ImgAlt" class="img" />
+									<div class="overlay-text">
+										<h5>{{ project.Description }}</h5>
+										<a class="btn btn-primary" [routerLink]="'/' + RoutePaths.ArtWorks + '/' + project.Link">Learn More</a>
+									</div>
+								</div>
+							</div>
+						</label>
 					</div>
 				</div>
 			</div>

@@ -548,4 +548,24 @@ export class HomeComponent implements OnInit {
 	loadMore() {
 		this.MinIndex = Math.min(this.MinIndex + 5, this.Partners.length);
 	}
+
+	private checkedIndex!: number;
+
+	onCheckboxChange(index: number): void {
+		this.checkedIndex = this.checkedIndex === index ? 0 : index;
+	}
+
+	isChecked(index: number): boolean {
+		return this.checkedIndex === index;
+	}
+
+	onCardHover(index: number): void {
+		this.checkedIndex = index;
+	}
+
+	onCardLeave(index: number): void {
+		if (this.checkedIndex !== 0 && this.checkedIndex === index) {
+			this.checkedIndex = 0;
+		}
+	}
 }
