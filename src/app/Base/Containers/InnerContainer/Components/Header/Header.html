@@ -65,6 +65,35 @@
 						</div>
 					</div>
 				</li>
+				<li class="nav-item dropdown" [ngClass]="!artflag?'show-list':''">
+					<a
+						class="nav-link dropdown-toggle"
+						(click)="toggle()"
+						href="#"
+						role="button"
+						id="dropdownMenuLink"
+						data-bs-toggle="dropdown"
+						aria-expanded="false">
+						Art Works
+						<i class="fa fa-chevron-down" [ngClass]="artflag?'show-icon':'hide'"></i>
+						<i class="fa fa-chevron-up" [ngClass]="!artflag?'show-icon':'hide'"></i>
+					</a>
+
+					<div class="art-categories dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<div class="art-inner-categories" *ngFor="let category of ArtCategories;">
+							<div class="image-container">
+								<img [src]="category.ImgSrc" [alt]="category.ImgAlt" />
+							</div>
+							<div class="title gold-text">{{category.Title}}</div>
+							<!-- <div class="art-links">
+								<ng-container *ngFor="let link of category.Links; index as i">
+									<a *ngIf="i<4" [routerLink]="link.Link+'/'+link.Title.toLocaleLowerCase()"> {{link.Title}}</a>
+								</ng-container>
+								<a *ngIf="category.Links.length> 4" [routerLink]="RoutePaths.ArtWorks"> Browse More...</a>
+							</div> -->
+						</div>
+					</div>
+				</li>
 				<li class="nav-item">
 					<a
 						class="nav-link"

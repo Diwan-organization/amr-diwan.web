@@ -19,6 +19,9 @@ export class ArtCategory {
 	styleUrls: ['./Header.scss'],
 })
 export class HeaderComponent implements OnInit {
+	toggle() {
+		this.artflag = !this.artflag
+	}
 	@ViewChild('NavbarCollapse') NavbarCollapse!: ElementRef;
 	RoutePaths = RoutePaths
 
@@ -108,6 +111,7 @@ export class HeaderComponent implements OnInit {
 			]
 		}
 	]
+	artflag: boolean = true;
 
 	constructor(private Router: Router) { }
 
