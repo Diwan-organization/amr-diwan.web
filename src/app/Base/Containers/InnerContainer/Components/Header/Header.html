@@ -55,44 +55,57 @@
 							<div class="image-container">
 								<img [src]="category.ImgSrc" [alt]="category.ImgAlt" />
 							</div>
-							<div class="title gold-text">{{category.Title}}</div>
-							<div class="art-links">
-								<ng-container *ngFor="let link of category.Links; index as i">
+							<span class="art-links">
+								<a class="title gold-text">{{category.Title}}</a>
+								<span *ngFor="let link of category.Links; index as i">
 									<a *ngIf="i<4" [routerLink]="link.Link+'/'+link.Title.toLocaleLowerCase()"> {{link.Title}}</a>
-								</ng-container>
+								</span>
 								<a *ngIf="category.Links.length> 4" [routerLink]="RoutePaths.ArtWorks"> Browse More...</a>
-							</div>
+							</span>
 						</div>
 					</div>
 				</li>
-				<li class="nav-item dropdown" [ngClass]="!artflag?'show-list':''">
-					<a
-						class="nav-link dropdown-toggle"
-						(click)="toggle()"
-						href="#"
-						role="button"
-						id="dropdownMenuLink"
-						data-bs-toggle="dropdown"
-						aria-expanded="false">
-						Art Works
-						<i class="fa fa-chevron-down" [ngClass]="artflag?'show-icon':'hide'"></i>
-						<i class="fa fa-chevron-up" [ngClass]="!artflag?'show-icon':'hide'"></i>
-					</a>
+				<li class="nav-item small-screen">
+					<a class="nav-link" [routerLink]="[RoutePaths.ArtWorks]" routerLinkActive="active" data-bs-toggle="collapse"> Art Works </a>
+					<span class="dropdown">
+						<span
+							(click)="toggleDropdown($event)"
+							class="dropdown-toggle parent-dropdown"
+							href="#"
+							role="button"
+							id="dropdownMenuLink"
+							data-bs-toggle="dropdown"
+							aria-expanded="false">
+							<i class="fa fa-chevron-down"></i>
+							<i class="fa fa-chevron-up"></i>
+						</span>
+						<div class="art-categories dropdown-menu" aria-labelledby="dropdownMenuLink" #dropdownMenu>
+							<div class="art-inner-categories dropdown-item" *ngFor="let category of ArtCategories;let i= index;">
+								<div class="image-container d-inline">
+									<img [src]="category.ImgSrc" [alt]="category.ImgAlt" />
+								</div>
 
-					<div class="art-categories dropdown-menu" aria-labelledby="dropdownMenuLink">
-						<div class="art-inner-categories" *ngFor="let category of ArtCategories;">
-							<div class="image-container">
-								<img [src]="category.ImgSrc" [alt]="category.ImgAlt" />
+								<span class="dropdown">
+									<a class="nav-link d-inline" [routerLink]="[RoutePaths.ArtWorks]" data-bs-toggle="collapse"> {{category.Title}} </a>
+									<span
+										class="dropdown-toggle child-dropdown"
+										href="#"
+										role="button"
+										id="dropdownMenu{{i}}"
+										data-bs-toggle="dropdown"
+										aria-expanded="false">
+										<i class="fa fa-chevron-down"></i>
+										<i class="fa fa-chevron-up"></i>
+									</span>
+									<div class="art-categories dropdown-menu child-menu" attr.aria-labelledby="dropdownMenu{{i}}">
+										<div *ngFor="let link of category.Links; index as i">
+											<a class="nav-link" *ngIf="i<4" [routerLink]="link.Link+'/'+link.Title.toLocaleLowerCase()"> {{link.Title}}</a>
+										</div>
+									</div>
+								</span>
 							</div>
-							<div class="title gold-text">{{category.Title}}</div>
-							<!-- <div class="art-links">
-								<ng-container *ngFor="let link of category.Links; index as i">
-									<a *ngIf="i<4" [routerLink]="link.Link+'/'+link.Title.toLocaleLowerCase()"> {{link.Title}}</a>
-								</ng-container>
-								<a *ngIf="category.Links.length> 4" [routerLink]="RoutePaths.ArtWorks"> Browse More...</a>
-							</div> -->
 						</div>
-					</div>
+					</span>
 				</li>
 				<li class="nav-item">
 					<a

@@ -1,5 +1,5 @@
 import { RoutePaths } from '@App/Common/Settings/RoutePaths';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 export class Link {
@@ -19,9 +19,6 @@ export class ArtCategory {
 	styleUrls: ['./Header.scss'],
 })
 export class HeaderComponent implements OnInit {
-	toggle() {
-		this.artflag = !this.artflag
-	}
 	@ViewChild('NavbarCollapse') NavbarCollapse!: ElementRef;
 	RoutePaths = RoutePaths
 
@@ -118,7 +115,6 @@ export class HeaderComponent implements OnInit {
 	ngOnInit(): void {
 		this.ScrollChanges()
 	}
-
 	goToProfile() {
 	}
 
@@ -153,4 +149,21 @@ export class HeaderComponent implements OnInit {
 			body!.style.backgroundColor = '';
 		}
 	}
+
+	@ViewChild('dropdownMenu') dropdownMenu!: ElementRef;
+
+	toggleDropdown(event: MouseEvent) {
+		const dropdownMenuElement = this.dropdownMenu.nativeElement as HTMLElement;
+		if (dropdownMenuElement.style.display === 'block') {
+			dropdownMenuElement.style.display = 'none';
+			document.getElementById('dropdownMenuLink')?.classList.remove('show');
+
+		} else {
+			dropdownMenuElement.style.display = 'block';
+			document.getElementById('dropdownMenuLink')?.classList.add('show');
+
+		}
+		event.stopPropagation(); // Prevent event bubbling to parent elements
+	}
+
 }
