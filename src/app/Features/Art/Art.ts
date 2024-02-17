@@ -153,7 +153,6 @@ export class ArtComponent implements OnInit {
         this.filteredProjects = this.Projects;
         this.ActivatedRoute.params.subscribe((params) => {
             this.project = params['project'];
-            debugger
             this.RouteToProject(this.project)
         });
     }

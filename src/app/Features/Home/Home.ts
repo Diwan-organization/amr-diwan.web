@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { animate, stagger } from 'motion';
 import { RoutePaths } from '@App/Common/Settings/RoutePaths';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CarouselComponent } from '@App/Common/Widgets/Carousel/Carousel';
 
 
@@ -84,7 +84,16 @@ export class HomeComponent implements OnInit {
 			Number: '4',
 			Description: '',
 			Link: '',
-			TimeInterval: 200
+			TimeInterval: 500
+		},
+		{
+			ImgSrc: '',
+			ImgAlt: '',
+			Title: 'Learn more',
+			Number: '>',
+			Description: '',
+			Link: '/' + RoutePaths.About,
+			TimeInterval: 0
 		},
 	]
 
@@ -228,6 +237,8 @@ export class HomeComponent implements OnInit {
 	]
 	x = this.Partners.map(p => p.ImgSrc)
 
+	constructor(private Router: Router) { }
+
 	ngOnInit(): void {
 		// ///3wza agrb a3ml 3l elemnt msh section
 		// const sectionProjects: any = document.querySelector('.projects');
@@ -345,72 +356,72 @@ export class HomeComponent implements OnInit {
 
 	}
 
-	hoveredIndex: number | null = null;
-	StatAnimation() {
-		const number = document.querySelectorAll(".number");
-		const title = document.querySelectorAll(".stat-title");
-		const description = document.querySelectorAll(".description");
+	// hoveredIndex: number | null = null;
+	// StatAnimation() {
+	// 	const number = document.querySelectorAll(".number");
+	// 	const title = document.querySelectorAll(".stat-title");
+	// 	const description = document.querySelectorAll(".description");
 
-		const observerOptions = {
-			root: null,
-			rootMargin: '0px',
-			threshold: 0.2
-		};
+	// 	const observerOptions = {
+	// 		root: null,
+	// 		rootMargin: '0px',
+	// 		threshold: 0.2
+	// 	};
 
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					this.startAnimation(number, title, description);
-					observer.disconnect();
-				}
-			});
-		}, observerOptions);
+	// 	const observer = new IntersectionObserver((entries) => {
+	// 		entries.forEach(entry => {
+	// 			if (entry.isIntersecting) {
+	// 				this.startAnimation(number, title, description);
+	// 				observer.disconnect();
+	// 			}
+	// 		});
+	// 	}, observerOptions);
 
-		if (number && number[0]) {
-			observer.observe(number[0]);
-		}
-	}
+	// 	if (number && number[0]) {
+	// 		observer.observe(number[0]);
+	// 	}
+	// }
 
-	startAnimation(number: any, title: any, description: any) {
-		setTimeout(() => {
-			number[0].setAttribute("style", "opacity:1");
-			animate(
-				(progress) => {
-					number[0].innerHTML = (Math.round(progress * 15)).toString();
+	// startAnimation(number: any, title: any, description: any) {
+	// 	setTimeout(() => {
+	// 		number[0].setAttribute("style", "opacity:1");
+	// 		animate(
+	// 			(progress) => {
+	// 				number[0].innerHTML = (Math.round(progress * 15)).toString();
 
-					if (progress === 1) {
-						number[0].innerHTML += "+";
-					}
-				},
-				{ duration: 0.5, easing: "ease-out" }
-			);
-			title[0].setAttribute("style", "opacity:1");
-			description[0].setAttribute("style", "opacity:1");
-			setTimeout(() => {
-				number[1].setAttribute("style", "opacity:1");
-				animate(
-					(progress) => {
-						number[1].innerHTML = (Math.round(progress * 4)).toString();
-					},
-					{ duration: 0.2, easing: "ease-out" }
-				);
-				title[1].setAttribute("style", "opacity:1");
-				description[1].setAttribute("style", "opacity:1");
+	// 				if (progress === 1) {
+	// 					number[0].innerHTML += "+";
+	// 				}
+	// 			},
+	// 			{ duration: 0.5, easing: "ease-out" }
+	// 		);
+	// 		title[0].setAttribute("style", "opacity:1");
+	// 		description[0].setAttribute("style", "opacity:1");
+	// 		setTimeout(() => {
+	// 			number[1].setAttribute("style", "opacity:1");
+	// 			animate(
+	// 				(progress) => {
+	// 					number[1].innerHTML = (Math.round(progress * 4)).toString();
+	// 				},
+	// 				{ duration: 0.2, easing: "ease-out" }
+	// 			);
+	// 			title[1].setAttribute("style", "opacity:1");
+	// 			description[1].setAttribute("style", "opacity:1");
 
-				setTimeout(() => {
-					number[2].setAttribute("style", "opacity:1");
-					animate(
-						(progress) => {
-							number[2].innerHTML = (Math.round(progress * 25)).toString();
-						},
-						{ duration: 0.5, easing: "ease-out" }
-					);
-					title[2].setAttribute("style", "opacity:1");
-					description[2].setAttribute("style", "opacity:1");
-				}, 500);
-			}, 700);
-		}, 700);
-	}
+	// 			setTimeout(() => {
+	// 				number[2].setAttribute("style", "opacity:1");
+	// 				animate(
+	// 					(progress) => {
+	// 						number[2].innerHTML = (Math.round(progress * 25)).toString();
+	// 					},
+	// 					{ duration: 0.5, easing: "ease-out" }
+	// 				);
+	// 				title[2].setAttribute("style", "opacity:1");
+	// 				description[2].setAttribute("style", "opacity:1");
+	// 			}, 500);
+	// 		}, 700);
+	// 	}, 700);
+	// }
 
 	Animation = {
 		LandingText: () => {
@@ -447,21 +458,14 @@ export class HomeComponent implements OnInit {
 
 		Stat: () => {
 			const observer = new IntersectionObserver(entries => {
-				entries.reduce((promise, entry) => {
-					return promise.then(() => {
-						return new Promise(resolve => {
-							if (entry.isIntersecting) {
-								setTimeout(() => {
-									animateNumber(entry.target).then(() => resolve());
-								}, 0);
-								// remove if you want it to repeat it on scroll again
-								observer.unobserve(entry.target);
-							}
-						});
-					});
-				}, Promise.resolve());
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						animateNumber(entry.target);
+						// remove if you want it to repeat it on scroll again
+						observer.unobserve(entry.target);
+					}
+				});
 			});
-
 			const stats = document.querySelectorAll('.stat');
 			stats.forEach(stat => observer.observe(stat));
 
@@ -470,9 +474,16 @@ export class HomeComponent implements OnInit {
 					const numberElement = element.querySelector('.number');
 					const targetNumber = parseInt(numberElement.getAttribute('number'));
 					const targetTimeInterval = parseInt(numberElement.getAttribute('timeinterval'));
+					console.log(targetNumber);
 
 					let currentNumber = 0;
 					const interval = setInterval(() => {
+						if (!targetNumber) {
+							numberElement.innerText = numberElement.getAttribute('number');
+							clearInterval(interval);
+							resolve();
+							return
+						}
 						currentNumber++;
 						numberElement.innerText = currentNumber;
 						if (currentNumber >= targetNumber) {
@@ -480,13 +491,13 @@ export class HomeComponent implements OnInit {
 								numberElement.innerText += '+'
 							}
 							clearInterval(interval);
-							element.querySelector('.text').classList.add('fade-in-left');
 							resolve();
 						}
 					}, targetTimeInterval);
 				});
 			}
 		},
+
 
 		Projects: () => {
 			const projects = document.querySelectorAll('.project')!;
@@ -525,12 +536,9 @@ export class HomeComponent implements OnInit {
 		}
 	}
 
-	showVisibleDiv(index: number): void {
-		this.hoveredIndex = index;
-	}
-
-	hideVisibleDiv(index: number): void {
-		this.hoveredIndex = null;
+	GotoStat(link: string) {
+		if (!link) return
+		this.Router.navigateByUrl(link)
 	}
 
 	BaseOpacity: number = 0.7;
@@ -549,7 +557,7 @@ export class HomeComponent implements OnInit {
 		this.MinIndex = Math.min(this.MinIndex + 5, this.Partners.length);
 	}
 
-	private checkedIndex!: number;
+	checkedIndex!: number;
 
 	onCheckboxChange(index: number): void {
 		this.checkedIndex = this.checkedIndex === index ? 0 : index;
@@ -568,4 +576,16 @@ export class HomeComponent implements OnInit {
 			this.checkedIndex = 0;
 		}
 	}
+
+	onCardClick(index: number): void {
+		console.log('index', index);
+		console.log('checkedIndex', this.checkedIndex);
+
+		if (this.checkedIndex == index) {
+			this.onCardLeave(index)
+		} else {
+			this.onCardHover(index)
+		}
+	}
+
 }
