@@ -174,6 +174,12 @@ export class ArtComponent implements OnInit {
     }
 
     ngAfterViewInit() {
+        this.filteredProjects = this.Projects;
+        this.ActivatedRoute.params.subscribe((params) => {
+            this.project = params['project'];
+            debugger;
+            this.RouteToProject(this.project)
+        });
         this.checkElementsVisibility();
     }
 
@@ -223,68 +229,60 @@ export class ArtComponent implements OnInit {
     }
 
     Search() {
+        debugger;
         this.animatedSections.clear();
         if (this.SearchText.trim() === '') {
             this.filteredProjects = this.Projects;
+            this.activetab(undefined)
 
         } else {
             this.filteredProjects = this.Projects.filter(category =>
-                category.Name.toLowerCase().includes(this.SearchText.trim().toLowerCase()) ||
-                category.Description.toLowerCase().includes(this.SearchText.trim().toLowerCase())
+                category.Name.toLowerCase().includes(this.SearchText.trim().toLowerCase())
+                || category.Description.toLowerCase().includes(this.SearchText.trim().toLowerCase())
             );
-
+            const menulink = this.el.nativeElement.querySelector('.' + this.filteredProjects[0].Name)
+            this.activetab(menulink)
         }
 
     }
-
-    RouteToProject(project: string) {
+    activetab(link?: Element) {
         const menuLinks = this.el.nativeElement.querySelectorAll('#categories');
         menuLinks.forEach((link: Element) => {
             link.classList.remove('active');
         })
+        if (link) {
+            link.classList.add('active');
+
+        } else {
+            menuLinks[0].classList.add('active');
+        }
+
+    }
+    RouteToProject(project: string) {
+        debugger
         if (project) {
-            const link = this.el.nativeElement.querySelector('.' + project.toLocaleUpperCase()) || this.el.nativeElement.querySelector('.' + project)
+            var link = this.el.nativeElement.querySelector('.' + project.replace(' ', '').trim().toLocaleUpperCase()) || this.el.nativeElement.querySelector('.' + project.replace(' ', '').trim())
+            var targetElement = undefined;
             if (link) {
-                link.classList.add('active');
-                const targetElement = this.el.nativeElement.querySelector(`#${project.toLocaleUpperCase()}`);
-                if (targetElement) {
-                    this.scrollTo(targetElement);
-                }
+                debugger
+                targetElement = this.el.nativeElement.querySelector(`#${project.replace(' ', '').trim().toLocaleUpperCase()}`);
+
+            } else {
+                link = this.el.nativeElement.querySelector('.MOREPROJECTS');
+                targetElement = this.el.nativeElement.querySelector(`#MOREPROJECTS`);
+            }
+            this.activetab(link)
+            if (targetElement) {
+                this.scrollTo(targetElement);
             }
         }
         else {
-            menuLinks[0].classList.add('active');
+            this.activetab(undefined)
 
         }
     }
     attachClickEventListeners(project: string) {
         this.location.go('/artworks/' + project.toLocaleLowerCase());
         this.RouteToProject(project.toLocaleLowerCase());
-        // const menuLinks = this.el.nativeElement.querySelectorAll('#categories');
-        // menuLinks.forEach((link: Element) => {
-        //     link.classList.remove('active');
-        // })
-        // menuLinks.forEach((link: Element) => {
-        //     link.addEventListener('click', (event: { preventDefault: () => void; }) => {
-        // const targetId = link.getAttribute('data-category');
-        // if (targetId) {
-
-        // }
-        //             });
-        //         });
-        //     }
     }
-
-
-
-    // const link = this.el.nativeElement.querySelector('.' + project.toLocaleLowerCase())
-    // if (link) {
-    //     link.classList.add('active');
-    //     const targetElement = this.el.nativeElement.querySelector(`#${project}`);
-    //     if (targetElement) {
-    //         this.scrollTo(targetElement);
-    //     }
-    // }
-    // else {
-    //     const menuLinks = this.el.nativeElement.querySelectorAll('#categories').first().classList.add('active');
 }
