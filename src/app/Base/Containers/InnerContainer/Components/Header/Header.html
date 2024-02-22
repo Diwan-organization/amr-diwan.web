@@ -15,7 +15,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse flex-row-reverse justify-content-center" id="navbarNavDropdown">
+		<div class="collapse navbar-collapse flex-row-reverse justify-content-center" id="navbarNavDropdown" #navbar>
 			<ul class="navbar-nav">
 				<li class="nav-item">
 					<a
@@ -86,7 +86,9 @@
 								</div>
 
 								<span class="dropdown">
-									<a class="nav-link d-inline" [routerLink]="[RoutePaths.ArtWorks]" data-bs-toggle="collapse"> {{category.Title}} </a>
+									<a class="nav-link d-inline" (click)="closeNavbar()" [routerLink]="[RoutePaths.ArtWorks]" data-bs-toggle="collapse">
+										{{category.Title}}
+									</a>
 									<span
 										class="dropdown-toggle child-dropdown"
 										href="#"
@@ -99,7 +101,9 @@
 									</span>
 									<div class="art-categories dropdown-menu child-menu" attr.aria-labelledby="dropdownMenu{{i}}">
 										<div *ngFor="let link of category.Links; index as i">
-											<a class="nav-link" *ngIf="i<4" [routerLink]="link.Link+'/'+link.Title.toLocaleLowerCase()"> {{link.Title}}</a>
+											<a class="nav-link" (click)="closeNavbar()" *ngIf="i<4" [routerLink]="link.Link+'/'+link.Title.toLocaleLowerCase()">
+												{{link.Title}}</a
+											>
 										</div>
 									</div>
 								</span>

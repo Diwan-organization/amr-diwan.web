@@ -150,11 +150,6 @@ export class ArtComponent implements OnInit {
         this.filteredProjects = this.Projects
     }
     ngOnInit(): void {
-        this.filteredProjects = this.Projects;
-        this.ActivatedRoute.params.subscribe((params) => {
-            this.project = params['project'];
-            this.RouteToProject(this.project)
-        });
     }
 
     private scrollTo(element: HTMLElement) {
@@ -177,8 +172,10 @@ export class ArtComponent implements OnInit {
         this.filteredProjects = this.Projects;
         this.ActivatedRoute.params.subscribe((params) => {
             this.project = params['project'];
-            debugger;
-            this.RouteToProject(this.project)
+            const element = this.el.nativeElement.querySelector(`#${this.project.replace(' ', '').trim().toLocaleUpperCase()}`)
+            setTimeout(() => {
+                this.scrollTo(element);
+            }, 100);
         });
         this.checkElementsVisibility();
     }
@@ -229,7 +226,6 @@ export class ArtComponent implements OnInit {
     }
 
     Search() {
-        debugger;
         this.animatedSections.clear();
         if (this.SearchText.trim() === '') {
             this.filteredProjects = this.Projects;
@@ -258,31 +254,10 @@ export class ArtComponent implements OnInit {
         }
 
     }
-    RouteToProject(project: string) {
-        debugger
-        if (project) {
-            var link = this.el.nativeElement.querySelector('.' + project.replace(' ', '').trim().toLocaleUpperCase()) || this.el.nativeElement.querySelector('.' + project.replace(' ', '').trim())
-            var targetElement = undefined;
-            if (link) {
-                debugger
-                targetElement = this.el.nativeElement.querySelector(`#${project.replace(' ', '').trim().toLocaleUpperCase()}`);
 
-            } else {
-                link = this.el.nativeElement.querySelector('.MOREPROJECTS');
-                targetElement = this.el.nativeElement.querySelector(`#MOREPROJECTS`);
-            }
-            this.activetab(link)
-            if (targetElement) {
-                this.scrollTo(targetElement);
-            }
-        }
-        else {
-            this.activetab(undefined)
-
-        }
-    }
     attachClickEventListeners(project: string) {
         this.location.go('/artworks/' + project.toLocaleLowerCase());
-        this.RouteToProject(project.toLocaleLowerCase());
+        const element = this.el.nativeElement.querySelector(`#${project.replace(' ', '').trim().toLocaleUpperCase()}`)
+        this.scrollTo(element);
     }
 }

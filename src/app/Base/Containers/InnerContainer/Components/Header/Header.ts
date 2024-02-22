@@ -20,6 +20,7 @@ export class ArtCategory {
 })
 export class HeaderComponent implements OnInit {
 	@ViewChild('NavbarCollapse') NavbarCollapse!: ElementRef;
+	@ViewChild('navbar') navbar: any;
 	RoutePaths = RoutePaths
 
 	ArtCategories: ArtCategory[] = [
@@ -163,7 +164,10 @@ export class HeaderComponent implements OnInit {
 			document.getElementById('dropdownMenuLink')?.classList.add('show');
 
 		}
-		event.stopPropagation(); // Prevent event bubbling to parent elements
+		event.stopPropagation();
 	}
+	closeNavbar() {
+		this.navbar.nativeElement.classList.remove('show');
 
+	}
 }
