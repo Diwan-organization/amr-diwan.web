@@ -172,6 +172,7 @@ export class ArtComponent implements OnInit {
         this.filteredProjects = this.Projects;
         this.ActivatedRoute.params.subscribe((params) => {
             this.project = params['project'];
+            if (!this.project) return
             const element = this.el.nativeElement.querySelector(`#${this.project.replace(' ', '').trim().toLocaleUpperCase()}`)
             setTimeout(() => {
                 this.scrollTo(element);

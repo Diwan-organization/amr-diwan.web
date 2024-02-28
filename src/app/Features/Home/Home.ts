@@ -89,6 +89,15 @@ export class HomeComponent implements OnInit {
 		{
 			ImgSrc: '',
 			ImgAlt: '',
+			Title: 'Meters',
+			Number: '7000+',
+			Description: '',
+			Link: '',
+			TimeInterval: 25
+		},
+		{
+			ImgSrc: '',
+			ImgAlt: '',
 			Title: 'Learn more',
 			Number: '>',
 			Description: '',
@@ -99,30 +108,44 @@ export class HomeComponent implements OnInit {
 
 	Projects: ProjectItem[] = [
 		{
-			ImgSrc: 'assets/Images/girl-wall.jpg',
+			ImgSrc: 'assets/Images/Home-Projects/ALIF.jpg',
 			ImgAlt: '',
-			Title: 'Fifa World Cup Qatar 2022',
+			Title: 'ALIF STORES',
+			Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
+			Link: 'alif',
+		},
+		{
+			ImgSrc: 'assets/Images/Home-Projects/FIFA.jpg',
+			ImgAlt: '',
+			Title: 'Fifa World Cup',
 			Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
 			Link: 'fifa',
 		},
 		{
-			ImgSrc: 'assets/Images/girl-wall-3.jpg',
+			ImgSrc: 'assets/Images/Home-Projects/adidas.JPG',
+			ImgAlt: '',
+			Title: 'Adidas',
+			Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
+			Link: 'adidas',
+		},
+		{
+			ImgSrc: 'assets/Images/Home-Projects/hsbc.jpg',
 			ImgAlt: '',
 			Title: 'HSBC',
 			Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
 			Link: 'hsbc',
 		},
 		{
-			ImgSrc: 'assets/Images/girl-wall.jpg',
+			ImgSrc: 'assets/Images/Home-Projects/money-fellows.JPG',
 			ImgAlt: '',
-			Title: 'Moussa Hospital',
+			Title: 'Money Fellows',
 			Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
 			Link: 'moussa',
 		},
 		{
-			ImgSrc: 'assets/Images/girl-wall-3.jpg',
+			ImgSrc: 'assets/Images/Home-Projects/AL-rayyan.jpg',
 			ImgAlt: '',
-			Title: 'Meryal Water Park',
+			Title: 'Al Rayyan SC',
 			Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
 			Link: 'meryal',
 		}
@@ -484,10 +507,14 @@ export class HomeComponent implements OnInit {
 							resolve();
 							return
 						}
-						currentNumber++;
+						if (numberElement.id == 3) {
+							currentNumber = currentNumber + 100;
+						} else {
+							currentNumber++;
+						}
 						numberElement.innerText = currentNumber;
 						if (currentNumber >= targetNumber) {
-							if (numberElement.id == 0) {
+							if (numberElement.id == 0 || numberElement.id == 3) {
 								numberElement.innerText += '+'
 							}
 							clearInterval(interval);
