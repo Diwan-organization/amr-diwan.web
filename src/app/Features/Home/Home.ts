@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
 			ImgSrc: '',
 			ImgAlt: '',
 			Title: 'Years Of Experience',
-			Number: '15',
+			Number: '19+',
 			Description: '',
 			Link: '',
 			TimeInterval: 100
@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit {
 			ImgSrc: '',
 			ImgAlt: '',
 			Title: 'Projects',
-			Number: '25',
+			Number: '17+',
 			Description: '',
 			Link: '',
 			TimeInterval: 70
@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit {
 			ImgSrc: '',
 			ImgAlt: '',
 			Title: 'Countries',
-			Number: '4',
+			Number: '5+',
 			Description: '',
 			Link: '',
 			TimeInterval: 500
@@ -180,13 +180,6 @@ export class HomeComponent implements OnInit {
 	]
 
 	Partners: AboutItem[] = [
-		// {
-		// 	ImgSrc: 'assets/Logos/1.png ',
-		// 	ImgAlt: 'about the artist',
-		// 	Title: 'The Artist',
-		// 	Description: '',
-		// 	Link: '',
-		// },
 		{
 			ImgSrc: 'assets/Logos/2.png ',
 			ImgAlt: 'about the company',
@@ -222,13 +215,6 @@ export class HomeComponent implements OnInit {
 			Description: '',
 			Link: '',
 		},
-		// {
-		// 	ImgSrc: 'assets/Logos/7.jpg',
-		// 	ImgAlt: 'about the company',
-		// 	Title: 'The Company',
-		// 	Description: '',
-		// 	Link: '',
-		// },
 		{
 			ImgSrc: 'assets/Logos/8.jpg',
 			ImgAlt: 'about the company',
@@ -236,13 +222,6 @@ export class HomeComponent implements OnInit {
 			Description: '',
 			Link: '',
 		},
-		// {
-		// 	ImgSrc: 'assets/Logos/9.png ',
-		// 	ImgAlt: 'about the company',
-		// 	Title: 'The Company',
-		// 	Description: '',
-		// 	Link: '',
-		// },
 		{
 			ImgSrc: 'assets/Logos/10.png ',
 			ImgAlt: 'about the company',
@@ -371,13 +350,13 @@ export class HomeComponent implements OnInit {
 			Description: '',
 			Link: '',
 		},
-		{
-			ImgSrc: 'assets/Logos/28.jpg',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		},
+		// {
+		// 	ImgSrc: 'assets/Logos/28.jpg',
+		// 	ImgAlt: 'about the company',
+		// 	Title: 'The Company',
+		// 	Description: '',
+		// 	Link: '',
+		// },
 		{
 			ImgSrc: 'assets/Logos/29.png',
 			ImgAlt: 'about the company',
@@ -399,13 +378,13 @@ export class HomeComponent implements OnInit {
 			Description: '',
 			Link: '',
 		},
-		{
-			ImgSrc: 'assets/Logos/32.png',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		},
+		// {
+		// 	ImgSrc: 'assets/Logos/32.png',
+		// 	ImgAlt: 'about the company',
+		// 	Title: 'The Company',
+		// 	Description: '',
+		// 	Link: '',
+		// },
 		{
 			ImgSrc: 'assets/Logos/33.png',
 			ImgAlt: 'about the company',
@@ -476,13 +455,13 @@ export class HomeComponent implements OnInit {
 			Description: '',
 			Link: '',
 		},
-		{
-			ImgSrc: 'assets/Logos/43.png',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		},
+		// {
+		// 	ImgSrc: 'assets/Logos/43.png',
+		// 	ImgAlt: 'about the company',
+		// 	Title: 'The Company',
+		// 	Description: '',
+		// 	Link: '',
+		// },
 		{
 			ImgSrc: 'assets/Logos/44.png',
 			ImgAlt: 'about the company',
@@ -523,115 +502,10 @@ export class HomeComponent implements OnInit {
 
 	constructor(private Router: Router) { }
 
-	ngOnInit(): void {
-		// ///3wza agrb a3ml 3l elemnt msh section
-		// const sectionProjects: any = document.querySelector('.projects');
-		// const observerprojects = new IntersectionObserver((entries) => {
-		// 	entries.forEach((entry) => {
-		// 		if (entry.isIntersecting) {
-		// 			animate(
-		// 				'.gallery-img',
-		// 				{
-		// 					opacity: [0, 1],
-		// 					y: [-20, 0],
-
-		// 				},
-		// 				{
-		// 					delay: stagger(0.2),
-		// 					duration: 0.5,
-		// 					easing: ['ease-in-out'],
-		// 				}
-		// 			);
-		// 			animate(
-		// 				'.browse-more',
-		// 				{ opacity: [0, 1], y: [-40, 0] },
-		// 				{
-		// 					delay: stagger(0.6),
-		// 					duration: 0.5,
-		// 					easing: ['ease-in-out'],
-		// 				}
-		// 			);
-		// 			observerprojects.disconnect();
-		// 		}
-		// 	});
-		// }, this.observerOptions);
-		// observerprojects.observe(sectionProjects);
-
-
-
-
-		// // // Start observing the 'about' section
-		// // const sectionAbout: any = document.querySelector('.about');
-		// // const observerAbout = new IntersectionObserver((entries) => {
-		// // 	entries.forEach((entry) => {
-		// // 		if (entry.isIntersecting) {
-		// // 			// The 'about' section is in view, trigger animations
-		// // 			animate(
-		// // 				'.browse-more',
-		// // 				{ y: [-20, 0] },
-		// // 				{ delay: stagger(0.1), duration: 0.2 }
-		// // 			);
-		// // 			animate(
-		// // 				'.title',
-		// // 				{ y: [-20, 0] },
-		// // 				{ delay: stagger(0.1), duration: 0.2 }
-		// // 			);
-		// // 			animate(
-		// // 				'.sub-title',
-		// // 				{ y: [-20, 0] },
-		// // 				{ delay: stagger(0.1), duration: 0.2 }
-		// // 			);
-		// // 			animate(
-		// // 				'.tab-content',
-		// // 				{ y: [-20, 0] },
-		// // 				{ delay: stagger(0.1), duration: 0.9 }
-		// // 			);
-
-		// // 			// Disconnect the observer after triggering the animations once
-		// // 			observerNews.disconnect();
-		// // 		}
-		// // 	});
-		// // }, this.observerOptions);
-		// // observerAbout.observe(sectionAbout);
-
-
-
-
-		// // Start observing the 'latest-news' section
-		// const sectionLatestNews: any = document.querySelector('.latest-news');
-		// const observerNews = new IntersectionObserver((entries) => {
-		// 	entries.forEach((entry) => {
-		// 		if (entry.isIntersecting) {
-		// 			// The 'about' section is in view, trigger animations
-		// 			animate(
-		// 				'.card',
-		// 				{
-		// 					opacity: [0, 1],
-		// 					// x: [-20, 0],
-		// 					rotateY: ['-90deg', '0deg']
-		// 				},
-		// 				{
-		// 					delay: stagger(0.2),
-		// 					duration: 0.5,
-		// 					easing: ['ease-in-out'],
-		// 				}
-		// 			);
-		// 			animate(
-		// 				'.title',
-		// 				{ y: [-20, 0] },
-		// 			);
-		// 			// Disconnect the observer after triggering the animations once
-		// 			observerNews.disconnect();
-		// 		}
-		// 	});
-		// }, this.observerOptions);
-		// observerNews.observe(sectionLatestNews);
-	}
+	ngOnInit(): void { }
 
 	// stats animation
 	ngAfterViewInit() {
-		// this.StatAnimation()
-
 		this.Animation.LandingText();
 		this.Animation.About();
 		this.Animation.Stat();
@@ -639,73 +513,6 @@ export class HomeComponent implements OnInit {
 		this.Animation.Partners();
 
 	}
-
-	// hoveredIndex: number | null = null;
-	// StatAnimation() {
-	// 	const number = document.querySelectorAll(".number");
-	// 	const title = document.querySelectorAll(".stat-title");
-	// 	const description = document.querySelectorAll(".description");
-
-	// 	const observerOptions = {
-	// 		root: null,
-	// 		rootMargin: '0px',
-	// 		threshold: 0.2
-	// 	};
-
-	// 	const observer = new IntersectionObserver((entries) => {
-	// 		entries.forEach(entry => {
-	// 			if (entry.isIntersecting) {
-	// 				this.startAnimation(number, title, description);
-	// 				observer.disconnect();
-	// 			}
-	// 		});
-	// 	}, observerOptions);
-
-	// 	if (number && number[0]) {
-	// 		observer.observe(number[0]);
-	// 	}
-	// }
-
-	// startAnimation(number: any, title: any, description: any) {
-	// 	setTimeout(() => {
-	// 		number[0].setAttribute("style", "opacity:1");
-	// 		animate(
-	// 			(progress) => {
-	// 				number[0].innerHTML = (Math.round(progress * 15)).toString();
-
-	// 				if (progress === 1) {
-	// 					number[0].innerHTML += "+";
-	// 				}
-	// 			},
-	// 			{ duration: 0.5, easing: "ease-out" }
-	// 		);
-	// 		title[0].setAttribute("style", "opacity:1");
-	// 		description[0].setAttribute("style", "opacity:1");
-	// 		setTimeout(() => {
-	// 			number[1].setAttribute("style", "opacity:1");
-	// 			animate(
-	// 				(progress) => {
-	// 					number[1].innerHTML = (Math.round(progress * 4)).toString();
-	// 				},
-	// 				{ duration: 0.2, easing: "ease-out" }
-	// 			);
-	// 			title[1].setAttribute("style", "opacity:1");
-	// 			description[1].setAttribute("style", "opacity:1");
-
-	// 			setTimeout(() => {
-	// 				number[2].setAttribute("style", "opacity:1");
-	// 				animate(
-	// 					(progress) => {
-	// 						number[2].innerHTML = (Math.round(progress * 25)).toString();
-	// 					},
-	// 					{ duration: 0.5, easing: "ease-out" }
-	// 				);
-	// 				title[2].setAttribute("style", "opacity:1");
-	// 				description[2].setAttribute("style", "opacity:1");
-	// 			}, 500);
-	// 		}, 700);
-	// 	}, 700);
-	// }
 
 	Animation = {
 		LandingText: () => {
@@ -775,7 +582,7 @@ export class HomeComponent implements OnInit {
 						}
 						numberElement.innerText = currentNumber;
 						if (currentNumber >= targetNumber) {
-							if (numberElement.id == 0 || numberElement.id == 3) {
+							if (numberElement.id != 4) {
 								numberElement.innerText += '+'
 							}
 							clearInterval(interval);

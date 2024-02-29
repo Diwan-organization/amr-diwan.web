@@ -28,21 +28,7 @@ export class AppComponent {
   }
 
   images: string[] = [
-    'assets/Videos/diwan-graffiti1.mp4',
-    'assets/Images/girl-wall-3.jpg',
-    'assets/Images/girl-wall.jpg',
-    'assets/Images/dog-wall-2.jpg',
-    'assets/Logos/4seasons.png ',
-    'assets/Logos/adidas.png ',
-    'assets/Logos/amazon.png ',
-    'assets/Logos/Careem2.png ',
-    'assets/Logos/fifa.png ',
-    'assets/Logos/hsbc.png ',
-    'assets/Logos/moneyfellows.png ',
-    'assets/Logos/opel.png ',
-    'assets/Logos/oppo.png ',
-    'assets/Logos/Orange.png ',
-    'assets/Logos/pubg.png',
+
   ];
   imagesLoaded: number = 0;
   totalImages: number = this.images.length;

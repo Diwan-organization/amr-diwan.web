@@ -35,7 +35,6 @@
 			<div class="tab-content">
 				<div class="stat-list">
 					<div *ngFor="let stat of Stats; let i = index" class="stat" [ngClass]="{'stat-clickable': stat.Link}" (click)="GotoStat(stat.Link)">
-						<!-- <img src="/assets/Images/stat-cover-amr.png" class="stat-bg" /> -->
 						<div
 							class="number"
 							[ngClass]="{'bg': i != 4,'meters': i == 3 }"
