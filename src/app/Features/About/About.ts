@@ -16,5 +16,20 @@ export class AboutComponent implements OnInit {
 		private route: ActivatedRoute,
 	) { }
 
-	ngOnInit() { }
+	ngOnInit() { this.LandingText() }
+	LandingText() {
+		const landingText = document.querySelector('.landing-text')!;
+		landingText.classList.remove('landing-text-transition');
+		const landingTextObserver = new IntersectionObserver(entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					landingText.classList.add('landing-text-transition');
+					return;
+				}
+
+				landingText.classList.remove('landing-text-transition');
+			});
+		});
+		landingTextObserver.observe(landingText);
+	}
 }
