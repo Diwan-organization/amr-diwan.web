@@ -4,44 +4,52 @@ $font-color-secondary: var(--gold2);
 .page-inner {
 	display: flex;
 	background-color: #000;
-	background-image: conic-gradient(
-			at 0% 55%,
-			rgb(60 60 60 / 40%),
-			transparent 22%
-		),
-		radial-gradient(at 82% 65%, rgb(237, 209, 0, 0.3) 0, transparent 55%);
+	// background-image: conic-gradient(
+	// 		at 0% 55%,
+	// 		rgb(60 60 60 / 40%),
+	// 		transparent 22%
+	// 	),
+	// 	radial-gradient(at 82% 65%, rgb(237, 209, 0, 0.3) 0, transparent 55%);
 
 	img {
 		max-width: 400px;
 	}
 
-	.contact-list {
-		margin-top: 20px;
-		display: flex;
-		flex-wrap: wrap;
-
-		.title {
-			text-transform: uppercase;
-			padding: 10px;
-			width: 50%;
-			font-size: 20px;
-			.info {
-				text-transform: none;
-				font-size: 14px;
-			}
-		}
+	h1 {
+		font-size: 70px;
 	}
 
-	.social {
-		// text-align: center;
-		a {
-			i {
-				font-size: 24px;
+	.page-section {
+		justify-content: center;
+
+		.contact-list {
+			margin-top: 20px;
+			display: flex;
+			flex-wrap: wrap;
+
+			.title {
+				text-transform: uppercase;
+				padding: 10px;
+				width: 50%;
+				font-size: 25px;
+				.info {
+					text-transform: none;
+					font-size: 20px;
+				}
 			}
-			padding: 0 10px;
-			color: $font-color-secondary;
-			&:hover {
-				color: $font-color;
+		}
+
+		.social {
+			// text-align: center;
+			a {
+				i {
+					font-size: 24px;
+				}
+				padding: 0 10px;
+				color: $font-color-secondary;
+				&:hover {
+					color: $font-color;
+				}
 			}
 		}
 	}

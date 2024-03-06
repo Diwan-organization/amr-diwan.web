@@ -12,7 +12,9 @@ export class AppComponent {
   private readonly VAPID_PUBLIC_KEY: string =
     'BHECh-IJilGwLFwpKQhlsHvqT939nhAcVtU4DW63QimcoT0qsdk_po8_QYgrUjercp8hvwiZHSeTwtx-4HT3J2g';
   IsLoaded: boolean = false;
+  NoLoader: boolean = false;
   ErrorToast!: number;
+
   constructor(
     private PlatformLocation: PlatformLocation,
     private Router: Router,
@@ -42,6 +44,7 @@ export class AppComponent {
         if (this.imagesLoaded === this.totalImages) {
           // All images are loaded, hide the preloader
           this.IsLoaded = true;
+
         }
       });
     });
@@ -64,10 +67,16 @@ export class AppComponent {
       if (elapsedTime >= minLoadingTime) {
         console.log('first');
         this.IsLoaded = true;
+        setTimeout(() => {
+          this.NoLoader = true;
+        }, 1000);
       } else {
         setTimeout(() => {
           console.log('scond');
           this.IsLoaded = true;
+          setTimeout(() => {
+            this.NoLoader = true;
+          }, 1000);
         }, minLoadingTime - elapsedTime);
       }
     });
