@@ -27,7 +27,7 @@ export class ArtComponent implements OnInit {
     SearchText: string = '';
     Projects: ProjectItem[] = [
         {
-            Name: 'FIFA',
+            Name: 'ADIDAS',
             Description: 'kmldsvfnkjclsmn jckc danlkx dsjkndwk scd',
             Location: 'Qatar',
             Images: [
@@ -41,7 +41,7 @@ export class ArtComponent implements OnInit {
 
         },
         {
-            Name: 'HSBC',
+            Name: 'AL RAYYAN',
             Description: 'description 1',
             Location: 'Egypt',
             Images: [
@@ -56,7 +56,7 @@ export class ArtComponent implements OnInit {
             ]
         },
         {
-            Name: 'MOUSSA',
+            Name: 'ALIF',
             Description: 'description 3',
             Location: 'KSA',
             Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
@@ -69,7 +69,7 @@ export class ArtComponent implements OnInit {
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
         },
         {
-            Name: 'MERYAL',
+            Name: 'EAA',
             Description: 'description 3',
             Location: 'KSA',
             Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
@@ -82,7 +82,33 @@ export class ArtComponent implements OnInit {
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
         },
         {
-            Name: 'ADIDAS',
+            Name: 'FIFA',
+            Description: 'description 3',
+            Location: 'KSA',
+            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
+        },
+        {
+            Name: 'HSBC',
+            Description: 'description 3',
+            Location: 'KSA',
+            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
+        },
+        {
+            Name: 'LANE9',
             Description: 'description 3',
             Location: 'KSA',
             Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
@@ -94,7 +120,33 @@ export class ArtComponent implements OnInit {
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
         }
-
+        ,
+        {
+            Name: 'MONDELEZ',
+            Description: 'description 3',
+            Location: 'KSA',
+            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
+        },
+        {
+            Name: 'PUBG',
+            Description: 'description 3',
+            Location: 'KSA',
+            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
+        }
     ];
 
     MoreProjects: ProjectItem[] = [
@@ -153,6 +205,7 @@ export class ArtComponent implements OnInit {
     }
 
     private scrollTo(element: HTMLElement) {
+        debugger
         const offset = 50;
         const position = element.offsetTop - offset;
 
@@ -257,6 +310,7 @@ export class ArtComponent implements OnInit {
     }
 
     attachClickEventListeners(project: string) {
+        debugger
         this.location.go('/artworks/' + project.toLocaleLowerCase());
         const element = this.el.nativeElement.querySelector(`#${project.replace(' ', '').trim().toLocaleUpperCase()}`)
         this.scrollTo(element);

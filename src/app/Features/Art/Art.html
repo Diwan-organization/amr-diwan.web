@@ -38,6 +38,11 @@
 		</div>
 	</aside>
 	<div class="page-section art-div">
+		<div class="landing-images d-flex flex-row container-fluid" style="width: 100%; margin-top: 60px">
+			<img src="../../../assets/Images/Maps/Egypt-removebg-preview.png" style="object-fit: cover; width: 33.3%" />
+			<img src="../../../assets/Images/Maps/Qatar-removebg-preview.png" style="object-fit: cover; width: 33.3%" />
+			<img src="../../../assets/Images/Maps/SaudiArabia-removebg-preview.png" style="object-fit: cover; width: 33.3%" />
+		</div>
 		<div class="category" *ngFor="let category of filteredProjects; let i = index" [id]="category.Name.replace(' ', '')">
 			<h1 class="title gold-text">{{category.Name}}</h1>
 			<p class="sub-title gold-text">{{category.Description}}</p>

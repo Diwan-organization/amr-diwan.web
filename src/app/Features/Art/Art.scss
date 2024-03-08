@@ -44,7 +44,8 @@
 
 			-webkit-tap-highlight-color: transparent;
 			span {
-				margin-inline-start: 20px;
+				margin-inline-end: 20px;
+				float: inline-end;
 			}
 			i {
 				margin-right: 5px;
@@ -92,7 +93,7 @@
 						height: 250px;
 						width: 100%;
 						object-fit: cover;
-						// opacity: 0;
+						opacity: 0;
 						cursor: pointer;
 					}
 				}
