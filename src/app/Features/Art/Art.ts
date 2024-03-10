@@ -31,12 +31,9 @@ export class ArtComponent implements OnInit {
             Description: 'kmldsvfnkjclsmn jckc danlkx dsjkndwk scd',
             Location: 'Qatar',
             Images: [
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp'
+                '../../../assets/Images/Projects/Adidas/adidas1.webp',
+                '../../../assets/Images/Projects/Adidas/adidas2.webp',
+                '../../../assets/Images/Projects/Adidas/adidas3.webp'
             ]
 
         },
@@ -45,14 +42,12 @@ export class ArtComponent implements OnInit {
             Description: 'description 1',
             Location: 'Egypt',
             Images: [
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp'
+                '../../../assets/Images/Projects/alrayyan/alrayyan1.webp',
+                '../../../assets/Images/Projects/alrayyan/alrayyan2.webp',
+                '../../../assets/Images/Projects/alrayyan/alrayyan3.webp',
+                '../../../assets/Images/Projects/alrayyan/alrayyan4.webp'
+
+
             ]
         },
         {
@@ -85,14 +80,12 @@ export class ArtComponent implements OnInit {
             Name: 'FIFA',
             Description: 'description 3',
             Location: 'KSA',
-            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
+            Images: [
+                '../../../assets/Images/Projects/fifa/fifa2-min.webp',
+                '../../../assets/Images/Projects/fifa/fifa3-min.webp',
+                '../../../assets/Images/Projects/fifa/fifa4-min.webp'
+
+            ]
         },
         {
             Name: 'HSBC',
