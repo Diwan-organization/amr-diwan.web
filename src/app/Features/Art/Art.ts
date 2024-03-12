@@ -10,6 +10,7 @@ import { Location } from '@angular/common';
 class ProjectItem {
     Name!: string;
     Description!: string;
+    Videos?: string[]
     Images!: string[];
     Location!: string;
 }
@@ -41,6 +42,9 @@ export class ArtComponent implements OnInit {
             Name: 'AL RAYYAN',
             Description: 'description 1',
             Location: 'Egypt',
+            Videos: [
+                '../../../assets/Images/Projects/alrayyan/alrayyan5.mp4'
+            ],
             Images: [
                 '../../../assets/Images/Projects/alrayyan/alrayyan1.webp',
                 '../../../assets/Images/Projects/alrayyan/alrayyan2.webp',
@@ -54,36 +58,36 @@ export class ArtComponent implements OnInit {
             Name: 'ALIF',
             Description: 'description 3',
             Location: 'KSA',
-            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
+            Images: [
+                '../../../assets/Images/Projects/Alif/alf1.webp',
+                '../../../assets/Images/Projects/Alif/alf2.webp',
+                '../../../assets/Images/Projects/Alif/alf3.webp',
+            ]
         },
         {
             Name: 'EAA',
             Description: 'description 3',
             Location: 'KSA',
-            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
+            Videos: [
+                '../../../assets/Images/Projects/EAA/EAA5.mp4'
+            ],
+            Images: [
+                '../../../assets/Images/Projects/EAA/EAA1.webp',
+                '../../../assets/Images/Projects/EAA/EAA2.webp',
+                '../../../assets/Images/Projects/EAA/EAA3.webp',
+                '../../../assets/Images/Projects/EAA/EAA4.webp',
+
+            ]
         },
         {
             Name: 'FIFA',
             Description: 'description 3',
             Location: 'KSA',
             Images: [
-                '../../../assets/Images/Projects/fifa/fifa2-min.webp',
-                '../../../assets/Images/Projects/fifa/fifa3-min.webp',
-                '../../../assets/Images/Projects/fifa/fifa4-min.webp'
+                '../../../assets/Images/Projects/fifa/fifa1.webp',
+                '../../../assets/Images/Projects/fifa/fifa2.webp',
+                '../../../assets/Images/Projects/fifa/fifa3.webp',
+                '../../../assets/Images/Projects/fifa/fifa4.webp'
 
             ]
         },
@@ -91,54 +95,59 @@ export class ArtComponent implements OnInit {
             Name: 'HSBC',
             Description: 'description 3',
             Location: 'KSA',
-            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
+            Images: [
+                '../../../assets/Images/Projects/Hsbc/hsbc1.webp',
+            ]
         },
         {
             Name: 'LANE9',
             Description: 'description 3',
             Location: 'KSA',
-            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
+            Images: [
+                '../../../assets/Images/Projects/Lane9/lane1.webp',
+                '../../../assets/Images/Projects/Lane9/lane2.webp',
+                '../../../assets/Images/Projects/Lane9/lane3.webp',
+                '../../../assets/Images/Projects/Lane9/lane4.webp',
+                '../../../assets/Images/Projects/Lane9/lane5.webp',
+                '../../../assets/Images/Projects/Lane9/lane6.webp',
+                '../../../assets/Images/Projects/Lane9/lane7.webp',
+                '../../../assets/Images/Projects/Lane9/lane8.webp',
+                '../../../assets/Images/Projects/Lane9/lane9.webp',
+                '../../../assets/Images/Projects/Lane9/lane10.webp',
+                '../../../assets/Images/Projects/Lane9/lane11.webp',
+                '../../../assets/Images/Projects/Lane9/lane12.webp',
+
+            ]
         }
         ,
         {
             Name: 'MONDELEZ',
             Description: 'description 3',
             Location: 'KSA',
-            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
+            Images: [
+                '../../../assets/Images/Projects/mondelez/mondelez1.webp',
+                '../../../assets/Images/Projects/mondelez/mondelez2.webp',
+                '../../../assets/Images/Projects/mondelez/mondelez3.webp',
+                '../../../assets/Images/Projects/mondelez/mondelez4.webp',
+                '../../../assets/Images/Projects/mondelez/mondelez5.webp',
+                '../../../assets/Images/Projects/mondelez/mondelez6.webp',
+                '../../../assets/Images/Projects/mondelez/mondelez7.webp',
+                '../../../assets/Images/Projects/mondelez/mondelez8.webp',
+            ]
         },
         {
             Name: 'PUBG',
             Description: 'description 3',
             Location: 'KSA',
-            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
+            Videos: [
+                '../../../assets/Images/Projects/PUBG/pubg5.mp4',
+            ],
+            Images: [
+                '../../../assets/Images/Projects/PUBG/pubg1.webp',
+                '../../../assets/Images/Projects/PUBG/pubg2.webp',
+                '../../../assets/Images/Projects/PUBG/pubg3.webp',
+                '../../../assets/Images/Projects/PUBG/pubg4.webp',
+            ]
         }
     ];
 
