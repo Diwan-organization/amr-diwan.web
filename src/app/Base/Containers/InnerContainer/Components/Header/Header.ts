@@ -24,88 +24,64 @@ export class HeaderComponent implements OnInit {
 	RoutePaths = RoutePaths
 
 	ArtCategories: ArtCategory[] = [
+		// {
+		// 	Title: 'KSA Projects',
+		// 	ImgAlt: '',
+		// 	ImgSrc: 'assets/Images/kansas-wall-2.jpg',
+		// 	Links: [
+		// 		{
+		// 			Title: 'Project 1',
+		// 			Link: `${RoutePaths.ArtWorks}`
+		// 		},
+		// 		{
+		// 			Title: 'Project 2',
+		// 			Link: `${RoutePaths.ArtWorks}`
+		// 		},
+		// 		{
+		// 			Title: 'Project 3',
+		// 			Link: `${RoutePaths.ArtWorks}`
+		// 		}
+		// 	]
+		// },
 		{
-			Title: 'KSA Projects',
-			ImgAlt: '',
-			ImgSrc: 'assets/Images/kansas-wall-2.jpg',
-			Links: [
-				{
-					Title: 'Project 1',
-					Link: `${RoutePaths.ArtWorks}`
-				},
-				{
-					Title: 'Project 2',
-					Link: `${RoutePaths.ArtWorks}`
-				},
-				{
-					Title: 'Project 3',
-					Link: `${RoutePaths.ArtWorks}`
-				}
-			]
-		}, {
 			Title: 'Qatar Projects',
 			ImgAlt: '',
-			ImgSrc: 'assets/Images/kansas-wall-2.jpg',
+			ImgSrc: 'assets/Images/Projects/fifa/fifa1.webp',
 			Links: [
 				{
 					Title: 'FIFA',
 					Link: `${RoutePaths.ArtWorks}`
 				},
 				{
-					Title: 'Project 2',
+					Title: 'ALIF',
 					Link: `${RoutePaths.ArtWorks}`
 				},
 				{
-					Title: 'Project 3',
+					Title: 'ALRAYYAN',
 					Link: `${RoutePaths.ArtWorks}`
 				}
 			]
 		}, {
 			Title: 'EGYPT Projects',
 			ImgAlt: '',
-			ImgSrc: 'assets/Images/kansas-wall-2.jpg',
+			ImgSrc: 'assets/Images/Projects/Hsbc/hsbc1.webp',
+
 			Links: [
 				{
 					Title: 'HSBC',
 					Link: `${RoutePaths.ArtWorks}`
 				},
 				{
-					Title: 'Project 2',
+					Title: 'ADIDAS',
 					Link: `${RoutePaths.ArtWorks}`
 				},
 				{
-					Title: 'Project 3',
+					Title: 'LANE9',
 					Link: `${RoutePaths.ArtWorks}`
 				}, {
-					Title: 'Project 4',
+					Title: 'MONDELEZ',
 					Link: `${RoutePaths.ArtWorks}`
 				},
-				{
-					Title: 'Project 5',
-					Link: `${RoutePaths.ArtWorks}`
-				},
-				{
-					Title: 'Project 6',
-					Link: `${RoutePaths.ArtWorks}`
-				}
-			]
-		}, {
-			Title: 'France Projects',
-			ImgAlt: '',
-			ImgSrc: 'assets/Images/kansas-wall-2.jpg',
-			Links: [
-				{
-					Title: 'Project 1',
-					Link: `${RoutePaths.ArtWorks}`
-				},
-				{
-					Title: 'Project 2',
-					Link: `${RoutePaths.ArtWorks}`
-				},
-				{
-					Title: 'Project 3',
-					Link: `${RoutePaths.ArtWorks}`
-				}
 			]
 		}
 	]

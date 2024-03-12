@@ -47,6 +47,7 @@
 			<h1 class="title gold-text">{{category.Name}}</h1>
 			<p class="sub-title gold-text">{{category.Description}}</p>
 			<div class="images">
+				<video *ngIf="category.Videos!=null" [src]="category.Videos[0]" [autoplay]="true" loop muted="{{true}}"></video>
 				<div *ngFor="let img of category.Images; let j = index" class="hoverable-img-item">
 					<img class="img" [src]="img" alt="" data-bs-toggle="modal" [attr.data-bs-target]="'#project-' + i + '-' + j" />
 					<!-- Modal -->
