@@ -30,7 +30,7 @@ export class ArtComponent implements OnInit {
         {
             Name: 'ADIDAS',
             Description: 'kmldsvfnkjclsmn jckc danlkx dsjkndwk scd',
-            Location: 'Qatar',
+            Location: 'EGYPT',
             Images: [
                 '../../../assets/Images/Projects/Adidas/adidas1.webp',
                 '../../../assets/Images/Projects/Adidas/adidas2.webp',
@@ -41,7 +41,7 @@ export class ArtComponent implements OnInit {
         {
             Name: 'AL RAYYAN',
             Description: 'description 1',
-            Location: 'Egypt',
+            Location: 'QATAR',
             Videos: [
                 '../../../assets/Images/Projects/alrayyan/alrayyan5.mp4'
             ],
@@ -57,7 +57,7 @@ export class ArtComponent implements OnInit {
         {
             Name: 'ALIF',
             Description: 'description 3',
-            Location: 'KSA',
+            Location: 'QATAR',
             Images: [
                 '../../../assets/Images/Projects/Alif/alf1.webp',
                 '../../../assets/Images/Projects/Alif/alf2.webp',
@@ -67,7 +67,7 @@ export class ArtComponent implements OnInit {
         {
             Name: 'EAA',
             Description: 'description 3',
-            Location: 'KSA',
+            Location: 'QATAR',
             Videos: [
                 '../../../assets/Images/Projects/EAA/EAA5.mp4'
             ],
@@ -82,7 +82,7 @@ export class ArtComponent implements OnInit {
         {
             Name: 'FIFA',
             Description: 'description 3',
-            Location: 'KSA',
+            Location: 'QATAR',
             Images: [
                 '../../../assets/Images/Projects/fifa/fifa1.webp',
                 '../../../assets/Images/Projects/fifa/fifa2.webp',
@@ -94,7 +94,7 @@ export class ArtComponent implements OnInit {
         {
             Name: 'HSBC',
             Description: 'description 3',
-            Location: 'KSA',
+            Location: 'EGYPT',
             Images: [
                 '../../../assets/Images/Projects/Hsbc/hsbc1.webp',
             ]
@@ -102,7 +102,7 @@ export class ArtComponent implements OnInit {
         {
             Name: 'LANE9',
             Description: 'description 3',
-            Location: 'KSA',
+            Location: 'EGYPT',
             Images: [
                 '../../../assets/Images/Projects/Lane9/lane1.webp',
                 '../../../assets/Images/Projects/Lane9/lane2.webp',
@@ -123,7 +123,7 @@ export class ArtComponent implements OnInit {
         {
             Name: 'MONDELEZ',
             Description: 'description 3',
-            Location: 'KSA',
+            Location: 'EGYPT',
             Images: [
                 '../../../assets/Images/Projects/mondelez/mondelez1.webp',
                 '../../../assets/Images/Projects/mondelez/mondelez2.webp',
@@ -138,7 +138,7 @@ export class ArtComponent implements OnInit {
         {
             Name: 'PUBG',
             Description: 'description 3',
-            Location: 'KSA',
+            Location: 'EGYPT',
             Videos: [
                 '../../../assets/Images/Projects/PUBG/pubg5.mp4',
             ],
