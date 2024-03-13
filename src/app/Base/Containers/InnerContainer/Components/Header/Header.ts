@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
 		{
 			Title: 'Qatar Projects',
 			ImgAlt: '',
-			ImgSrc: 'assets/Images/Projects/fifa/fifa1.webp',
+			ImgSrc: 'assets/Images/Projects/fifa/fifa1-header.webp',
 			Links: [
 				{
 					Title: 'FIFA',
@@ -58,6 +58,10 @@ export class HeaderComponent implements OnInit {
 				},
 				{
 					Title: 'ALRAYYAN',
+					Link: `${RoutePaths.ArtWorks}`
+				},
+				{
+					Title: 'EAA',
 					Link: `${RoutePaths.ArtWorks}`
 				}
 			]
