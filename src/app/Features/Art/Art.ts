@@ -43,7 +43,7 @@ export class ArtComponent implements OnInit {
             Description: 'description 1',
             Location: 'QATAR',
             Videos: [
-                '../../../assets/Images/Projects/alrayyan/alrayyan5.mp4'
+                '../../../assets/Images/Projects/alrayyan/alrayyan5-1.mp4'
             ],
             Images: [
                 '../../../assets/Images/Projects/alrayyan/alrayyan1.webp',
@@ -69,7 +69,7 @@ export class ArtComponent implements OnInit {
             Description: 'description 3',
             Location: 'QATAR',
             Videos: [
-                '../../../assets/Images/Projects/EAA/EAA5.mp4'
+                '../../../assets/Images/Projects/EAA/EAA5-1.mp4'
             ],
             Images: [
                 '../../../assets/Images/Projects/EAA/EAA1.webp',
@@ -140,7 +140,7 @@ export class ArtComponent implements OnInit {
             Description: 'description 3',
             Location: 'EGYPT',
             Videos: [
-                '../../../assets/Images/Projects/PUBG/pubg5.mp4',
+                '../../../assets/Images/Projects/PUBG/pubg5-1.mp4',
             ],
             Images: [
                 '../../../assets/Images/Projects/PUBG/pubg1.webp',
