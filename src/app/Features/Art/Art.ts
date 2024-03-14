@@ -26,11 +26,13 @@ class ProjectItem {
 export class ArtComponent implements OnInit {
     private animatedSections: Set<string> = new Set();
     SearchText: string = '';
+    regex = /\s/g;
+
     Projects: ProjectItem[] = [
         {
             Name: 'ADIDAS',
-            Description: 'kmldsvfnkjclsmn jckc danlkx dsjkndwk scd',
             Location: 'EGYPT',
+            Description: 'The design incorporates the finest aspects of modern and ancient Egyptian art and architecture into a spectacular masterpiece in the center lays two main elements instantly grabing on attention diwan studios graffiti artwork and adidas trefoil centered in a perfect combination fading away the boundary between art and the everyday world',
             Images: [
                 '../../../assets/Images/Projects/Adidas/adidas1.webp',
                 '../../../assets/Images/Projects/Adidas/adidas2.webp',
@@ -40,18 +42,16 @@ export class ArtComponent implements OnInit {
         },
         {
             Name: 'AL RAYYAN',
-            Description: 'description 1',
+            Description: 'Graffiti work at the athlete gym of AlRayyanSC (The Lions) in Qatar and the release of the football team\'s new kitwith Nike football',
             Location: 'QATAR',
             Videos: [
                 '../../../assets/Images/Projects/alrayyan/alrayyan5.mp4'
             ],
             Images: [
-                '../../../assets/Images/Projects/alrayyan/alrayyan1.webp',
+                // '../../../assets/Images/Projects/alrayyan/alrayyan1.webp',
                 '../../../assets/Images/Projects/alrayyan/alrayyan2.webp',
                 '../../../assets/Images/Projects/alrayyan/alrayyan3.webp',
                 '../../../assets/Images/Projects/alrayyan/alrayyan4.webp'
-
-
             ]
         },
         {
@@ -84,7 +84,7 @@ export class ArtComponent implements OnInit {
             Description: 'description 3',
             Location: 'QATAR',
             Images: [
-                '../../../assets/Images/Projects/fifa/fifa1.webp',
+                '../../../assets/Images/Projects/fifa/fifa1-header.webp',
                 '../../../assets/Images/Projects/fifa/fifa2.webp',
                 '../../../assets/Images/Projects/fifa/fifa3.webp',
                 '../../../assets/Images/Projects/fifa/fifa4.webp'
@@ -207,7 +207,7 @@ export class ArtComponent implements OnInit {
     }
 
     private scrollTo(element: HTMLElement) {
-        debugger
+        // debugger
         const offset = 50;
         const position = element.offsetTop - offset;
 
