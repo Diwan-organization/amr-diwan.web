@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener, OnInit, Renderer2 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { animate, stagger } from 'motion';
 import { Location } from '@angular/common';
 
 
@@ -30,19 +29,29 @@ export class ArtComponent implements OnInit {
 
     Projects: ProjectItem[] = [
         {
-            Name: 'ADIDAS',
-            Location: 'EGYPT',
-            Description: 'The design incorporates the finest aspects of modern and ancient Egyptian art and architecture into a spectacular masterpiece in the center lays two main elements instantly grabing on attention diwan studios graffiti artwork and adidas trefoil centered in a perfect combination fading away the boundary between art and the everyday world',
+            Name: 'FIFA',
+            Description: 'Exclusive artistry in Qatar World Cup 2022 Where passion meets art through our Graffiti at Al-thomama and Al-Janub Stadiums.\nNumber of walls: 2 walls at Al-thomama stadium 3 walls at Al-Jandub stadium.',
+            Location: 'QATAR',
             Images: [
-                '../../../assets/Images/Projects/Adidas/adidas1.webp',
-                '../../../assets/Images/Projects/Adidas/adidas2.webp',
-                '../../../assets/Images/Projects/Adidas/adidas3.webp'
-            ]
+                '../../../assets/Images/Projects/fifa/fifa1-header.webp',
+                '../../../assets/Images/Projects/fifa/fifa2.webp',
+                '../../../assets/Images/Projects/fifa/fifa3.webp',
+                '../../../assets/Images/Projects/fifa/fifa4.webp'
 
+            ]
+        },
+        {
+            Name: 'HSBC',
+            Description: 'This is from the "Vision of Our City" campaign.\nThe idea of representing each location of the bank in\nthis project we worked on the headquarters in Cairo.\nIn the piece we include pixels and personalities that\ndepict the role of technology and a new female-led\ngeneration of entrepreneurs. This generation is putting\nsustainable initiatives first, represented by plants and the\nshape of the lotus; a symbol of rebirth.',
+            Location: 'EGYPT',
+            Images: [
+                '../../../assets/Images/Projects/Hsbc/hsbc1.webp',
+                '../../../assets/Images/Projects/Hsbc/hsbc-lion.png',
+            ]
         },
         {
             Name: 'AL RAYYAN',
-            Description: 'Graffiti work at the athlete gym of AlRayyanSC (The Lions) in Qatar and the release of the football team\'s new kitwith Nike football',
+            Description: 'Graffiti work at the athlete gym of AlRayyanSC (The Lions) in Qatar and the release of the football team\'s new kitwith Nike football.',
             Location: 'QATAR',
             Videos: [
                 '../../../assets/Images/Projects/alrayyan/alrayyan5-1.mp4'
@@ -55,8 +64,19 @@ export class ArtComponent implements OnInit {
             ]
         },
         {
+            Name: 'ADIDAS',
+            Location: 'EGYPT',
+            Description: 'The design incorporates the finest aspects of modern and ancient Egyptian art and architecture into a spectacular masterpiece in the center lays two main elements instantly grabing on attention diwan studios graffiti artwork and adidas trefoil centered in a perfect combination fading away the boundary between art and the everyday world.',
+            Images: [
+                '../../../assets/Images/Projects/Adidas/adidas1.webp',
+                '../../../assets/Images/Projects/Adidas/adidas2.webp',
+                '../../../assets/Images/Projects/Adidas/adidas3.webp'
+            ]
+
+        },
+        {
             Name: 'ALIF',
-            Description: 'description 3',
+            Description: 'Creating a mural featuring Lionel Messi, Diego Maradon and Pelé as champions to celebrate iconic figures in football history.\nMatching the World Cup Vibes in Qatar.',
             Location: 'QATAR',
             Images: [
                 '../../../assets/Images/Projects/Alif/alf1.webp',
@@ -66,42 +86,21 @@ export class ArtComponent implements OnInit {
         },
         {
             Name: 'EAA',
-            Description: 'description 3',
+            Description: 'EAA envisions bringing new life chances, real hope and opportunities to improve the lives of poor and marginalised children, youth and women especially in the developing world.',
             Location: 'QATAR',
             Videos: [
                 '../../../assets/Images/Projects/EAA/EAA5-1.mp4'
             ],
             Images: [
-                '../../../assets/Images/Projects/EAA/EAA1.webp',
+                // '../../../assets/Images/Projects/EAA/EAA1.webp',
+                '../../../assets/Images/Projects/EAA/EAA4.webp',
                 '../../../assets/Images/Projects/EAA/EAA2.webp',
                 '../../../assets/Images/Projects/EAA/EAA3.webp',
-                '../../../assets/Images/Projects/EAA/EAA4.webp',
-
-            ]
-        },
-        {
-            Name: 'FIFA',
-            Description: 'description 3',
-            Location: 'QATAR',
-            Images: [
-                '../../../assets/Images/Projects/fifa/fifa1-header.webp',
-                '../../../assets/Images/Projects/fifa/fifa2.webp',
-                '../../../assets/Images/Projects/fifa/fifa3.webp',
-                '../../../assets/Images/Projects/fifa/fifa4.webp'
-
-            ]
-        },
-        {
-            Name: 'HSBC',
-            Description: 'description 3',
-            Location: 'EGYPT',
-            Images: [
-                '../../../assets/Images/Projects/Hsbc/hsbc1.webp',
             ]
         },
         {
             Name: 'LANE9',
-            Description: 'description 3',
+            Description: 'Fluorescent interactive art concept around 500 meter square.',
             Location: 'EGYPT',
             Images: [
                 '../../../assets/Images/Projects/Lane9/lane1.webp',
@@ -115,14 +114,13 @@ export class ArtComponent implements OnInit {
                 '../../../assets/Images/Projects/Lane9/lane9.webp',
                 '../../../assets/Images/Projects/Lane9/lane10.webp',
                 '../../../assets/Images/Projects/Lane9/lane11.webp',
-                '../../../assets/Images/Projects/Lane9/lane12.webp',
-
+                // '../../../assets/Images/Projects/Lane9/lane12.webp',
             ]
         }
         ,
         {
             Name: 'MONDELEZ',
-            Description: 'description 3',
+            Description: `The point here was to story-tell the employees' health, safety and enviroment through typography.\naccentuating the brand names of Mondelez through applying the popping colors for a lively atmosphere`,
             Location: 'EGYPT',
             Images: [
                 '../../../assets/Images/Projects/mondelez/mondelez1.webp',
@@ -130,20 +128,18 @@ export class ArtComponent implements OnInit {
                 '../../../assets/Images/Projects/mondelez/mondelez3.webp',
                 '../../../assets/Images/Projects/mondelez/mondelez4.webp',
                 '../../../assets/Images/Projects/mondelez/mondelez5.webp',
-                '../../../assets/Images/Projects/mondelez/mondelez6.webp',
-                '../../../assets/Images/Projects/mondelez/mondelez7.webp',
-                '../../../assets/Images/Projects/mondelez/mondelez8.webp',
+                // '../../../assets/Images/Projects/mondelez/mondelez6.webp',
             ]
         },
         {
             Name: 'PUBG',
-            Description: 'description 3',
+            Description: `In celebration of Vikendi Reborn we couldn't miss the chance to add our touches onto PS5 with an illustraion for PubG game.`,
             Location: 'EGYPT',
             Videos: [
                 '../../../assets/Images/Projects/PUBG/pubg5-1.mp4',
             ],
             Images: [
-                '../../../assets/Images/Projects/PUBG/pubg1.webp',
+                '../../../assets/Images/Projects/PUBG/pubg1.png',
                 '../../../assets/Images/Projects/PUBG/pubg2.webp',
                 '../../../assets/Images/Projects/PUBG/pubg3.webp',
                 '../../../assets/Images/Projects/PUBG/pubg4.webp',
@@ -203,8 +199,8 @@ export class ArtComponent implements OnInit {
     constructor(private renderer: Renderer2, private el: ElementRef, private ActivatedRoute: ActivatedRoute, private location: Location) {
         this.filteredProjects = this.Projects
     }
-    ngOnInit(): void {
-    }
+
+    ngOnInit(): void { }
 
     private scrollTo(element: HTMLElement) {
         // debugger
@@ -217,12 +213,6 @@ export class ArtComponent implements OnInit {
         });
     }
 
-
-    @HostListener('window:scroll', [])
-    onWindowScroll() {
-        this.checkElementsVisibility();
-    }
-
     ngAfterViewInit() {
         this.filteredProjects = this.Projects;
         this.ActivatedRoute.params.subscribe((params) => {
@@ -233,52 +223,47 @@ export class ArtComponent implements OnInit {
                 this.scrollTo(element);
             }, 100);
         });
-        this.checkElementsVisibility();
+        this.Animation.Arts()
     }
 
-    observerOptions: {} = {
-        root: null,
-        rootMargin: '10px',
-        threshold: 0.1,
-    };
-    private checkElementsVisibility() {
-        const elements = this.el.nativeElement.querySelectorAll('.category');
-        elements.forEach((element: HTMLElement) => {
-            const category = element.getAttribute('id');
-            const categoryAnchor = this.el.nativeElement.querySelector(`a[data-category="${category}"]`);
-            const rect = element.getBoundingClientRect();
-            if (rect.top <= 400 && rect.bottom > 400) {
-                this.renderer.addClass(categoryAnchor, 'active');
-                if (category != null && !this.animatedSections.has(category)) {
-                    const observerprojects = new IntersectionObserver((entries) => {
-                        entries.forEach((entry) => {
-                            if (entry.isIntersecting) {
-                                const imgFluidElements = element.querySelectorAll('.img');
-                                animate(
-                                    imgFluidElements,
-                                    {
-                                        opacity: [0, 0.5, 1],
-                                        y: [15, 0],
-                                    },
-                                    {
-                                        delay: stagger(0.05),
-                                        duration: 0.6,
-                                        easing: ['ease-in-out'],
-                                    }
-                                );
+    Animation = {
+        Arts: () => {
+            const arts = document.querySelectorAll('.hoverable-img-item')!;
+            arts.forEach(art => {
+                // console.log(project);
+                art.classList.remove('art-transition');
 
-                                observerprojects.disconnect();
-                                this.animatedSections.add(category);
-                            }
-                        });
-                    }, this.observerOptions);
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            art.classList.add('art-transition');
+                            return;
+                        }
+                        art.classList.remove('art-transition');
+                    });
+                });
 
-                    observerprojects.observe(element);
-                }
-            } else {
-                this.renderer.removeClass(categoryAnchor, 'active');
-            }
-        });
+                observer.observe(art);
+            })
+
+            const videos = document.querySelectorAll('.div-video')!;
+            videos.forEach(art => {
+                // console.log(project);
+                art.classList.remove('art-transition');
+
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            art.classList.add('art-transition');
+                            return;
+                        }
+                        art.classList.remove('art-transition');
+                    });
+                });
+
+                observer.observe(art);
+            })
+        },
     }
 
     Search() {
@@ -312,7 +297,6 @@ export class ArtComponent implements OnInit {
     }
 
     attachClickEventListeners(project: string) {
-        debugger
         this.location.go('/artworks/' + project.toLocaleLowerCase());
         const element = this.el.nativeElement.querySelector(`#${project.replace(' ', '').trim().toLocaleUpperCase()}`)
         this.scrollTo(element);
