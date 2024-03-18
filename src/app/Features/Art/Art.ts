@@ -203,10 +203,12 @@ export class ArtComponent implements OnInit {
     ngOnInit(): void { }
 
     private scrollTo(element: HTMLElement) {
-        // debugger
+        debugger
         const offset = 50;
         const position = element.offsetTop - offset;
-
+        const id = element.getAttribute('id');
+        const categoryAnchor = this.el.nativeElement.querySelector(`a[data-category="${id}"]`);
+        this.activetab(categoryAnchor)
         window.scrollTo({
             top: position,
             behavior: 'smooth'
@@ -228,6 +230,7 @@ export class ArtComponent implements OnInit {
 
     Animation = {
         Arts: () => {
+            debugger;
             const arts = document.querySelectorAll('.hoverable-img-item')!;
             arts.forEach(art => {
                 // console.log(project);
@@ -297,6 +300,7 @@ export class ArtComponent implements OnInit {
     }
 
     attachClickEventListeners(project: string) {
+        debugger
         this.location.go('/artworks/' + project.toLocaleLowerCase());
         const element = this.el.nativeElement.querySelector(`#${project.replace(' ', '').trim().toLocaleUpperCase()}`)
         this.scrollTo(element);
