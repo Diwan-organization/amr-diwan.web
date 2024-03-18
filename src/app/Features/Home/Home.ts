@@ -88,7 +88,7 @@ export class HomeComponent implements OnInit {
 					const numberElement = element.querySelector('.number');
 					const targetNumber = parseInt(numberElement.getAttribute('number'));
 					const targetTimeInterval = parseInt(numberElement.getAttribute('timeinterval'));
-					console.log(targetNumber);
+					// console.log(targetNumber);
 
 					let currentNumber = 0;
 					const interval = setInterval(() => {
@@ -194,8 +194,8 @@ export class HomeComponent implements OnInit {
 		},
 
 		onCardClick: (index: number): void => {
-			console.log('index', index);
-			console.log('CardCheckedIndex', this.CardCheckedIndex);
+			// console.log('index', index);
+			// console.log('CardCheckedIndex', this.CardCheckedIndex);
 
 			if (this.CardCheckedIndex == index) {
 				this.FlipCard.onCardLeave(index)

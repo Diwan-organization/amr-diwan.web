@@ -23,6 +23,10 @@ export class AppConfig {
       (envArray) => {
         this.env = envArray.find((env) => env.Web == this.hostname)!;
         console.log('env: ', { ...this.env });
+        if (!this.env) {
+          console.log('error getting environment');
+          return;
+        }
         this.ApiUrl.next(this.env.ApiUrl);
       }
     );

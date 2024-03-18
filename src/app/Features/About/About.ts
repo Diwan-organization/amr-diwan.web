@@ -28,7 +28,7 @@ export class AboutComponent implements OnInit {
 		Content: () => {
 			const contents = document.querySelectorAll('.content')!;
 			contents.forEach(content => {
-				console.log(content);
+				// console.log(content);
 				content.classList.remove('content-transition');
 
 				const observer = new IntersectionObserver(entries => {
