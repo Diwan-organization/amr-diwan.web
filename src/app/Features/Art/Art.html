@@ -58,7 +58,7 @@
 		<div
 			class="category"
 			[ngClass]="category.Name.replace(regex, '').toLowerCase()"
-			*ngFor="let category of filteredProjects; let i = index"
+			*ngFor="let category of Projects; let i = index"
 			[id]="category.Name.replace(regex, '')">
 			<h1 class="title gold-text">{{category.Name}}</h1>
 			<div class="images">
