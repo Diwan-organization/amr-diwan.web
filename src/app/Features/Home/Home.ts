@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RoutePaths } from '@App/Common/Settings/RoutePaths';
@@ -17,6 +17,7 @@ import { ProjectItem, Projects } from './Data/Projects';
 })
 export class HomeComponent implements OnInit {
 	RoutePaths = RoutePaths;
+	@ViewChild('videoPlayer') videoPlayer!: ElementRef;
 
 	Stats: StatsItem[] = Stats;
 	Projects: ProjectItem[] = Projects;
@@ -35,6 +36,7 @@ export class HomeComponent implements OnInit {
 		this.Animation.Projects();
 		this.Animation.Partners();
 
+		this.playPauseVideo();
 	}
 
 	Animation = {
@@ -159,6 +161,18 @@ export class HomeComponent implements OnInit {
 		this.Router.navigateByUrl(link)
 	}
 
+	// video pausing issue
+	playPauseVideo() {
+		const video: HTMLVideoElement = this.videoPlayer.nativeElement;
+		setTimeout(() => {
+			// timeout has no reason but doesnot matter
+			if (video.paused) {
+				// console.log('was paused!!!!!');
+				video.muted = true;
+				video.play();
+			}
+		}, 500);
+	}
 
 	// shadow overlay landing section on scroll
 	BaseOpacity: number = 0.7;
