@@ -29,7 +29,7 @@ export const Partners: PartnerItem[] = [
         Link: '',
     },
     {
-        ImgSrc: 'assets/Logos/4.png',
+        ImgSrc: 'assets/Logos/4.jpg',
         ImgAlt: 'about the company',
         Title: 'The Company',
         Description: '',
@@ -44,6 +44,13 @@ export const Partners: PartnerItem[] = [
     },
     {
         ImgSrc: 'assets/Logos/6.png',
+        ImgAlt: 'about the company',
+        Title: 'The Company',
+        Description: '',
+        Link: '',
+    },
+    {
+        ImgSrc: 'assets/Logos/6-.png',
         ImgAlt: 'about the company',
         Title: 'The Company',
         Description: '',
@@ -69,8 +76,7 @@ export const Partners: PartnerItem[] = [
         Title: 'The Company',
         Description: '',
         Link: '',
-    }
-    ,
+    },
     {
         ImgSrc: 'assets/Logos/10.png',
         ImgAlt: 'about the company',
@@ -86,7 +92,7 @@ export const Partners: PartnerItem[] = [
         Link: '',
     },
     {
-        ImgSrc: 'assets/Logos/12.jpg',
+        ImgSrc: 'assets/Logos/12.png',
         ImgAlt: 'about the company',
         Title: 'The Company',
         Description: '',
@@ -118,11 +124,5 @@ export const Partners: PartnerItem[] = [
         Title: 'The Company',
         Description: '',
         Link: '',
-    }, {
-        ImgSrc: 'assets/Logos/17.webp',
-        ImgAlt: 'about the company',
-        Title: 'The Company',
-        Description: '',
-        Link: '',
-    },
+    }
 ]

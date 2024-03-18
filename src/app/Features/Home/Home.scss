@@ -428,7 +428,7 @@ $transition: all 0.6s ease-in;
 								}
 
 								.backCard {
-									background: #222;
+									background: var(--primary-color1);
 									color: var(--primary-font-color);
 									transform: rotateX(180deg) translateZ(30px);
 								}
