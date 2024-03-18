@@ -52,7 +52,7 @@ export class AppComponent {
 
   PreLoaderListener() {
     const startTime = new Date().getTime();
-    console.log('startTime: ', startTime);
+    // console.log('startTime: ', startTime);
 
     setTimeout(() => {
       this.IsLoaded = true;
@@ -61,18 +61,18 @@ export class AppComponent {
     window.addEventListener('load', () => {
       const currentTime = new Date().getTime();
       const elapsedTime = currentTime - startTime;
-      console.log('elapsedTime: ', elapsedTime);
+      // console.log('elapsedTime: ', elapsedTime);
 
       const minLoadingTime = 1500;
       if (elapsedTime >= minLoadingTime) {
-        console.log('first');
+        // console.log('first');
         this.IsLoaded = true;
         setTimeout(() => {
           this.NoLoader = true;
         }, 1000);
       } else {
         setTimeout(() => {
-          console.log('scond');
+          // console.log('scond');
           this.IsLoaded = true;
           setTimeout(() => {
             this.NoLoader = true;

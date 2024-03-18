@@ -1,48 +1,12 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { animate, stagger } from 'motion';
 import { RoutePaths } from '@App/Common/Settings/RoutePaths';
 import { Router, RouterModule } from '@angular/router';
 import { CarouselComponent } from '@App/Common/Widgets/Carousel/Carousel';
-
-
-class ProjectItem {
-	ImgSrc!: string;
-	ImgAlt!: string;
-	Title!: string;
-	Location!: string;
-	Description!: string;
-	Link!: string;
-}
-
-class NewsItem {
-	ImgSrc!: string;
-	ImgAlt!: string;
-	Title!: string;
-	Date!: Date;
-	Description!: string;
-	Link!: string;
-}
-
-
-class AboutItem {
-	ImgSrc!: string;
-	ImgAlt!: string;
-	Title!: string;
-	Description!: string;
-	Link!: string;
-}
-
-class StatsItem {
-	ImgSrc!: string;
-	ImgAlt!: string;
-	Title!: string;
-	Number!: string;
-	Description!: string;
-	Link!: string;
-	TimeInterval!: number;
-}
+import { PartnerItem, Partners } from './Data/Partners';
+import { Stats, StatsItem } from './Data/Stats';
+import { ProjectItem, Projects } from './Data/Projects';
 
 
 @Component({
@@ -53,261 +17,12 @@ class StatsItem {
 })
 export class HomeComponent implements OnInit {
 	RoutePaths = RoutePaths;
-	observerOptions: {} = {
-		root: null,
-		rootMargin: '10px',
-		threshold: 0.1, // Adjust this threshold based on your needs
-	};
+	@ViewChild('videoPlayer') videoPlayer!: ElementRef;
 
-	Stats: StatsItem[] = [
-		{
-			ImgSrc: '',
-			ImgAlt: '',
-			Title: 'Years Of Experience',
-			Number: '19+',
-			Description: '',
-			Link: '',
-			TimeInterval: 100
-		},
-		{
-			ImgSrc: '',
-			ImgAlt: '',
-			Title: 'Projects',
-			Number: '17+',
-			Description: '',
-			Link: '',
-			TimeInterval: 70
-		},
-		{
-			ImgSrc: '',
-			ImgAlt: '',
-			Title: 'Countries',
-			Number: '5+',
-			Description: '',
-			Link: '',
-			TimeInterval: 500
-		},
-		{
-			ImgSrc: '',
-			ImgAlt: '',
-			Title: 'Meters',
-			Number: '7000+',
-			Description: '',
-			Link: '',
-			TimeInterval: 25
-		},
-		{
-			ImgSrc: '',
-			ImgAlt: '',
-			Title: 'Learn more',
-			Number: '>',
-			Description: '',
-			Link: '/' + RoutePaths.About,
-			TimeInterval: 0
-		},
-	]
-
-	Projects: ProjectItem[] = [
-		{
-			ImgSrc: 'assets/Images/Home-Projects/ALIF.jpg',
-			ImgAlt: '',
-			Title: 'ALIF STORES',
-			Location: 'Qatar',
-			Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
-			Link: 'alif',
-		},
-		{
-			ImgSrc: 'assets/Images/Home-Projects/FIFA.jpg',
-			ImgAlt: '',
-			Title: 'Fifa World Cup',
-			Location: 'Qatar',
-			Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
-			Link: 'fifa',
-		},
-		{
-			ImgSrc: 'assets/Images/Home-Projects/adidas.JPG',
-			ImgAlt: '',
-			Title: 'Adidas',
-			Location: 'Cairo Festival Mall - Egypt',
-			Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
-			Link: 'adidas',
-		},
-		{
-			ImgSrc: 'assets/Images/Home-Projects/hsbc.jpg',
-			ImgAlt: '',
-			Title: 'HSBC',
-			Location: 'Cairo - Egypt',
-			Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
-			Link: 'hsbc',
-		},
-		{
-			ImgSrc: 'assets/Images/Home-Projects/money-fellows.JPG',
-			ImgAlt: '',
-			Title: 'Money Fellows',
-			Location: 'Cairo - Egypt',
-			Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
-			Link: 'moussa',
-		},
-		{
-			ImgSrc: 'assets/Images/Home-Projects/AL-rayyan.jpg',
-			ImgAlt: '',
-			Title: 'Al Rayyan SC',
-			Location: 'Qatar',
-			Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
-			Link: 'meryal',
-		}
-
-	];
-
-	News: NewsItem[] = [
-		{
-			ImgSrc: 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-			ImgAlt: 'news image 1',
-			Title: 'News 1 title',
-			Date: new Date('28/6/1996'),
-			Description: 'Some representative placeholder content for the first slide.',
-			Link: '',
-		},
-		{
-			ImgSrc: 'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-			ImgAlt: 'news image 2',
-			Title: 'News 2 title',
-			Date: new Date('28/6/1996'),
-			Description: 'Some representative placeholder content for the first slide.',
-			Link: '',
-		},
-		{
-			ImgSrc: 'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
-			ImgAlt: 'news image 3',
-			Title: 'News 3 title',
-			Date: new Date('28/6/1996'),
-			Description: 'Some representative placeholder content for the first slide.',
-			Link: '',
-		}
-	]
-
-	Partners: AboutItem[] = [
-
-		{
-			ImgSrc: 'assets/Logos/1.png',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		},
-		{
-			ImgSrc: 'assets/Logos/2.png',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		},
-		{
-			ImgSrc: 'assets/Logos/3.png',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		},
-		{
-			ImgSrc: 'assets/Logos/4.png',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		},
-		{
-			ImgSrc: 'assets/Logos/5.jpg',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		},
-		{
-			ImgSrc: 'assets/Logos/6.png',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		},
-		{
-			ImgSrc: 'assets/Logos/7.png',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		},
-		{
-			ImgSrc: 'assets/Logos/8.png ',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		},
-		{
-			ImgSrc: 'assets/Logos/9.png',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		}
-		,
-		{
-			ImgSrc: 'assets/Logos/10.png',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		},
-		{
-			ImgSrc: 'assets/Logos/11.png',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		},
-		{
-			ImgSrc: 'assets/Logos/12.jpg',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		},
-		{
-			ImgSrc: 'assets/Logos/13.png',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		},
-		{
-			ImgSrc: 'assets/Logos/14.png',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		},
-		{
-			ImgSrc: 'assets/Logos/15.png',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		}, {
-			ImgSrc: 'assets/Logos/16.png',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		}, {
-			ImgSrc: 'assets/Logos/17.webp',
-			ImgAlt: 'about the company',
-			Title: 'The Company',
-			Description: '',
-			Link: '',
-		},
-	]
-	x = this.Partners.map(p => p.ImgSrc)
+	Stats: StatsItem[] = Stats;
+	Projects: ProjectItem[] = Projects;
+	Partners: PartnerItem[] = Partners;
+	PartnersImages: string[] = Partners.map(p => p.ImgSrc);
 
 	constructor(private Router: Router) { }
 
@@ -321,6 +36,7 @@ export class HomeComponent implements OnInit {
 		this.Animation.Projects();
 		this.Animation.Partners();
 
+		this.playPauseVideo();
 	}
 
 	Animation = {
@@ -374,7 +90,7 @@ export class HomeComponent implements OnInit {
 					const numberElement = element.querySelector('.number');
 					const targetNumber = parseInt(numberElement.getAttribute('number'));
 					const targetTimeInterval = parseInt(numberElement.getAttribute('timeinterval'));
-					console.log(targetNumber);
+					// console.log(targetNumber);
 
 					let currentNumber = 0;
 					const interval = setInterval(() => {
@@ -445,6 +161,20 @@ export class HomeComponent implements OnInit {
 		this.Router.navigateByUrl(link)
 	}
 
+	// video pausing issue
+	playPauseVideo() {
+		const video: HTMLVideoElement = this.videoPlayer.nativeElement;
+		setTimeout(() => {
+			// timeout has no reason but doesnot matter
+			if (video.paused) {
+				// console.log('was paused!!!!!');
+				video.muted = true;
+				video.play();
+			}
+		}, 500);
+	}
+
+	// shadow overlay landing section on scroll
 	BaseOpacity: number = 0.7;
 	opacity: number = 0.7;
 	@HostListener('window:scroll', ['$event'])
@@ -456,40 +186,37 @@ export class HomeComponent implements OnInit {
 		this.opacity = Math.min(this.BaseOpacity + (ratio / 2.5), 1);
 	}
 
-	MinIndex = 8;
-	loadMore() {
-		this.MinIndex = Math.min(this.MinIndex + 5, this.Partners.length);
-	}
 
-	checkedIndex!: number;
+	CardCheckedIndex!: number;
+	FlipCard = {
+		onCheckboxChange: (index: number): void => {
+			this.CardCheckedIndex = this.CardCheckedIndex === index ? 0 : index;
+		},
 
-	onCheckboxChange(index: number): void {
-		this.checkedIndex = this.checkedIndex === index ? 0 : index;
-	}
+		isChecked: (index: number): boolean => {
+			return this.CardCheckedIndex === index;
+		},
 
-	isChecked(index: number): boolean {
-		return this.checkedIndex === index;
-	}
+		onCardHover: (index: number): void => {
+			this.CardCheckedIndex = index;
+		},
 
-	onCardHover(index: number): void {
-		this.checkedIndex = index;
-	}
+		onCardLeave: (index: number): void => {
+			if (this.CardCheckedIndex !== 0 && this.CardCheckedIndex === index) {
+				this.CardCheckedIndex = 0;
+			}
+		},
 
-	onCardLeave(index: number): void {
-		if (this.checkedIndex !== 0 && this.checkedIndex === index) {
-			this.checkedIndex = 0;
+		onCardClick: (index: number): void => {
+			// console.log('index', index);
+			// console.log('CardCheckedIndex', this.CardCheckedIndex);
+
+			if (this.CardCheckedIndex == index) {
+				this.FlipCard.onCardLeave(index)
+			} else {
+				this.FlipCard.onCardHover(index)
+			}
 		}
+
 	}
-
-	onCardClick(index: number): void {
-		console.log('index', index);
-		console.log('checkedIndex', this.checkedIndex);
-
-		if (this.checkedIndex == index) {
-			this.onCardLeave(index)
-		} else {
-			this.onCardHover(index)
-		}
-	}
-
 }

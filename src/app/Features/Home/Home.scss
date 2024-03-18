@@ -270,6 +270,7 @@ $transition: all 0.6s ease-in;
 						&.stat-clickable {
 							cursor: pointer;
 						}
+
 						.number {
 							color: var(--gold1);
 							font-size: 60px;
@@ -295,9 +296,9 @@ $transition: all 0.6s ease-in;
 						}
 
 						.text {
-							margin-inline-start: 15px;
+							// margin-inline-start: 15px;
 							flex-grow: 1;
-							text-align: start;
+							text-align: center;
 							font-size: 22px;
 
 							opacity: 0;
@@ -427,7 +428,7 @@ $transition: all 0.6s ease-in;
 								}
 
 								.backCard {
-									background: #222;
+									background: var(--primary-color1);
 									color: var(--primary-font-color);
 									transform: rotateX(180deg) translateZ(30px);
 								}
@@ -489,6 +490,11 @@ $transition: all 0.6s ease-in;
 			&.video-div {
 				.landing-text {
 					text-align: center;
+					padding-inline-start: 0;
+
+					img {
+						width: 300px !important;
+					}
 				}
 			}
 
