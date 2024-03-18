@@ -3,6 +3,7 @@ import { Component, ElementRef, HostListener, OnInit, Renderer2 } from '@angular
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { AppConfig } from '@App/Base/AppConfig';
 
 
 
@@ -12,6 +13,7 @@ class ProjectItem {
     Videos?: string[]
     Images!: string[];
     Location!: string;
+    Link?: string;
 }
 
 
@@ -154,49 +156,30 @@ export class ArtComponent implements OnInit {
             Location: 'KSA',
             Images: [
                 'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp'
-            ]
+            ],
+            Link: 'artworks/commercial/fifa'
         },
-
         {
             Name: 'Project 2',
             Description: 'description 2',
             Location: 'Qatar',
-            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
-
+            Images: [
+                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp'
+            ],
+            Link: 'artworks/restaurants/hsbc'
         },
-
-        {
-            Name: 'Project 3',
-            Description: 'description 3',
-            Location: 'Egypt',
-            Images: ['https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-                'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/CHICAGO-GALLERY-jpg.webp']
-        }
-
     ];
     filteredProjects: ProjectItem[];
     project: string = '';
 
 
-    constructor(private renderer: Renderer2, private el: ElementRef, private ActivatedRoute: ActivatedRoute, private location: Location) {
+    constructor(
+        private renderer: Renderer2,
+        private el: ElementRef,
+        private ActivatedRoute: ActivatedRoute,
+        private location: Location,
+        protected AppConfig: AppConfig
+    ) {
         this.filteredProjects = this.Projects
     }
 
@@ -223,7 +206,7 @@ export class ArtComponent implements OnInit {
                 this.scrollTo(element);
             }, 100);
         });
-        this.Animation.Arts()
+        // this.Animation.Arts();
     }
 
     Animation = {

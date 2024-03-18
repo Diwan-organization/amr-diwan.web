@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
 interface Env {
   Web: string;
   ApiUrl: string;
+  DiwanStudiosUrl: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -14,7 +15,7 @@ export class AppConfig {
 
   ApiUrl: Subject<string> = new Subject();
 
-  constructor(private HttpClient: HttpClient) {}
+  constructor(private HttpClient: HttpClient) { }
 
   async LoadAppConfig() {
     console.log('Client: ' + this.hostname);
