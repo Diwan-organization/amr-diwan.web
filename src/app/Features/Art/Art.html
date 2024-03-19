@@ -66,8 +66,10 @@
 					<video *ngIf="category.Videos!=null" [src]="category.Videos[0]" [autoplay]="true" loop muted="{{true}}"></video>
 				</div>
 				<p class="sub-title" [innerHTML]="category.Description"></p>
-				<div *ngFor="let img of category.Images; let j = index" class="hoverable-img-item" [ngClass]="'div' + (j+1)">
-					<img class="img" [src]="img" alt="" data-bs-toggle="modal" [attr.data-bs-target]="'#project-' + i + '-' + j" />
+				<ng-container *ngFor="let img of category.Images; let j = index">
+					<div class="hoverable-img-item" [ngClass]="'div' + (j+1)">
+						<img class="img" [src]="img" alt="" data-bs-toggle="modal" [attr.data-bs-target]="'#project-' + i + '-' + j" />
+					</div>
 					<!-- Modal -->
 					<div class="modal fade" [id]="'project-' + i + '-' + j" tabindex="-1" aria-labelledby="projectLabel">
 						<div class="modal-dialog modal-dialog-centered">
@@ -85,7 +87,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</ng-container>
 			</div>
 		</div>
 
