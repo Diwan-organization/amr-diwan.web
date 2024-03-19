@@ -69,12 +69,15 @@ export class ArtComponent implements OnInit {
             debugger;
             const arts = document.querySelectorAll('.hoverable-img-item')!;
             arts.forEach(art => {
-                // console.log(project);
+
+
                 art.classList.remove('art-transition');
 
                 const observer = new IntersectionObserver(entries => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
+                            const categoryAnchor = this.el.nativeElement.querySelector(`a[data-category="${art.parentElement?.parentElement?.getAttribute('id')}"]`);
+                            this.activetab(categoryAnchor)
                             art.classList.add('art-transition');
                             return;
                         }
