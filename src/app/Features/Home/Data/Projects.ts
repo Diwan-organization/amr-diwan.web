@@ -9,7 +9,7 @@ export class ProjectItem {
 
 export const Projects: ProjectItem[] = [
     {
-        ImgSrc: 'assets/Images/Home-Projects/ALIF.jpg',
+        ImgSrc: 'assets/Images/Home-Projects/ALIF.webp',
         ImgAlt: '',
         Title: 'ALIF STORES',
         Location: 'Qatar',
@@ -17,7 +17,7 @@ export const Projects: ProjectItem[] = [
         Link: 'alif',
     },
     {
-        ImgSrc: 'assets/Images/Home-Projects/FIFA.jpg',
+        ImgSrc: 'assets/Images/Home-Projects/FIFA.webp',
         ImgAlt: '',
         Title: 'Fifa World Cup',
         Location: 'Qatar',
@@ -25,7 +25,7 @@ export const Projects: ProjectItem[] = [
         Link: 'fifa',
     },
     {
-        ImgSrc: 'assets/Images/Home-Projects/adidas.JPG',
+        ImgSrc: 'assets/Images/Home-Projects/adidas.webp',
         ImgAlt: '',
         Title: 'Adidas',
         Location: 'Cairo Festival Mall - Egypt',
@@ -33,7 +33,7 @@ export const Projects: ProjectItem[] = [
         Link: 'adidas',
     },
     {
-        ImgSrc: 'assets/Images/Home-Projects/hsbc.jpg',
+        ImgSrc: 'assets/Images/Home-Projects/hsbc.webp',
         ImgAlt: '',
         Title: 'HSBC',
         Location: 'Cairo - Egypt',
@@ -41,7 +41,7 @@ export const Projects: ProjectItem[] = [
         Link: 'hsbc',
     },
     {
-        ImgSrc: 'assets/Images/Home-Projects/money-fellows.JPG',
+        ImgSrc: 'assets/Images/Home-Projects/money-fellows.webp',
         ImgAlt: '',
         Title: 'Money Fellows',
         Location: 'Cairo - Egypt',
@@ -49,7 +49,7 @@ export const Projects: ProjectItem[] = [
         Link: 'moussa',
     },
     {
-        ImgSrc: 'assets/Images/Home-Projects/AL-rayyan.jpg',
+        ImgSrc: 'assets/Images/Home-Projects/AL-rayyan.webp',
         ImgAlt: '',
         Title: 'Al Rayyan SC',
         Location: 'Qatar',
