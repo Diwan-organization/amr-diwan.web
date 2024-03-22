@@ -128,23 +128,144 @@ export const ArtProjects: ArtProjectItem[] = [
     }
 ];
 
-export const MoreArtProjects: ArtProjectItem[] = [
-    {
-        Name: 'Project 1',
-        Description: 'description 1',
-        Location: 'KSA',
-        Images: [
-            'https://nyc.carouselartgroup.com/wp-content/uploads/2022/11/CFA-Atlanta-Gallery-jpeg.webp',
-        ],
-        Link: 'artworks/commercial/fifa'
-    },
-    {
-        Name: 'Project 2',
-        Description: 'description 2',
-        Location: 'Qatar',
-        Images: [
-            'https://nyc.carouselartgroup.com/wp-content/uploads/2023/10/MIAMI-GALLERY-jpg.webp'
-        ],
-        Link: 'artworks/restaurants/hsbc'
-    },
-];
+export const MoreArtProjects: ArtProjectItem[] =
+    [
+        {
+            Name: 'Orange',
+            Description: 'Whole building consist of 11 floors.',
+            Location: 'Egypt',
+            Images: [
+                'assets/Images/More-Projects/',
+            ],
+            Link: 'artworks/Officesandfactories/orange'
+
+        }, {
+            Name: 'Careem',
+            Description: 'Inspiring graffiti art used as a motivation for growth using the brand color.',
+            Location: 'Egypt',
+            Images: [
+                'assets/Images/More-Projects/careem1.webp'
+            ],
+            Link: 'artworks/Officesandfactories/careem'
+
+        }, {
+            Name: 'Money Fellows',
+            Description: 'The graffiti drawn on the walls of their head offices in cairo took the walls to another place to keep up the positive vibes in the place.',
+            Location: 'Egypt',
+            Images: [
+                'assets/Images/More-Projects/moneyfellow7.jpg'
+
+            ],
+            Link: 'artworks/Officesandfactories/moneyfellows'
+
+        }, {
+            Name: 'Virtual Quest',
+            Description: 'Number of walls: 10.\nGame developnig office.\nAdding an artistic touch to walls of the place to match the identity and make it special.',
+            Location: 'Egypt',
+            Images: [
+                'assets/Images/More-Projects/vq6.webp'
+            ],
+            Link: 'artworks/Officesandfactories/virtualquest'
+
+        }, {
+            Name: 'GTE',
+            Description: 'Travel solutions company.\nUnique artwork to keep up the positive vibes.',
+            Location: 'Egypt',
+            Images: [
+                'assets/Images/More-Projects/gte1.webp'
+            ],
+            Link: 'artworks/Officesandfactories/gte'
+
+        }, {
+            Name: 'Rubix Park',
+            Description: 'Number of walls: 8.\nA fun way to keep the audience included.\nIn this project we used the interactive art concept in which the art is involved with the spectator in a way.\nHaving interactive artwork for people to enjoy like the rubik\'s cube which can be used as a bench.',
+            Location: 'Egypt',
+            Images: [
+                'assets/Images/More-Projects/rubix2.webp'
+            ],
+            Link: 'artworks/malls/rubixpark'
+
+        }, {
+            Name: 'Gleem Bay',
+            Description: 'Number of walls: 8.\nAn outdoor hub featuring the beach and summer vibes.',
+            Location: 'Egypt',
+            Images: [
+                'assets/Images/More-Projects/gleembay5.webp'
+            ],
+            Link: 'artworks/malls/gleembay'
+
+        }, {
+            Name: 'Tio Complex',
+            Description: '',
+            Location: 'Egypt',
+            Images: [
+                'assets/Images/More-Projects/TIO-13.webp'
+            ],
+            Link: 'artworks/malls/tiocomplex'
+
+        }, {
+            Name: 'Pro Guys',
+            Description: 'Pro Guys is one of the best wrapping and car styling companies in Egypt.\nFocus was showcasing their identity and work through our murals ending it witha statement wall of Pro Guy\'s dream team',
+            Location: 'Egypt',
+            Images: [
+                'assets/Images/More-Projects/pro3.webp'
+            ],
+            Link: 'artworks/Showrooms/proguys'
+
+        }, {
+            Name: 'Seats',
+            Description: 'Adding color to the walls through tropical and relatable artwork.',
+            Location: 'Egypt',
+            Images: [
+                'assets/Images/More-Projects/seats5.webp'
+            ],
+            Link: 'artworks/Showrooms/seats'
+
+        }, {
+            Name: 'Bonita',
+            Description: 'One of the top mexican cuisines in Egypt.\nThe artwork along with the neon lights purpose is to give the place Mexican vibes as if clients are stepping into the heart of Mexico.',
+            Location: 'Qatar',
+            Images: [
+                'assets/Images/More-Projects/bonita4.webp'
+            ],
+            Link: 'artworks/restaurants/bonita'
+
+        }, {
+            Name: 'Taiyaki',
+            Description: 'Promoting the Origin of the place through murals that show the street of japan which highlights the japanese culture.',
+            Location: 'Qatar',
+            Images: [
+                'assets/Images/More-Projects/taiyaki2.webp'
+            ],
+            Link: 'artworks/restaurants/taiyaki'
+        }, {
+            Name: 'Butcher\'s Burger',
+            Description: 'Number of branches: 10.\nPutting an identity to Butcher\'s Burger walls that matches its modern interior.',
+            Location: 'Qatar',
+            Images: [
+                'assets/Images/More-Projects/burcher1.webp'
+            ],
+            Link: 'artworks/restaurants/butchersburger'
+
+        }, {
+            Name: 'Kansas',
+            Description: 'Number of branches: 5.\nGiving a new look to a fried chicken quick service, Kansas interior is all about hip hop street graffiti.',
+            Location: 'Qatar',
+            Images: [
+                'assets/Images/More-Projects/kansas1.webp',
+            ],
+            Link: 'artworks/restaurants/kansas'
+
+        }, {
+            Name: 'Mori Sushi',
+            Description: 'Japanese murals artwork.',
+            Location: 'Qatar',
+            Images: [
+                'assets/Images/More-Projects/MORI-SUSHI-2.webp'
+            ],
+            Link: 'artworks/restaurants/morisushi'
+
+        },
+    ];
+
+
