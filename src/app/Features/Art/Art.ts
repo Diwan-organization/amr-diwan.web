@@ -17,7 +17,8 @@ import { ArtProjectItem, ArtProjects, MoreArtProjects } from './Data/Arts';
 export class ArtComponent implements OnInit {
     private animatedSections: Set<string> = new Set();
     SearchText: string = '';
-    regex = /\s/g;
+    regex = /['\s]/g;
+
 
     Projects: ArtProjectItem[] = ArtProjects;
     MoreProjects: ArtProjectItem[] = MoreArtProjects;
