@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, OnInit, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
@@ -93,7 +93,6 @@ export class ArtComponent implements OnInit {
 
             const videos = document.querySelectorAll('.div-video')!;
             videos.forEach(art => {
-                // console.log(project);
                 art.classList.remove('art-transition');
 
                 const observer = new IntersectionObserver(entries => {
