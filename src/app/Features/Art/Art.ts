@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
@@ -15,6 +15,8 @@ import { ArtProjectItem, ArtProjects, MoreArtProjects } from './Data/Arts';
 
 })
 export class ArtComponent implements OnInit {
+    @ViewChildren('videoPlayer') videoPlayers!: QueryList<ElementRef>;
+
     private animatedSections: Set<string> = new Set();
     SearchText: string = '';
     regex = /['\s]/g;
@@ -63,6 +65,7 @@ export class ArtComponent implements OnInit {
             }, 100);
         });
         this.Animation.Arts();
+        this.playPauseVideo();
     }
 
     Animation = {
@@ -143,5 +146,17 @@ export class ArtComponent implements OnInit {
         this.location.go('/artworks/' + project.toLocaleLowerCase());
         const element = this.el.nativeElement.querySelector(`#${project.replace(' ', '').trim().toLocaleUpperCase()}`)
         this.scrollTo(element);
+    }
+    playPauseVideo() {
+        this.videoPlayers.forEach((videoPlayer, index) => {
+            setTimeout(() => {
+                const videoElement: HTMLVideoElement = videoPlayer.nativeElement;
+                if (videoElement.paused) {
+                    videoElement.muted = true;
+                    videoElement.play();
+                }
+
+            }, 500);
+        });
     }
 }
