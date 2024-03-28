@@ -1,3 +1,6 @@
+$partner-logo: 150px;
+$small-partner-logo: 75px;
+
 .carousel {
 	position: relative;
 	width: 100%;
@@ -7,17 +10,20 @@
 		justify-content: center;
 
 		img {
-			max-width: 150px;
-			min-width: 150px;
-			max-height: 150px;
-			min-height: 150px;
+			mix-blend-mode: multiply;
+			border-radius: 50%;
+
+			max-width: $partner-logo;
+			min-width: $partner-logo;
+			max-height: $partner-logo;
+			min-height: $partner-logo;
 			padding: 10px;
 			display: block; /* Ensure the image takes up its full container */
 			width: 100%; /* Adjust the width as needed */
 			height: auto; /* Maintain aspect ratio */
 			object-fit: contain;
 
-			filter: grayscale(100%); /* Convert image to black and white */
+			// filter: grayscale(100%); /* Convert image to black and white */
 			transition: filter 0.3s ease;
 			cursor: pointer;
 			&:hover {
@@ -45,6 +51,12 @@
 		background-color: transparent;
 		font-size: 30px;
 		cursor: pointer;
+		color: var(--gold1);
+
+		&.grey {
+			cursor: auto;
+			color: grey;
+		}
 	}
 
 	.prev-btn {
@@ -52,5 +64,18 @@
 	}
 	.next-btn {
 		right: 0;
+	}
+}
+
+@media (max-width: 576px) {
+	.carousel {
+		.images-container {
+			img {
+				max-width: $small-partner-logo;
+				min-width: $small-partner-logo;
+				max-height: $small-partner-logo;
+				min-height: $small-partner-logo;
+			}
+		}
 	}
 }
