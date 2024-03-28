@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RoutePaths } from '@App/Common/Settings/RoutePaths';
 import { Router, RouterModule } from '@angular/router';
 import { CarouselComponent } from '@App/Common/Widgets/Carousel/Carousel';
-import { PartnerItem, Partners } from './Data/Partners';
+// import { PartnerItem, Partners } from './Data/Partners';
 import { Stats, StatsItem } from './Data/Stats';
 import { ProjectItem, Projects } from './Data/Projects';
 
@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
 
 	Stats: StatsItem[] = Stats;
 	Projects: ProjectItem[] = Projects;
-	Partners: PartnerItem[] = Partners;
-	PartnersImages: string[] = Partners.map(p => p.ImgSrc);
+	// Partners: PartnerItem[] = Partners;
+	// PartnersImages: string[] = Partners.map(p => p.ImgSrc);
 
 	constructor(private Router: Router) { }
 
