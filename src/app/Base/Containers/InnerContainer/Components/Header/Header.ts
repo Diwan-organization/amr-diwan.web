@@ -1,5 +1,5 @@
 import { RoutePaths } from '@App/Common/Settings/RoutePaths';
-import { Component, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 export class Link {
@@ -9,7 +9,7 @@ export class Link {
 
 export class ArtCategory {
 	Title!: string;
-	ImgSrc!: string;
+	// ImgSrc!: string;
 	ImgAlt!: string;
 	Links!: Link[];
 }
@@ -19,9 +19,11 @@ export class ArtCategory {
 	styleUrls: ['./Header.scss'],
 })
 export class HeaderComponent implements OnInit {
+	wasSmallScreen: boolean = window.innerWidth <= 576;
 	@ViewChild('NavbarCollapse') NavbarCollapse!: ElementRef;
 	@ViewChild('navbar') navbar: any;
 	RoutePaths = RoutePaths
+
 
 	ArtCategories: ArtCategory[] = [
 		// {
@@ -46,7 +48,7 @@ export class HeaderComponent implements OnInit {
 		{
 			Title: 'Qatar Projects',
 			ImgAlt: '',
-			ImgSrc: 'assets/Images/Projects/fifa/fifa1-header.webp',
+			// ImgSrc: 'assets/Images/Projects/fifa/fifa1-header.webp',
 			Links: [
 				{
 					Title: 'FIFA',
@@ -68,7 +70,7 @@ export class HeaderComponent implements OnInit {
 		}, {
 			Title: 'EGYPT Projects',
 			ImgAlt: '',
-			ImgSrc: 'assets/Images/Projects/Hsbc/hsbc1.webp',
+			// ImgSrc: 'assets/Images/Projects/Hsbc/hsbc1.webp',
 
 			Links: [
 				{
@@ -150,4 +152,17 @@ export class HeaderComponent implements OnInit {
 		this.navbar.nativeElement.classList.remove('show');
 
 	}
+	@HostListener('window:resize', ['$event'])
+	onResize(event: any) {
+		const screenWidth = event.target.innerWidth;
+		const isSmallScreen = screenWidth <= 576;
+
+		if (!isSmallScreen && this.wasSmallScreen) {
+			this.closeNavbar();
+		}
+
+		this.wasSmallScreen = isSmallScreen;
+	}
+
+
 }

@@ -3,15 +3,20 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AppConfig } from '@App/Base/AppConfig';
+import { CarouselComponent } from '@App/Common/Widgets/Carousel/Carousel';
+import { PartnerItem, Partners } from './Data/Partners';
+
 
 
 @Component({
 	standalone: true,
 	templateUrl: './About.html',
 	styleUrls: ['About.scss'],
-	imports: [FormsModule, CommonModule]
+	imports: [FormsModule, CommonModule, CarouselComponent]
 })
 export class AboutComponent implements OnInit {
+	Partners: PartnerItem[] = Partners;
+	PartnersImages: string[] = Partners.map(p => p.ImgSrc);
 	constructor(
 		private router: Router,
 		private route: ActivatedRoute,
@@ -22,6 +27,8 @@ export class AboutComponent implements OnInit {
 
 	ngAfterViewInit() {
 		this.Animation.Content();
+		this.Animation.Partners();
+
 	}
 
 	Animation = {
@@ -44,6 +51,21 @@ export class AboutComponent implements OnInit {
 				observer.observe(content);
 			})
 		},
+		Partners: () => {
+			const partners = document.querySelector('.partners')!;
+			partners.classList.remove('partners-transition');
+			const partnersObserver = new IntersectionObserver(entries => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						partners.classList.add('partners-transition');
+						return;
+					}
+
+					partners.classList.remove('partners-transition');
+				});
+			});
+			partnersObserver.observe(partners);
+		}
 	}
 
 }

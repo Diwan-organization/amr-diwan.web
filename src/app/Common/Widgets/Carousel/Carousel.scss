@@ -8,11 +8,7 @@ $small-partner-logo: 75px;
 	.images-container {
 		display: flex;
 		justify-content: center;
-		.img-bg {
-			background-image: url('../../../../assets/Logos/logo-bg.png');
-			background-size: contain;
-			background-repeat: no-repeat;
-		}
+
 		img {
 			mix-blend-mode: multiply;
 			border-radius: 50%;

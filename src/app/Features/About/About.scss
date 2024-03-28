@@ -1,6 +1,8 @@
 $font-color: var(--gold1);
 $font-color-secondary: var(--gold2);
 $transition: all 0.6s ease-in;
+$partner-logo: 150px;
+$small-partner-logo: 75px;
 
 .page-inner {
 	.page-section {
@@ -64,6 +66,78 @@ $transition: all 0.6s ease-in;
 			}
 		}
 	}
+	.page-section-partners {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		text-align: center;
+		padding-bottom: 50px;
+
+		&.partners {
+			background-color: white;
+			overflow: auto;
+			padding: 0;
+
+			opacity: 0;
+			transform: translateX(-20px);
+			transition: $transition;
+
+			&.partners-transition {
+				opacity: 1;
+				transform: translateX(0px);
+			}
+		}
+	}
+
+	.page-section-partners2 {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		text-align: center;
+		padding-bottom: 50px;
+
+		&.partners {
+			background-color: white;
+			overflow: auto;
+			padding: 0;
+
+			opacity: 0;
+			transform: translateX(-20px);
+			transition: $transition;
+
+			.tab-content {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+
+				img {
+					mix-blend-mode: multiply;
+					border-radius: 50%;
+
+					max-width: $partner-logo;
+					min-width: $partner-logo;
+					max-height: $partner-logo;
+					min-height: $partner-logo;
+					padding: 10px;
+					display: block; /* Ensure the image takes up its full container */
+					width: 100%; /* Adjust the width as needed */
+					height: auto; /* Maintain aspect ratio */
+					object-fit: contain;
+
+					// filter: grayscale(100%); /* Convert image to black and white */
+					transition: filter 0.3s ease;
+					cursor: pointer;
+					&:hover {
+						filter: grayscale(0%);
+					}
+				}
+			}
+			&.partners-transition {
+				opacity: 1;
+				transform: translateX(0px);
+			}
+		}
+	}
 }
 
 @media (max-width: 576px) {
@@ -84,6 +158,19 @@ $transition: all 0.6s ease-in;
 				}
 				img {
 					width: 300px;
+				}
+			}
+
+			&.page-section-partners2 {
+				&.partners {
+					.tab-content {
+						img {
+							max-width: $small-partner-logo;
+							min-width: $small-partner-logo;
+							max-height: $small-partner-logo;
+							min-height: $small-partner-logo;
+						}
+					}
 				}
 			}
 		}

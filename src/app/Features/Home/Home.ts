@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RoutePaths } from '@App/Common/Settings/RoutePaths';
 import { Router, RouterModule } from '@angular/router';
 import { CarouselComponent } from '@App/Common/Widgets/Carousel/Carousel';
-import { PartnerItem, Partners } from './Data/Partners';
+// import { PartnerItem, Partners } from './Data/Partners';
 import { Stats, StatsItem } from './Data/Stats';
 import { ProjectItem, Projects } from './Data/Projects';
 
@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
 
 	Stats: StatsItem[] = Stats;
 	Projects: ProjectItem[] = Projects;
-	Partners: PartnerItem[] = Partners;
-	PartnersImages: string[] = Partners.map(p => p.ImgSrc);
+	// Partners: PartnerItem[] = Partners;
+	// PartnersImages: string[] = Partners.map(p => p.ImgSrc);
 
 	constructor(private Router: Router) { }
 
@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
 		this.Animation.About();
 		this.Animation.Stat();
 		this.Animation.Projects();
-		this.Animation.Partners();
 
 		this.playPauseVideo();
 	}
@@ -139,21 +138,7 @@ export class HomeComponent implements OnInit {
 			})
 		},
 
-		Partners: () => {
-			const partners = document.querySelector('.partners')!;
-			partners.classList.remove('partners-transition');
-			const partnersObserver = new IntersectionObserver(entries => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						partners.classList.add('partners-transition');
-						return;
-					}
 
-					partners.classList.remove('partners-transition');
-				});
-			});
-			partnersObserver.observe(partners);
-		}
 	}
 
 	GotoStat(link: string) {

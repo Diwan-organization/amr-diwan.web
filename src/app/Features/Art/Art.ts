@@ -72,8 +72,6 @@ export class ArtComponent implements OnInit {
         Arts: () => {
             const arts = document.querySelectorAll('.hoverable-img-item')!;
             arts.forEach(art => {
-
-
                 art.classList.remove('art-transition');
 
                 const observer = new IntersectionObserver(entries => {

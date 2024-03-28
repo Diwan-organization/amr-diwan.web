@@ -52,9 +52,9 @@
 
 					<div class="art-categories">
 						<div class="art-inner-categories" *ngFor="let category of ArtCategories;">
-							<div class="image-container">
+							<!-- <div class="image-container">
 								<img [src]="category.ImgSrc" [alt]="category.ImgAlt" />
-							</div>
+							</div> -->
 							<span class="art-links">
 								<a class="title gold-text">{{category.Title}}</a>
 								<span *ngFor="let link of category.Links; index as i">
@@ -88,9 +88,9 @@
 						</span>
 						<div class="art-categories dropdown-menu" aria-labelledby="dropdownMenuLink" #dropdownMenu>
 							<div class="art-inner-categories dropdown-item" *ngFor="let category of ArtCategories;let i= index;">
-								<div class="image-container d-inline">
+								<!-- <div class="image-container d-inline">
 									<img [src]="category.ImgSrc" [alt]="category.ImgAlt" />
-								</div>
+								</div> -->
 
 								<span class="dropdown">
 									<a class="nav-link d-inline" (click)="closeNavbar()" [routerLink]="[RoutePaths.ArtWorks]" data-bs-toggle="collapse">
