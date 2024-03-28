@@ -46,7 +46,7 @@ export const Projects: ProjectItem[] = [
         Title: 'Money Fellows',
         Location: 'Cairo - Egypt',
         Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
-        Link: 'moussa',
+        Link: 'moneyfellows',
     },
     {
         ImgSrc: 'assets/Images/Home-Projects/AL-rayyan.webp',
@@ -54,7 +54,24 @@ export const Projects: ProjectItem[] = [
         Title: 'Al Rayyan SC',
         Location: 'Qatar',
         Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
+        Link: 'alrayyan',
+    }
+    ,
+    {
+        ImgSrc: 'assets/Images/Home-Projects/meryal.webp',
+        ImgAlt: '',
+        Title: 'Meryal Waterpark',
+        Location: 'Qatar',
+        Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
         Link: 'meryal',
+    },
+    {
+        ImgSrc: 'assets/Images/Home-Projects/moosa.webp',
+        ImgAlt: '',
+        Title: 'Al Moosa Rehab',
+        Location: 'Saudi Arabia',
+        Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
+        Link: 'almoosarehab',
     }
 
 ];

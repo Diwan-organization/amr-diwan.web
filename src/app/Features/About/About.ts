@@ -27,6 +27,8 @@ export class AboutComponent implements OnInit {
 
 	ngAfterViewInit() {
 		this.Animation.Content();
+		this.Animation.Partners();
+
 	}
 
 	Animation = {
@@ -49,6 +51,21 @@ export class AboutComponent implements OnInit {
 				observer.observe(content);
 			})
 		},
+		Partners: () => {
+			const partners = document.querySelector('.partners')!;
+			partners.classList.remove('partners-transition');
+			const partnersObserver = new IntersectionObserver(entries => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						partners.classList.add('partners-transition');
+						return;
+					}
+
+					partners.classList.remove('partners-transition');
+				});
+			});
+			partnersObserver.observe(partners);
+		}
 	}
 
 }

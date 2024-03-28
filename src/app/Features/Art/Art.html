@@ -40,7 +40,7 @@
 
 	<div class="page-section art-div">
 		<div class="w-100">
-			<div class="projects-description">
+			<!-- <div class="projects-description">
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. In earum rerum architecto blanditiis labore. Sequi, eos libero? Ea nemo quisquam
 				necessitatibus totam aliquid culpa recusandae mollitia pariatur hic, sunt praesentium vel, in sed dicta magnam error eius molestias excepturi
 				eveniet quod reiciendis fugit debitis sequi! Exercitationem est architecto sint ipsa.
@@ -54,24 +54,35 @@
 
 		<div class="text-center w-100">
 			<h1 style="font-size: 60px; padding: 20px">Projects</h1>
-		</div>
-		<div
-			class="category"
-			[ngClass]="category.Name.replace(regex, '').toLowerCase()"
-			*ngFor="let category of Projects; let i = index"
-			[id]="category.Name.replace(regex, '')">
-			<h1 class="title gold-text">{{category.Name}}</h1>
-			<div class="images">
-				<div class="div-video">
-					<video *ngIf="category.Videos!=null" #videoPlayer [src]="category.Videos[0]" [autoplay]="true" loop muted="{{true}}"></video>
-				</div>
-				<p class="sub-title" [innerHTML]="category.Description"></p>
-				<ng-container *ngFor="let img of category.Images; let j = index">
-					<div class="hoverable-img-item" [ngClass]="'div' + (j+1)">
-						<img class="img" [src]="img" alt="" data-bs-toggle="modal" [attr.data-bs-target]="'#project-' + i + '-' + j" />
+		</div> -->
+			<div
+				class="category"
+				[ngClass]="category.Name.replace(regex, '').toLowerCase()"
+				*ngFor="let category of Projects; let i = index"
+				[id]="category.Name.replace(regex, '')">
+				<h1 class="title gold-text">{{category.Name}}</h1>
+				<div class="images">
+					<div class="div-video">
+						<video
+							*ngIf="category.Videos!=null"
+							[src]="category.Videos[0]"
+							#videoPlayer
+							class="video"
+							preload
+							loop
+							autoplay
+							muted="muted"
+							playsinline
+							style="visibility: visible"
+							type="video/mp4"></video>
 					</div>
-					<!-- Modal -->
-					<!-- <div class="modal fade" [id]="'project-' + i + '-' + j" tabindex="-1" aria-labelledby="projectLabel">
+					<p class="sub-title" [innerHTML]="category.Description"></p>
+					<ng-container *ngFor="let img of category.Images; let j = index">
+						<div class="hoverable-img-item" [ngClass]="'div' + (j+1)">
+							<img class="img" [src]="img" alt="" data-bs-toggle="modal" [attr.data-bs-target]="'#project-' + i + '-' + j" />
+						</div>
+						<!-- Modal -->
+						<!-- <div class="modal fade" [id]="'project-' + i + '-' + j" tabindex="-1" aria-labelledby="projectLabel">
 						<div class="modal-dialog modal-dialog-centered">
 							<div class="modal-content" (click)="$event.stopPropagation()">
 								<div class="modal-header">
@@ -87,22 +98,23 @@
 							</div>
 						</div>
 					</div> -->
-				</ng-container>
+					</ng-container>
+				</div>
 			</div>
-		</div>
 
-		<div class="category more-projects" [id]="'MOREPROJECTS'">
-			<h1 class="title gold-text">More Projects</h1>
-			<p class="sub-title">For More Projects With Diwan Studios</p>
-			<div class="images">
-				<a
-					*ngFor="let project of MoreProjects; let i = index"
-					class="hoverable-img-item"
-					[href]="AppConfig.env.DiwanStudiosUrl + project.Link"
-					target="_blank">
-					<img class="img" [src]="project.Images[0]" alt="project display image" />
-					<div class="visible">{{project.Name}}</div>
-				</a>
+			<div class="category more-projects" [id]="'MOREPROJECTS'">
+				<h1 class="title gold-text">More Projects</h1>
+				<p class="sub-title">For More Projects With Diwan Studios</p>
+				<div class="images">
+					<a
+						*ngFor="let project of MoreProjects; let i = index"
+						class="hoverable-img-item"
+						[href]="AppConfig.env.DiwanStudiosUrl + project.Link"
+						target="_blank">
+						<img class="img" [src]="project.Images[0]" alt="project display image" />
+						<div class="visible">{{project.Name}}</div>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>

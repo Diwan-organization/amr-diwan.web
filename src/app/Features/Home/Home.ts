@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
 		this.Animation.About();
 		this.Animation.Stat();
 		this.Animation.Projects();
-		this.Animation.Partners();
 
 		this.playPauseVideo();
 	}
@@ -139,21 +138,7 @@ export class HomeComponent implements OnInit {
 			})
 		},
 
-		Partners: () => {
-			const partners = document.querySelector('.partners')!;
-			partners.classList.remove('partners-transition');
-			const partnersObserver = new IntersectionObserver(entries => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting) {
-						partners.classList.add('partners-transition');
-						return;
-					}
 
-					partners.classList.remove('partners-transition');
-				});
-			});
-			partnersObserver.observe(partners);
-		}
 	}
 
 	GotoStat(link: string) {
