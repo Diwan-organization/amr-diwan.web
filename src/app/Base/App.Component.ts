@@ -59,7 +59,7 @@ export class AppComponent {
       this.IsLoaded = true;
       setTimeout(() => {
         this.NoLoader = true;
-      }, 1000);
+      }, 500);
     }, 5000);
     // Add an event listener to execute code when the window is loaded
     window.addEventListener('load', () => {
@@ -73,14 +73,14 @@ export class AppComponent {
         this.IsLoaded = true;
         setTimeout(() => {
           this.NoLoader = true;
-        }, 1000);
+        }, 500);
       } else {
         setTimeout(() => {
           // console.log('scond');
           this.IsLoaded = true;
           setTimeout(() => {
             this.NoLoader = true;
-          }, 1000);
+          }, 500);
         }, minLoadingTime - elapsedTime);
       }
     });
