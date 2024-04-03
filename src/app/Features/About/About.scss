@@ -12,7 +12,8 @@ $small-partner-logo: 75px;
 			transform: translateY(20px);
 			transition: $transition;
 
-			.gold-text {
+			.gold-text,
+			.title {
 				font-size: 70px;
 			}
 

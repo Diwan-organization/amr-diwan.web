@@ -26,36 +26,17 @@ export class HeaderComponent implements OnInit {
 
 
 	ArtCategories: ArtCategory[] = [
-		// {
-		// 	Title: 'KSA Projects',
-		// 	ImgAlt: '',
-		// 	ImgSrc: 'assets/Images/kansas-wall-2.jpg',
-		// 	Links: [
-		// 		{
-		// 			Title: 'Project 1',
-		// 			Link: `${RoutePaths.ArtWorks}`
-		// 		},
-		// 		{
-		// 			Title: 'Project 2',
-		// 			Link: `${RoutePaths.ArtWorks}`
-		// 		},
-		// 		{
-		// 			Title: 'Project 3',
-		// 			Link: `${RoutePaths.ArtWorks}`
-		// 		}
-		// 	]
-		// },
 		{
 			Title: 'Qatar Projects',
 			ImgAlt: '',
 			// ImgSrc: 'assets/Images/Projects/fifa/fifa1-header.webp',
 			Links: [
 				{
-					Title: 'FIFA',
+					Title: 'Meryal',
 					Link: `${RoutePaths.ArtWorks}`
 				},
 				{
-					Title: 'ALIF',
+					Title: 'FIFA',
 					Link: `${RoutePaths.ArtWorks}`
 				},
 				{
@@ -63,11 +44,16 @@ export class HeaderComponent implements OnInit {
 					Link: `${RoutePaths.ArtWorks}`
 				},
 				{
+					Title: 'ALIF',
+					Link: `${RoutePaths.ArtWorks}`
+				},
+				{
 					Title: 'EAA',
 					Link: `${RoutePaths.ArtWorks}`
 				}
 			]
-		}, {
+		},
+		{
 			Title: 'EGYPT Projects',
 			ImgAlt: '',
 			// ImgSrc: 'assets/Images/Projects/Hsbc/hsbc1.webp',
@@ -78,18 +64,37 @@ export class HeaderComponent implements OnInit {
 					Link: `${RoutePaths.ArtWorks}`
 				},
 				{
+					Title: 'PUBG',
+					Link: `${RoutePaths.ArtWorks}`
+				},
+				{
 					Title: 'ADIDAS',
 					Link: `${RoutePaths.ArtWorks}`
 				},
 				{
-					Title: 'LANE9',
-					Link: `${RoutePaths.ArtWorks}`
-				}, {
-					Title: 'MONDELEZ',
+					Title: 'MONEY FELLOWS',
 					Link: `${RoutePaths.ArtWorks}`
 				},
+				// {
+				// 	Title: 'LANE9',
+				// 	Link: `${RoutePaths.ArtWorks}`
+				// }, {
+				// 	Title: 'MONDELEZ',
+				// 	Link: `${RoutePaths.ArtWorks}`
+				// },
 			]
-		}
+		},
+		{
+			Title: 'KSA Projects',
+			ImgAlt: '',
+			// ImgSrc: 'assets/Images/kansas-wall-2.jpg',
+			Links: [
+				{
+					Title: 'ASH',
+					Link: `${RoutePaths.ArtWorks}/ash`
+				}
+			]
+		},
 	]
 	artflag: boolean = true;
 

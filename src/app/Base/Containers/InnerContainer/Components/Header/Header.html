@@ -58,9 +58,10 @@
 							<span class="art-links">
 								<a class="title gold-text">{{category.Title}}</a>
 								<span *ngFor="let link of category.Links; index as i">
-									<a *ngIf="i<4" [routerLink]="link.Link+'/'+link.Title.toLocaleLowerCase()"> {{link.Title}}</a>
+									<!-- <a *ngIf="i<4" [routerLink]="link.Link+'/'+link.Title.toLocaleLowerCase()"> {{link.Title}}</a> -->
+									<a [routerLink]="link.Link+'/'+link.Title.toLocaleLowerCase()"> {{link.Title}}</a>
 								</span>
-								<a *ngIf="category.Links.length> 4" [routerLink]="RoutePaths.ArtWorks"> Browse More...</a>
+								<!-- <a *ngIf="category.Links.length> 4" [routerLink]="RoutePaths.ArtWorks"> Browse More...</a> -->
 							</span>
 						</div>
 					</div>
