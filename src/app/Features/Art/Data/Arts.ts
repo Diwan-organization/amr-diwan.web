@@ -11,26 +11,29 @@ export class ArtProjectItem {
 export const ArtProjects: ArtProjectItem[] = [
     {
         Name: 'MERYAL',
-        Description: 'Exclusive artistry in Qatar World Cup 2022 Where passion meets art through our Graffiti at Al-thomama and Al-Janub Stadiums.\nNumber of walls: 2 walls at Al-thomama stadium 3 walls at Al-Jandub stadium.',
+        Description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, soluta eos harum ea vero in laboriosam omnis magnam quis deleniti ex cumque nemo nisi labore sint atque tempora commodi voluptatibus corporis molestias delectus quidem sed iusto. Velit, cumque tenetur! Exercitationem molestias vero voluptate dicta aperiam impedit excepturi laboriosam cumque!',
         Location: 'QATAR',
         Images: [
-            'assets/Images/Projects/fifa/fifa1-header.webp',
-            'assets/Images/Projects/fifa/fifa2.webp',
-            'assets/Images/Projects/fifa/fifa3.webp',
-            'assets/Images/Projects/fifa/fifa4.webp'
-
+            'assets/Images/Projects/meryal/1.webp',
+            'assets/Images/Projects/meryal/2.webp',
+            'assets/Images/Projects/meryal/3.webp',
+            'assets/Images/Projects/meryal/4.webp',
+            'assets/Images/Projects/meryal/5.webp',
         ]
     },
     {
-        Name: 'ASH',
-        Description: 'Exclusive artistry in Qatar World Cup 2022 Where passion meets art through our Graffiti at Al-thomama and Al-Janub Stadiums.\nNumber of walls: 2 walls at Al-thomama stadium 3 walls at Al-Jandub stadium.',
+        Name: 'AL MOOSA',
+        Description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, soluta eos harum ea vero in laboriosam omnis magnam quis deleniti ex cumque nemo nisi labore sint atque tempora commodi voluptatibus corporis molestias delectus quidem sed iusto. Velit, cumque tenetur! Exercitationem molestias vero voluptate dicta aperiam impedit excepturi laboriosam cumque!',
         Location: 'KSA',
+        Videos: [
+            'assets/Images/Projects/almoosa/6.mp4'
+        ],
         Images: [
-            'assets/Images/Projects/fifa/fifa1-header.webp',
-            'assets/Images/Projects/fifa/fifa2.webp',
-            'assets/Images/Projects/fifa/fifa3.webp',
-            'assets/Images/Projects/fifa/fifa4.webp'
-
+            'assets/Images/Projects/almoosa/1.webp',
+            'assets/Images/Projects/almoosa/2.webp',
+            'assets/Images/Projects/almoosa/3.webp',
+            'assets/Images/Projects/almoosa/4.webp',
+            'assets/Images/Projects/almoosa/5.webp',
         ]
     },
     {
@@ -120,11 +123,11 @@ export const ArtProjects: ArtProjectItem[] = [
     {
         Name: 'MONEY FELLOWS',
         Location: 'EGYPT',
-        Description: 'The design incorporates the finest aspects of modern and ancient Egyptian art and architecture into a spectacular masterpiece in the center lays two main elements instantly grabing on attention diwan studios graffiti artwork and adidas trefoil centered in a perfect combination fading away the boundary between art and the everyday world.',
+        Description: 'The graffiti drawn on the walls of their head offices in cairo took the walls to another place to keep up the positive vibes in the place.',
         Images: [
-            'assets/Images/Projects/Adidas/adidas1.webp',
-            'assets/Images/Projects/Adidas/adidas2.webp',
-            'assets/Images/Projects/Adidas/adidas3.webp'
+            'assets/Images/Projects/money-fellows/1.jpg',
+            'assets/Images/Projects/money-fellows/2.jpg',
+            'assets/Images/Projects/money-fellows/3.webp'
         ]
 
     }
@@ -137,7 +140,7 @@ export const MoreArtProjects: ArtProjectItem[] =
             Description: 'Fluorescent interactive art concept around 500 meter square.',
             Location: 'EGYPT',
             Images: [
-                'assets/Images/Projects/Lane9/lane2.webp',
+                'assets/Images/More-Projects/lane2.webp',
             ],
             Link: 'artworks/entertainment/lane9'
         }
@@ -147,7 +150,7 @@ export const MoreArtProjects: ArtProjectItem[] =
             Description: `The point here was to story-tell the employees' health, safety and enviroment through typography.\naccentuating the brand names of Mondelez through applying the popping colors for a lively atmosphere`,
             Location: 'EGYPT',
             Images: [
-                'assets/Images/Projects/mondelez/mondelez1.webp',
+                'assets/Images/More-Projects/mondelez1.webp',
             ],
             Link: 'artworks/officesandfactories/mondelez'
         },
@@ -160,7 +163,8 @@ export const MoreArtProjects: ArtProjectItem[] =
             ],
             Link: 'artworks/Officesandfactories/orange'
 
-        }, {
+        },
+        {
             Name: 'Careem',
             Description: 'Inspiring graffiti art used as a motivation for growth using the brand color.',
             Location: 'Egypt',
