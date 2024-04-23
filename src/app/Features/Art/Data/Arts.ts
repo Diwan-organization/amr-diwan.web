@@ -159,7 +159,7 @@ export const MoreArtProjects: ArtProjectItem[] =
             Description: 'Whole building consist of 11 floors.',
             Location: 'Egypt',
             Images: [
-                'assets/Images/More-Projects/',
+                'assets/Images/More-Projects/orange.webp',
             ],
             Link: 'artworks/Officesandfactories/orange'
 

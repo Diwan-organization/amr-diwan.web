@@ -90,7 +90,7 @@ export class HeaderComponent implements OnInit {
 			// ImgSrc: 'assets/Images/kansas-wall-2.jpg',
 			Links: [
 				{
-					Title: 'ASH',
+					Title: 'AL MOOSA',
 					Link: `${RoutePaths.ArtWorks}/ash`
 				}
 			]

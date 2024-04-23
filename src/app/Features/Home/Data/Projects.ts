@@ -13,7 +13,7 @@ export const Projects: ProjectItem[] = [
         ImgAlt: '',
         Title: 'ALIF STORES',
         Location: 'Qatar',
-        Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
+        Description: 'Creating a mural featuring Lionel Messi, Diego Maradon and Pelé as champions to celebrate iconic figures in football history.\nMatching the World Cup Vibes in Qatar.',
         Link: 'alif',
     },
     {
@@ -21,7 +21,7 @@ export const Projects: ProjectItem[] = [
         ImgAlt: '',
         Title: 'Fifa World Cup',
         Location: 'Qatar',
-        Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
+        Description: 'Exclusive artistry in Qatar World Cup 2022 Where passion meets art through our Graffiti at Al-thomama and Al-Janub Stadiums.\nNumber of walls: 2 walls at Al-thomama stadium 3 walls at Al-Jandub stadium.',
         Link: 'fifa',
     },
     {
@@ -29,7 +29,7 @@ export const Projects: ProjectItem[] = [
         ImgAlt: '',
         Title: 'Adidas',
         Location: 'Cairo Festival Mall - Egypt',
-        Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
+        Description: 'The design incorporates the finest aspects of modern and ancient Egyptian art and architecture into a spectacular masterpiece in the center lays two main elements instantly grabing on attention diwan studios graffiti artwork and adidas trefoil centered in a perfect combination fading away the boundary between art and the everyday world.',
         Link: 'adidas',
     },
     {
@@ -37,7 +37,7 @@ export const Projects: ProjectItem[] = [
         ImgAlt: '',
         Title: 'HSBC',
         Location: 'Cairo - Egypt',
-        Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
+        Description: 'This is from the "Vision of Our City" campaign.\nThe idea of representing each location of the bank in\nthis project we worked on the headquarters in Cairo.\nIn the piece we include pixels and personalities that\ndepict the role of technology and a new female-led\ngeneration of entrepreneurs. This generation is putting\nsustainable initiatives first, represented by plants and the\nshape of the lotus; a symbol of rebirth.',
         Link: 'hsbc',
     },
     {
@@ -45,7 +45,7 @@ export const Projects: ProjectItem[] = [
         ImgAlt: '',
         Title: 'Money Fellows',
         Location: 'Cairo - Egypt',
-        Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
+        Description: 'The graffiti drawn on the walls of their head offices in cairo took the walls to another place to keep up the positive vibes in the place.',
         Link: 'moneyfellows',
     },
     {
@@ -53,7 +53,7 @@ export const Projects: ProjectItem[] = [
         ImgAlt: '',
         Title: 'Al Rayyan SC',
         Location: 'Qatar',
-        Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
+        Description: 'Graffiti work at the athlete gym of AlRayyanSC (The Lions) in Qatar and the release of the football team\'s new kitwith Nike football.',
         Link: 'alrayyan',
     }
     ,
@@ -62,7 +62,7 @@ export const Projects: ProjectItem[] = [
         ImgAlt: '',
         Title: 'Meryal Waterpark',
         Location: 'Qatar',
-        Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
+        Description: '',
         Link: 'meryal',
     },
     {
@@ -70,7 +70,7 @@ export const Projects: ProjectItem[] = [
         ImgAlt: '',
         Title: 'Al Moosa Rehab',
         Location: 'Saudi Arabia',
-        Description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat nemo, ullam quis corporis officia sint fugit, tempora quidem libero.',
+        Description: '',
         Link: 'almoosarehab',
     }
 
