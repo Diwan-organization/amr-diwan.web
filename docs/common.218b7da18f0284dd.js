@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkamr_diwan_web=self.webpackChunkamr_diwan_web||[]).push([[592],{7130:(u,t,s)=>{s.d(t,{s:()=>a});let a=(()=>{class e{static#t=this.Default="home";static#s=this.Home="home";static#a=this.ArtWorks="artworks";static#e=this.About="about";static#u=this.Contact="contactus"}return e})()}}]);
