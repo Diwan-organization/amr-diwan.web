@@ -62,7 +62,7 @@ export const Projects: ProjectItem[] = [
         ImgAlt: '',
         Title: 'Meryal Waterpark',
         Location: 'Qatar',
-        Description: '',
+        Description: 'Our graffiti work for Meryal Waterpark. The tallest water slide in the world and the largest waterpark in Qatar.',
         Link: 'meryal',
     },
     {
@@ -70,7 +70,7 @@ export const Projects: ProjectItem[] = [
         ImgAlt: '',
         Title: 'Al Moosa Rehab',
         Location: 'Saudi Arabia',
-        Description: '',
+        Description: 'From blank walls to 1500 square meters of inspiration 30 days of creating a masterpiece for Almoosa Hospital. Every inch tells a story of hope and healing.',
         Link: 'almoosarehab',
     }
 
