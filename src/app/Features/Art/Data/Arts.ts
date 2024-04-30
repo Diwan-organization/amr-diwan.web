@@ -11,7 +11,7 @@ export class ArtProjectItem {
 export const ArtProjects: ArtProjectItem[] = [
     {
         Name: 'MERYAL',
-        Description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, soluta eos harum ea vero in laboriosam omnis magnam quis deleniti ex cumque nemo nisi labore sint atque tempora commodi voluptatibus corporis molestias delectus quidem sed iusto. Velit, cumque tenetur! Exercitationem molestias vero voluptate dicta aperiam impedit excepturi laboriosam cumque!',
+        Description: 'Our graffiti work for Meryal Waterpark. The tallest water slide in the world and the largest waterpark in Qatar.',
         Location: 'QATAR',
         Images: [
             'assets/Images/Projects/meryal/1.webp',
@@ -23,7 +23,7 @@ export const ArtProjects: ArtProjectItem[] = [
     },
     {
         Name: 'AL MOOSA',
-        Description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores expedita, soluta eos harum ea vero in laboriosam omnis magnam quis deleniti ex cumque nemo nisi labore sint atque tempora commodi voluptatibus corporis molestias delectus quidem sed iusto. Velit, cumque tenetur! Exercitationem molestias vero voluptate dicta aperiam impedit excepturi laboriosam cumque!',
+        Description: 'From blank walls to 1500 square meters of inspiration 30 days of creating a masterpiece for Almoosa Hospital. Every inch tells a story of hope and healing.',
         Location: 'KSA',
         Videos: [
             'assets/Images/Projects/almoosa/6.mp4'

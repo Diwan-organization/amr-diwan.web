@@ -91,7 +91,7 @@ export class HeaderComponent implements OnInit {
 			Links: [
 				{
 					Title: 'AL MOOSA',
-					Link: `${RoutePaths.ArtWorks}/ash`
+					Link: `${RoutePaths.ArtWorks}`
 				}
 			]
 		},
