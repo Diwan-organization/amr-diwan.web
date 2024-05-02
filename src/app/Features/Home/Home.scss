@@ -183,6 +183,15 @@ $transition: all 0.6s ease-in;
 					font-size: 60px;
 					font-weight: 800;
 				}
+				h3 {
+					font-size: 25px;
+				}
+
+				.cta {
+					font-weight: bold;
+					font-size: 20px;
+					letter-spacing: 1.5px;
+				}
 			}
 
 			.scroll-down {
@@ -248,6 +257,15 @@ $transition: all 0.6s ease-in;
 			.sub-title {
 				font-size: 20px;
 				text-align: center;
+
+				a {
+					display: inline-block;
+					font-size: smaller;
+					color: var(--gold2);
+					&:hover {
+						color: var(--gold1);
+					}
+				}
 			}
 			.tab-content {
 				.stat-list {
