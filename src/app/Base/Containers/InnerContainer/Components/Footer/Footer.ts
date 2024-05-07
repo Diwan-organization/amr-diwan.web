@@ -11,7 +11,7 @@ export class FooterComponent {
 
   Year = Constants.GetYear();
   RoutePaths = RoutePaths;
-  version: string = '1.0.0'
+  version: string = '1.0.3'
 
   constructor() { }
 
