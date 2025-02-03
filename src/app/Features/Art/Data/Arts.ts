@@ -1,4 +1,5 @@
 export class ArtProjectItem {
+    Id!: number;
     Name!: string;
     Description!: string;
     Videos?: string[]
@@ -10,6 +11,7 @@ export class ArtProjectItem {
 
 export const ArtProjects: ArtProjectItem[] = [
     {
+        Id: 1,
         Name: 'MERYAL',
         Description: 'Our graffiti work for Meryal Waterpark. The tallest water slide in the world and the largest waterpark in Qatar.',
         Location: 'QATAR',
@@ -22,6 +24,7 @@ export const ArtProjects: ArtProjectItem[] = [
         ]
     },
     {
+        Id: 2,
         Name: 'AL MOOSA',
         Description: 'From blank walls to 1500 square meters of inspiration 30 days of creating a masterpiece for Almoosa Hospital. Every inch tells a story of hope and healing.',
         Location: 'KSA',
@@ -37,6 +40,7 @@ export const ArtProjects: ArtProjectItem[] = [
         ]
     },
     {
+        Id: 4,
         Name: 'FIFA',
         Description: 'Exclusive artistry in Qatar World Cup 2022 Where passion meets art through our Graffiti at Al-thomama and Al-Janub Stadiums.\nNumber of walls: 2 walls at Al-thomama stadium 3 walls at Al-Jandub stadium.',
         Location: 'QATAR',
@@ -49,6 +53,7 @@ export const ArtProjects: ArtProjectItem[] = [
         ]
     },
     {
+        Id: 5,
         Name: 'AL RAYYAN',
         Description: 'Graffiti work at the athlete gym of AlRayyanSC (The Lions) in Qatar and the release of the football team\'s new kitwith Nike football.',
         Location: 'QATAR',
@@ -63,6 +68,7 @@ export const ArtProjects: ArtProjectItem[] = [
         ]
     },
     {
+        Id: 6,
         Name: 'ALIF',
         Description: 'Creating a mural featuring Lionel Messi, Diego Maradon and Pelé as champions to celebrate iconic figures in football history.\nMatching the World Cup Vibes in Qatar.',
         Location: 'QATAR',
@@ -73,6 +79,7 @@ export const ArtProjects: ArtProjectItem[] = [
         ]
     },
     {
+        Id: 7,
         Name: 'HSBC',
         Description: 'This is from the "Vision of Our City" campaign.\nThe idea of representing each location of the bank in\nthis project we worked on the headquarters in Cairo.\nIn the piece we include pixels and personalities that\ndepict the role of technology and a new female-led\ngeneration of entrepreneurs. This generation is putting\nsustainable initiatives first, represented by plants and the\nshape of the lotus; a symbol of rebirth.',
         Location: 'EGYPT',
@@ -82,6 +89,7 @@ export const ArtProjects: ArtProjectItem[] = [
         ]
     },
     {
+        Id: 8,
         Name: 'EAA',
         Description: 'EAA envisions bringing new life chances, real hope and opportunities to improve the lives of poor and marginalised children, youth and women especially in the developing world.',
         Location: 'QATAR',
@@ -96,6 +104,7 @@ export const ArtProjects: ArtProjectItem[] = [
         ]
     },
     {
+        Id: 9,
         Name: 'PUBG',
         Description: `In celebration of Vikendi Reborn we couldn't miss the chance to add our touches onto PS5 with an illustraion for PubG game.`,
         Location: 'EGYPT',
@@ -110,6 +119,7 @@ export const ArtProjects: ArtProjectItem[] = [
         ]
     },
     {
+        Id: 10,
         Name: 'ADIDAS',
         Location: 'EGYPT',
         Description: 'The design incorporates the finest aspects of modern and ancient Egyptian art and architecture into a spectacular masterpiece in the center lays two main elements instantly grabing on attention diwan studios graffiti artwork and adidas trefoil centered in a perfect combination fading away the boundary between art and the everyday world.',
@@ -121,6 +131,7 @@ export const ArtProjects: ArtProjectItem[] = [
 
     },
     {
+        Id: 11,
         Name: 'MONEY FELLOWS',
         Location: 'EGYPT',
         Description: 'The graffiti drawn on the walls of their head offices in cairo took the walls to another place to keep up the positive vibes in the place.',
@@ -136,6 +147,7 @@ export const ArtProjects: ArtProjectItem[] = [
 export const MoreArtProjects: ArtProjectItem[] =
     [
         {
+            Id: 1,
             Name: 'LANE9',
             Description: 'Fluorescent interactive art concept around 500 meter square.',
             Location: 'EGYPT',
@@ -146,6 +158,7 @@ export const MoreArtProjects: ArtProjectItem[] =
         }
         ,
         {
+            Id: 2,
             Name: 'MONDELEZ',
             Description: `The point here was to story-tell the employees' health, safety and enviroment through typography.\naccentuating the brand names of Mondelez through applying the popping colors for a lively atmosphere`,
             Location: 'EGYPT',
@@ -155,6 +168,7 @@ export const MoreArtProjects: ArtProjectItem[] =
             Link: 'artworks/officesandfactories/mondelez'
         },
         {
+            Id: 3,
             Name: 'Orange',
             Description: 'Whole building consist of 11 floors.',
             Location: 'Egypt',
@@ -165,6 +179,7 @@ export const MoreArtProjects: ArtProjectItem[] =
 
         },
         {
+            Id: 4,
             Name: 'Careem',
             Description: 'Inspiring graffiti art used as a motivation for growth using the brand color.',
             Location: 'Egypt',
@@ -174,6 +189,7 @@ export const MoreArtProjects: ArtProjectItem[] =
             Link: 'artworks/Officesandfactories/careem'
 
         }, {
+            Id: 5,
             Name: 'Money Fellows',
             Description: 'The graffiti drawn on the walls of their head offices in cairo took the walls to another place to keep up the positive vibes in the place.',
             Location: 'Egypt',
@@ -184,6 +200,7 @@ export const MoreArtProjects: ArtProjectItem[] =
             Link: 'artworks/Officesandfactories/moneyfellows'
 
         }, {
+            Id: 6,
             Name: 'Virtual Quest',
             Description: 'Number of walls: 10.\nGame developnig office.\nAdding an artistic touch to walls of the place to match the identity and make it special.',
             Location: 'Egypt',
@@ -193,6 +210,7 @@ export const MoreArtProjects: ArtProjectItem[] =
             Link: 'artworks/Officesandfactories/virtualquest'
 
         }, {
+            Id: 7,
             Name: 'GTE',
             Description: 'Travel solutions company.\nUnique artwork to keep up the positive vibes.',
             Location: 'Egypt',
@@ -202,6 +220,7 @@ export const MoreArtProjects: ArtProjectItem[] =
             Link: 'artworks/Officesandfactories/gte'
 
         }, {
+            Id: 8,
             Name: 'Rubix Park',
             Description: 'Number of walls: 8.\nA fun way to keep the audience included.\nIn this project we used the interactive art concept in which the art is involved with the spectator in a way.\nHaving interactive artwork for people to enjoy like the rubik\'s cube which can be used as a bench.',
             Location: 'Egypt',
@@ -211,6 +230,7 @@ export const MoreArtProjects: ArtProjectItem[] =
             Link: 'artworks/malls/rubixpark'
 
         }, {
+            Id: 9,
             Name: 'Gleem Bay',
             Description: 'Number of walls: 8.\nAn outdoor hub featuring the beach and summer vibes.',
             Location: 'Egypt',
@@ -220,6 +240,7 @@ export const MoreArtProjects: ArtProjectItem[] =
             Link: 'artworks/malls/gleembay'
 
         }, {
+            Id: 10,
             Name: 'Tio Complex',
             Description: '',
             Location: 'Egypt',
@@ -229,6 +250,7 @@ export const MoreArtProjects: ArtProjectItem[] =
             Link: 'artworks/malls/tiocomplex'
 
         }, {
+            Id: 11,
             Name: 'Pro Guys',
             Description: 'Pro Guys is one of the best wrapping and car styling companies in Egypt.\nFocus was showcasing their identity and work through our murals ending it witha statement wall of Pro Guy\'s dream team',
             Location: 'Egypt',
@@ -238,6 +260,7 @@ export const MoreArtProjects: ArtProjectItem[] =
             Link: 'artworks/Showrooms/proguys'
 
         }, {
+            Id: 12,
             Name: 'Seats',
             Description: 'Adding color to the walls through tropical and relatable artwork.',
             Location: 'Egypt',
@@ -247,6 +270,7 @@ export const MoreArtProjects: ArtProjectItem[] =
             Link: 'artworks/Showrooms/seats'
 
         }, {
+            Id: 13,
             Name: 'Bonita',
             Description: 'One of the top mexican cuisines in Egypt.\nThe artwork along with the neon lights purpose is to give the place Mexican vibes as if clients are stepping into the heart of Mexico.',
             Location: 'Qatar',
@@ -256,6 +280,7 @@ export const MoreArtProjects: ArtProjectItem[] =
             Link: 'artworks/restaurants/bonita'
 
         }, {
+            Id: 14,
             Name: 'Taiyaki',
             Description: 'Promoting the Origin of the place through murals that show the street of japan which highlights the japanese culture.',
             Location: 'Qatar',
@@ -264,6 +289,7 @@ export const MoreArtProjects: ArtProjectItem[] =
             ],
             Link: 'artworks/restaurants/taiyaki'
         }, {
+            Id: 15,
             Name: 'Butcher\'s Burger',
             Description: 'Number of branches: 10.\nPutting an identity to Butcher\'s Burger walls that matches its modern interior.',
             Location: 'Qatar',
@@ -273,6 +299,7 @@ export const MoreArtProjects: ArtProjectItem[] =
             Link: 'artworks/restaurants/butchersburger'
 
         }, {
+            Id: 16,
             Name: 'Kansas',
             Description: 'Number of branches: 5.\nGiving a new look to a fried chicken quick service, Kansas interior is all about hip hop street graffiti.',
             Location: 'Qatar',
@@ -282,6 +309,7 @@ export const MoreArtProjects: ArtProjectItem[] =
             Link: 'artworks/restaurants/kansas'
 
         }, {
+            Id: 17,
             Name: 'Mori Sushi',
             Description: 'Japanese murals artwork.',
             Location: 'Qatar',

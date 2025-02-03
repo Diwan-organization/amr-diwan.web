@@ -1,4 +1,4 @@
-<div class="page-inner">
+<div class="page-inner art-page">
 	<aside>
 		<div class="input-group mb-5 mt-5">
 			<input
@@ -11,27 +11,21 @@
 				(input)="Search()" />
 			<i class="fa fa-search input-group-text gold-text" id="basic-addon1"></i>
 		</div>
-		<div *ngFor="let category of filteredProjects;let i = index">
+		<div *ngFor="let project of filteredProjects;let i = index">
 			<a
-				(click)="attachClickEventListeners(category.Name.replace(regex,''))"
+				(click)="attachClickEventListeners(project.Name.replace(regex,''))"
 				href="javascript:void(0)"
-				class="gold-text {{category.Name.replace(regex,'')}}"
-				id="categories"
-				[attr.data-category]="category.Name.replace(regex,'')">
-				{{category.Name}}
+				class="gold-text project-tab {{project.Name.replace(regex,'')}}"
+				[class.active]="activeProjectId === project.Id">
+				{{project.Name}}
 				<span>
 					<i class="fa fa-thumb-tack"></i>
-					{{category.Location}}
+					{{project.Location}}
 				</span>
 			</a>
 		</div>
 		<div>
-			<a
-				href="javascript:void(0)"
-				class="gold-text MOREPROJECTS"
-				id="categories"
-				[attr.data-category]="'MOREPROJECTS'"
-				(click)="attachClickEventListeners('MOREPROJECTS')">
+			<a href="javascript:void(0)" class="gold-text project-tab moreprojects" id="0" (click)="attachClickEventListeners('more-projects')">
 				<!-- <i class="fa fa-map-marker"></i> -->
 				More Projects...
 			</a>
@@ -58,15 +52,16 @@
 		</div>
 		<div
 			class="category"
-			[ngClass]="category.Name.replace(regex, '').toLowerCase()"
-			*ngFor="let category of Projects; let i = index"
-			[id]="category.Name.replace(regex, '')">
-			<h1 class="title gold-text">{{category.Name}}</h1>
+			#projectElement
+			[ngClass]="project.Name.replace(regex, '').toLowerCase()"
+			*ngFor="let project of Projects; let i = index"
+			[id]="'project-' + project.Id">
+			<h1 class="title gold-text">{{project.Name}}</h1>
 			<div class="images">
 				<div class="div-video">
 					<video
-						*ngIf="category.Videos!=null"
-						[src]="category.Videos[0]"
+						*ngIf="project.Videos!=null"
+						[src]="project.Videos[0]"
 						#videoPlayer
 						class="video"
 						preload
@@ -77,8 +72,8 @@
 						style="visibility: visible"
 						type="video/mp4"></video>
 				</div>
-				<p class="sub-title" [innerHTML]="category.Description"></p>
-				<ng-container *ngFor="let img of category.Images; let j = index">
+				<p class="sub-title" [innerHTML]="project.Description"></p>
+				<ng-container *ngFor="let img of project.Images; let j = index">
 					<div class="hoverable-img-item" [ngClass]="'div' + (j+1)">
 						<img class="img" [src]="img" alt="" data-bs-toggle="modal" [attr.data-bs-target]="'#project-' + i + '-' + j" />
 					</div>
@@ -103,7 +98,7 @@
 			</div>
 		</div>
 
-		<div class="category more-projects" [id]="'MOREPROJECTS'">
+		<div class="category more-projects" #projectElement id="moreprojects-0">
 			<h1 class="title gold-text">More Projects</h1>
 			<p class="sub-title">For More Projects With Diwan Studios</p>
 			<div class="images">

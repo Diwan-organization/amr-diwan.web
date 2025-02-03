@@ -28,6 +28,9 @@ export class ArtComponent implements OnInit {
 
     currentProject: string = '';
 
+    @ViewChildren('projectElement') projectElements!: QueryList<ElementRef>;
+    activeProjectId: number | null = null;
+    observer: IntersectionObserver | null = null;
 
     constructor(
         private renderer: Renderer2,
@@ -42,12 +45,9 @@ export class ArtComponent implements OnInit {
     ngOnInit(): void { }
 
     private scrollTo(element: HTMLElement) {
-
         const offset = 50;
         const position = element.offsetTop - offset;
         const id = element.getAttribute('id');
-        const categoryAnchor = this.el.nativeElement.querySelector(`a[data-category="${id}"]`);
-        this.activetab(categoryAnchor)
         window.scrollTo({
             top: position,
             behavior: 'smooth'
@@ -58,14 +58,29 @@ export class ArtComponent implements OnInit {
         this.filteredProjects = this.Projects;
         this.ActivatedRoute.params.subscribe((params) => {
             this.currentProject = params['project'];
-            if (!this.currentProject) return
-            const element = this.el.nativeElement.querySelector(`#${this.currentProject.replace(' ', '').trim().toLocaleUpperCase()}`)
+            if (!this.currentProject) return;
+            const elementid = `.${this.currentProject.replace(this.regex, '').trim().toLowerCase()}`;
+            const element = this.el.nativeElement.querySelector(elementid);
             setTimeout(() => {
                 this.scrollTo(element);
             }, 100);
         });
-        this.Animation.Arts();
+        // this.Animation.Arts();
         this.playPauseVideo();
+
+        if (window.innerWidth > 768) {
+            const options = { root: null, threshold: 0.3 };
+            this.observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const projectId = +entry.target.id.split('-')[1];
+                        this.activeProjectId = projectId;
+                    }
+                });
+            }, options);
+
+            this.projectElements.forEach(project => this.observer!.observe(project.nativeElement));
+        }
     }
 
     Animation = {
@@ -77,8 +92,6 @@ export class ArtComponent implements OnInit {
                 const observer = new IntersectionObserver(entries => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            const categoryAnchor = this.el.nativeElement.querySelector(`a[data-category="${art.parentElement?.parentElement?.getAttribute('id')}"]`);
-                            this.activetab(categoryAnchor)
                             art.classList.add('art-transition');
                             return;
                         }
@@ -112,7 +125,6 @@ export class ArtComponent implements OnInit {
         this.animatedSections.clear();
         if (this.SearchText.trim() === '') {
             this.filteredProjects = this.Projects;
-            this.activetab(undefined)
 
         } else {
             this.filteredProjects = this.Projects.filter(category =>
@@ -120,30 +132,16 @@ export class ArtComponent implements OnInit {
                 || category.Description.toLowerCase().includes(this.SearchText.trim().toLowerCase())
             );
             const menulink = this.el.nativeElement.querySelector('.' + this.filteredProjects[0].Name)
-            this.activetab(menulink)
-        }
-
-    }
-    activetab(link?: Element) {
-        const menuLinks = this.el.nativeElement.querySelectorAll('#categories');
-        menuLinks.forEach((link: Element) => {
-            link.classList.remove('active');
-        })
-        if (link) {
-            link.classList.add('active');
-
-        } else {
-            menuLinks[0].classList.add('active');
         }
 
     }
 
     attachClickEventListeners(project: string) {
-
         this.location.go('/artworks/' + project.toLocaleLowerCase());
-        const element = this.el.nativeElement.querySelector(`#${project.replace(' ', '').trim().toLocaleUpperCase()}`)
+        const element = this.el.nativeElement.querySelector(`.${project.replace(' ', '').trim().toLowerCase()}`)
         this.scrollTo(element);
     }
+
     playPauseVideo() {
         this.videoPlayers.forEach((videoPlayer, index) => {
             setTimeout(() => {
@@ -155,5 +153,9 @@ export class ArtComponent implements OnInit {
 
             }, 500);
         });
+    }
+
+    ngOnDestroy() {
+        this.observer?.disconnect();
     }
 }

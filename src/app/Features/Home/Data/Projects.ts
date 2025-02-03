@@ -71,7 +71,7 @@ export const Projects: ProjectItem[] = [
         Title: 'Al Moosa Rehab',
         Location: 'Saudi Arabia',
         Description: 'From blank walls to 1500 square meters of inspiration 30 days of creating a masterpiece for Almoosa Hospital. Every inch tells a story of hope and healing.',
-        Link: 'almoosarehab',
+        Link: 'almoosa',
     }
 
 ];
