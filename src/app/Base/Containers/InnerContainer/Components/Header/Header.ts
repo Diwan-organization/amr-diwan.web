@@ -1,3 +1,4 @@
+import { AppConfig } from '@App/Base/AppConfig';
 import { RoutePaths } from '@App/Common/Settings/RoutePaths';
 import { Component, ElementRef, HostListener, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
@@ -22,7 +23,8 @@ export class HeaderComponent implements OnInit {
 	wasSmallScreen: boolean = window.innerWidth <= 576;
 	@ViewChild('NavbarCollapse') NavbarCollapse!: ElementRef;
 	@ViewChild('navbar') navbar: any;
-	RoutePaths = RoutePaths
+	RoutePaths = RoutePaths;
+	PortfolioLink!: string;
 
 
 	ArtCategories: ArtCategory[] = [
@@ -98,15 +100,23 @@ export class HeaderComponent implements OnInit {
 	]
 	artflag: boolean = true;
 
-	constructor(private Router: Router) { }
+	constructor(
+		private Router: Router,
+		private AppConfig: AppConfig
+	) { }
 
 	ngOnInit(): void {
-		this.ScrollChanges()
+		this.PortfolioLink = this.AppConfig.env.PortfolioLink;
+		this.ScrollChanges();
 	}
 	goToProfile() {
 	}
 
 	goToSettings() {
+	}
+
+	gotoPortfolio() {
+		window.open(this.PortfolioLink, '_blank');
 	}
 
 	ScrollChanges() {

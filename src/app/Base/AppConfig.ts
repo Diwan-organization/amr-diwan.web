@@ -6,6 +6,7 @@ interface Env {
   Web: string;
   ApiUrl: string;
   DiwanStudiosUrl: string;
+  PortfolioLink: string;
 }
 
 @Injectable({ providedIn: 'root' })
