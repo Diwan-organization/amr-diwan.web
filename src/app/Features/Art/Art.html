@@ -13,7 +13,7 @@
 		</div>
 		<div *ngFor="let project of filteredProjects;let i = index">
 			<a
-				(click)="attachClickEventListeners(project.Name.replace(regex,''))"
+				(click)="GoToProject(project.Name.replace(regex,''))"
 				href="javascript:void(0)"
 				class="gold-text project-tab {{project.Name.replace(regex,'')}}"
 				[class.active]="activeProjectId === project.Id">
@@ -25,7 +25,7 @@
 			</a>
 		</div>
 		<div>
-			<a href="javascript:void(0)" class="gold-text project-tab moreprojects" id="0" (click)="attachClickEventListeners('more-projects')">
+			<a href="javascript:void(0)" class="gold-text project-tab moreprojects" id="0" (click)="GoToProject('more-projects')">
 				<!-- <i class="fa fa-map-marker"></i> -->
 				More Projects...
 			</a>
@@ -33,20 +33,6 @@
 	</aside>
 
 	<div class="page-section art-div">
-		<!-- <div class="w-100">
-			<div class="projects-description">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. In earum rerum architecto blanditiis labore. Sequi, eos libero? Ea nemo quisquam
-				necessitatibus totam aliquid culpa recusandae mollitia pariatur hic, sunt praesentium vel, in sed dicta magnam error eius molestias excepturi
-				eveniet quod reiciendis fugit debitis sequi! Exercitationem est architecto sint ipsa.
-			</div>
-		</div> -->
-
-		<!-- <div class="landing-images d-flex flex-row container-fluid">
-			<img src="assets/Images/Maps/Egypt-removebg-preview.png" style="object-fit: cover; width: 33.3%" />
-			<img src="assets/Images/Maps/Qatar-removebg-preview.png" style="object-fit: cover; width: 33.3%" />
-			<img src="assets/Images/Maps/SaudiArabia-removebg-preview.png" style="object-fit: cover; width: 33.3%" />
-		</div> -->
-
 		<div class="text-center w-100">
 			<h1 class="gold-text" style="font-size: 60px; padding: 20px">Projects</h1>
 		</div>
@@ -75,7 +61,7 @@
 				<p class="sub-title" [innerHTML]="project.Description"></p>
 				<ng-container *ngFor="let img of project.Images; let j = index">
 					<div class="hoverable-img-item" [ngClass]="'div' + (j+1)">
-						<img class="img" [src]="img" alt="" data-bs-toggle="modal" [attr.data-bs-target]="'#project-' + i + '-' + j" />
+						<img class="img" loading="lazy" [src]="img" alt="" data-bs-toggle="modal" [attr.data-bs-target]="'#project-' + i + '-' + j" />
 					</div>
 					<!-- Modal -->
 					<!-- <div class="modal fade" [id]="'project-' + i + '-' + j" tabindex="-1" aria-labelledby="projectLabel">

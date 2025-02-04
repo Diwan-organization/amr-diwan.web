@@ -136,7 +136,7 @@ export class ArtComponent implements OnInit {
 
     }
 
-    attachClickEventListeners(project: string) {
+    GoToProject(project: string) {
         this.location.go('/artworks/' + project.toLocaleLowerCase());
         const element = this.el.nativeElement.querySelector(`.${project.replace(' ', '').trim().toLowerCase()}`)
         this.scrollTo(element);
