@@ -82,7 +82,7 @@ $transition: all 0.6s ease-in;
 			margin-top: 60px;
 		}
 
-		.category {
+		.project {
 			margin-bottom: 50px;
 			width: 100%;
 
@@ -188,11 +188,11 @@ $transition: all 0.6s ease-in;
 				}
 			}
 
-			&.alrayyan {
+			&.adidasmallofegypt {
 				.images {
 					display: grid;
-					grid-template-columns: repeat(6, 1fr);
-					grid-template-rows: repeat(4, 150px);
+					grid-template-columns: repeat(4, 1fr);
+					grid-template-rows: repeat(6, 150px);
 					gap: $grid-gap;
 				}
 				.sub-title {
@@ -202,10 +202,31 @@ $transition: all 0.6s ease-in;
 					grid-area: 1 / 3 / 3 / 5;
 				}
 				.div2 {
-					grid-area: 3 / 3 / 5 / 5;
+					grid-area: 3 / 1 / 5 / 3;
 				}
 				.div3 {
+					grid-area: 5 / 1 / 7 / 3;
+				}
+				.div-video {
+					grid-area: 3/3/7/5;
+				}
+			}
+
+			&.alrayyan {
+				.images {
+					display: grid;
+					grid-template-columns: repeat(6, 1fr);
+					grid-template-rows: repeat(4, 150px);
+					gap: $grid-gap;
+				}
+				.sub-title {
+					grid-area: 1 / 1 / 3 / 5;
+				}
+				.div1 {
 					grid-area: 3 / 1 / 5 / 3;
+				}
+				.div2 {
+					grid-area: 3 / 3 / 5 / 5;
 				}
 				.div-video {
 					grid-area: 1 / 5 / 5 / 7;
@@ -216,47 +237,47 @@ $transition: all 0.6s ease-in;
 				.images {
 					display: grid;
 					grid-template-columns: repeat(6, 1fr);
-					grid-template-rows: repeat(5, 100px);
+					grid-template-rows: repeat(6, 100px);
 					gap: $grid-gap;
 				}
 				.sub-title {
-					grid-area: 1 / 1 / 2 / 5;
+					grid-area: 1 / 1 /3 / 5;
 				}
 				.div1 {
-					grid-area: 2 / 1 / 6 / 3;
+					grid-area: 3 / 1 / 7 / 3;
 				}
 				.div2 {
-					grid-area: 2 / 3 / 6 / 5;
+					grid-area: 3 / 3 / 7 / 5;
 				}
 				.div3 {
-					grid-area: 1 / 5 / 6 / 7;
+					grid-area: 1 / 5 / 7 / 7;
 				}
 			}
 
 			&.eaa {
 				.images {
 					display: grid;
-					grid-template-columns: repeat(4, 1fr);
+					grid-template-columns: repeat(6, 1fr);
 					grid-template-rows: repeat(8, 150px);
 					gap: $grid-gap;
 				}
 				.sub-title {
-					grid-area: 1 / 1 / 3 / 3;
+					grid-area: 1 / 1 / 3 / 5;
 				}
 				.div1 {
-					grid-area: 1 / 3 / 3 / 5;
+					grid-area: 1 / 5 / 3 / 7;
 					img {
 						object-fit: contain !important;
 					}
 				}
 				.div2 {
-					grid-area: 3 / 1 / 6 / 3;
+					grid-area: 3 / 1 / 6 / 4;
 				}
 				.div3 {
-					grid-area: 6 / 1 / 9 / 3;
+					grid-area: 6 / 1 / 9 / 4;
 				}
 				.div-video {
-					grid-area: 3 / 3 / 9 / 5;
+					grid-area: 3 / 4 / 9 / 7;
 				}
 			}
 
@@ -264,26 +285,26 @@ $transition: all 0.6s ease-in;
 				.images {
 					display: grid;
 					grid-template-columns: repeat(4, 1fr);
-					grid-template-rows: repeat(8, 100px);
+					grid-template-rows: repeat(10, 100px);
 					gap: $grid-gap;
 				}
 				.sub-title {
-					grid-area: 1 / 1 / 3 / 3;
+					grid-area: 1 / 1 / 5 / 3;
 				}
 				.div1 {
-					grid-area: 1 / 3 / 3 / 5;
+					grid-area: 1 / 3 / 5 / 5;
 					img {
 						object-fit: contain !important;
 					}
 				}
 				.div2 {
-					grid-area: 3 / 1 / 9 / 3;
+					grid-area: 5 / 1 / 11 / 3;
 				}
 				.div3 {
-					grid-area: 3 / 3 / 6 / 5;
+					grid-area: 5 / 3 / 8 / 5;
 				}
 				.div4 {
-					grid-area: 6 / 3 / 9 / 5;
+					grid-area: 8 / 3 / 11 / 5;
 				}
 			}
 
@@ -312,95 +333,19 @@ $transition: all 0.6s ease-in;
 				}
 			}
 
-			&.lane9 {
-				.images {
-					display: grid;
-					grid-template-columns: repeat(3, 1fr);
-					grid-template-rows: repeat(4, 250px);
-					gap: $grid-gap;
-				}
-
-				.sub-title {
-					grid-area: 1 / 1 / 2 / 2;
-				}
-				.div1 {
-					grid-area: 1 / 2 / 2 / 3;
-					img {
-						object-fit: contain !important;
-					}
-				}
-				.div2 {
-					grid-area: 1 / 3 / 2 / 4;
-				}
-				.div3 {
-					grid-area: 2 / 1 / 3 / 2;
-				}
-				.div4 {
-					grid-area: 2 / 2 / 3 / 3;
-				}
-				.div5 {
-					grid-area: 2 / 3 / 3 / 4;
-				}
-				.div6 {
-					grid-area: 3 / 1 / 4 / 2;
-				}
-				.div7 {
-					grid-area: 3 / 2 / 4 / 3;
-				}
-				.div8 {
-					grid-area: 3 / 3 / 4 / 4;
-				}
-				.div9 {
-					grid-area: 4 / 1 / 5 / 2;
-				}
-				.div10 {
-					grid-area: 4 / 2 / 5 / 3;
-				}
-				.div11 {
-					grid-area: 4 / 3 / 5 / 4;
-				}
-			}
-
-			&.mondelez {
-				.images {
-					display: grid;
-					grid-template-columns: repeat(2, 1fr);
-					grid-template-rows: repeat(4, 250px);
-					gap: $grid-gap;
-				}
-
-				.sub-title {
-					grid-area: 1 / 1 / 2 / 2;
-				}
-				.div1 {
-					grid-area: 2 / 1 / 3 / 2;
-				}
-				.div2 {
-					grid-area: 1 / 2 / 3 / 3;
-				}
-				.div3 {
-					grid-area: 3 / 1 / 5 / 2;
-				}
-				.div4 {
-					grid-area: 3 / 2 / 4 / 3;
-				}
-				.div5 {
-					grid-area: 4 / 2 / 5 / 3;
-				}
-			}
-
 			&.pubg {
 				.images {
 					display: grid;
 					grid-template-columns: repeat(4, 1fr);
-					grid-template-rows: repeat(3, 250px);
+					grid-template-rows: repeat(3, 150px);
 					gap: $grid-gap;
 				}
 
 				.sub-title {
-					grid-area: 1 / 1 / 2 / 3;
+					grid-area: 1 / 1 / 2 / 5;
 				}
 				.div1 {
+					display: none;
 					grid-area: 1 / 3 / 2 / 5;
 					img {
 						object-fit: contain !important;
@@ -420,49 +365,22 @@ $transition: all 0.6s ease-in;
 				}
 			}
 
-			&.meryal {
-				.images {
-					display: grid;
-					grid-template-columns: repeat(6, 1fr);
-					grid-template-rows: repeat(3, 250px);
-					gap: $grid-gap;
-				}
-				.sub-title {
-					grid-area: 1 / 1 / 2 / 4;
-				}
-				.div1 {
-					grid-area: 1 / 4 / 2 / 7;
-				}
-				.div2 {
-					grid-area: 2 / 1 / 3 / 3;
-				}
-				.div3 {
-					grid-area: 3 / 1 / 4 / 3;
-				}
-				.div4 {
-					grid-area: 2 / 3 / 4 / 5;
-				}
-				.div5 {
-					grid-area: 2 / 5 / 4 / 7;
-				}
-			}
-
 			&.almoosa {
 				.images {
 					display: grid;
 					grid-template-columns: repeat(2, 1fr);
-					grid-template-rows: repeat(4, 250px);
+					grid-template-rows: repeat(5, 250px);
 					gap: $grid-gap;
 				}
 
 				.sub-title {
-					grid-area: 1 / 1 / 2 / 2;
+					grid-area: 1 / 1 / 3 / 2;
 				}
 				.div1 {
-					grid-area: 2 / 1 / 3 / 2;
+					grid-area: 5 / 1 / 6 / 2;
 				}
 				.div2 {
-					grid-area: 2 / 2 / 3 / 3;
+					grid-area: 5 / 2 / 6 / 3;
 				}
 				.div3 {
 					grid-area: 3 / 1 / 5 / 2;
@@ -474,7 +392,7 @@ $transition: all 0.6s ease-in;
 					grid-area: 4 / 2 / 5 / 3;
 				}
 				.div-video {
-					grid-area: 1 / 2 / 2 / 3;
+					grid-area: 1 / 2 / 3 / 3;
 				}
 			}
 
@@ -482,7 +400,7 @@ $transition: all 0.6s ease-in;
 				.images {
 					display: grid;
 					grid-template-columns: repeat(2, 1fr);
-					// grid-template-rows: repeat(3, 250px);
+					// grid-template-rows: repeat(3, 250px,auto);
 					grid-template-rows: 100px 350px 250px;
 					gap: $grid-gap;
 				}
@@ -545,13 +463,14 @@ $transition: all 0.6s ease-in;
 				margin-top: 30px;
 			}
 
-			.category {
+			.project {
 				.images {
 					display: flex !important;
 					flex-direction: column;
 					.div-video {
 						video {
 							max-height: 400px;
+							object-fit: contain;
 						}
 					}
 

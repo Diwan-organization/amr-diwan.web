@@ -34,10 +34,6 @@ export class HeaderComponent implements OnInit {
 			// ImgSrc: 'assets/Images/Projects/fifa/fifa1-header.webp',
 			Links: [
 				{
-					Title: 'Meryal',
-					Link: `${RoutePaths.ArtWorks}`
-				},
-				{
 					Title: 'FIFA',
 					Link: `${RoutePaths.ArtWorks}`
 				},
@@ -74,16 +70,13 @@ export class HeaderComponent implements OnInit {
 					Link: `${RoutePaths.ArtWorks}`
 				},
 				{
+					Title: 'ADIDAS Mall of Egypt',
+					Link: `${RoutePaths.ArtWorks}`
+				},
+				{
 					Title: 'MONEY FELLOWS',
 					Link: `${RoutePaths.ArtWorks}`
 				},
-				// {
-				// 	Title: 'LANE9',
-				// 	Link: `${RoutePaths.ArtWorks}`
-				// }, {
-				// 	Title: 'MONDELEZ',
-				// 	Link: `${RoutePaths.ArtWorks}`
-				// },
 			]
 		},
 		{
