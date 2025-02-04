@@ -58,12 +58,12 @@ export const Projects: ProjectItem[] = [
     }
     ,
     {
-        ImgSrc: 'assets/Images/Home-Projects/meryal.webp',
+        ImgSrc: 'assets/Images/Home-Projects/EAA2.webp',
         ImgAlt: '',
-        Title: 'Meryal Waterpark',
+        Title: 'Education Above All',
         Location: 'Qatar',
-        Description: 'Our graffiti work for Meryal Waterpark. The tallest water slide in the world and the largest waterpark in Qatar.',
-        Link: 'meryal',
+        Description: 'A global initiative advocating for accessible education, especially for marginalized communities. It symbolizes hope, empowerment, and education’s role in breaking the cycle of poverty. Displayed in Qatar, the artwork promotes global unity and the right to education while also serving as a fundraising initiative to support underserved communities.',
+        Link: 'eaa',
     },
     {
         ImgSrc: 'assets/Images/Home-Projects/moosa.webp',
