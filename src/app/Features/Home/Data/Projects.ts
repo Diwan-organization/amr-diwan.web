@@ -72,6 +72,22 @@ export const Projects: ProjectItem[] = [
         Location: 'Saudi Arabia',
         Description: 'From blank walls to 1500 square meters of inspiration 30 days of creating a masterpiece for Almoosa Hospital. Every inch tells a story of hope and healing.',
         Link: 'almoosa',
+    },
+    {
+        ImgSrc: 'assets/Images/Home-Projects/Adidas_MOEG.webp',
+        ImgAlt: '',
+        Title: 'Adidas',
+        Location: 'Mall of Egypt - Egypt',
+        Description: 'This project for Adidas Originals blends modern and ancient Egyptian art, showcasing the harmony of cultural influences. In collaboration with Amr Diwan, it honors Egypt’s rich history while appealing to a global audience, merging tradition with contemporary design.',
+        Link: 'adidasmallofegypt',
+    },
+    {
+        ImgSrc: 'assets/Images/Home-Projects/pubg.webp',
+        ImgAlt: '',
+        Title: 'PUBG',
+        Location: 'Egypt',
+        Description: 'Designed for the PS5, this dynamic illustration celebrates PUBG’s Vikendi Reborn update, blending modern design with the game’s intense survival and strategy elements. It visually captures the thrill of battle, immersing console gamers in the frosty battleground experience.',
+        Link: 'pubg',
     }
 
 ];

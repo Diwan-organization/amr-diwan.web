@@ -427,6 +427,10 @@ $transition: all 0.6s ease-in;
 											-50%
 										);
 										transform-style: preserve-3d;
+
+										h1 {
+											letter-spacing: 5px;
+										}
 									}
 
 									.overlay-text {
